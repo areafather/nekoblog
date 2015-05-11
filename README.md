@@ -2,8 +2,8 @@
 nekocode的 `markdown` 博客
 
 ###Category
-- [Android](tree/master/category/android)
-- [Java](tree/master/category/java)
-- [Python](tree/master/category/python)
-- [C++](tree/master/category/c++)
-- [Note](tree/master/category/note)
+- [Android](master/category/android)
+- [Java](master/category/java)
+- [Python](master/category/python)
+- [C++](master/category/c++)
+- [Note](master/category/note)
