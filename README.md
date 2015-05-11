@@ -2,8 +2,8 @@
 nekocode的 `markdown` 博客
 
 ###Category
-- [category/README.md](test "test") Android
+- Android
 - Java
-- Python
+- [Python](category/Python)
 - C++
 - Note
