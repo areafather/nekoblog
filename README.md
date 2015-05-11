@@ -9,3 +9,4 @@ nekocode的 `markdown` 博客
 - [Python](http://git.oschina.net/nekocode/nekoblog/tree/master/category/python)
 - [C++](http://git.oschina.net/nekocode/nekoblog/tree/master/category/c++)
 - [Note](http://git.oschina.net/nekocode/nekoblog/tree/master/category/note)
+- more
