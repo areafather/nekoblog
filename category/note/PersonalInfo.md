@@ -75,7 +75,7 @@ http://www.anzhi.com/soft_2082389.html
 - ***DoctorTang***（弃）  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231904_4e91d161_8742.png "在这里输入图片标题")  
 
-- ***广大图书查询*** （弃） 
+- ***广大图书查询*** （弃）  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231922_e1e083b3_8742.png "在这里输入图片标题")  
 
 - ***WuhuiMail*** （弃）  
