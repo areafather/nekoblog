@@ -12,14 +12,14 @@
 - Github：https://github.com/nekocode  
 - Email：syfyw@qq.com
 - Wechat：  
-![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/170355_b8ae140d_8742.jpeg "在这里输入图片标题")
+![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/174759_65ff640d_8742.jpeg "在这里输入图片标题")
 
 ##能力
 ####语言能力
-![语言能力](http://git.oschina.net/uploads/images/2015/0514/164041_1465e75b_8742.jpeg "语言能力")
+![语言能力](http://git.oschina.net/uploads/images/2015/0514/174826_97372f82_8742.jpeg "语言能力")
 
 ####其他技能
-![其他技能](http://git.oschina.net/uploads/images/2015/0514/165735_6bc491c6_8742.jpeg "其他技能")
+![其他技能](http://git.oschina.net/uploads/images/2015/0514/174858_782492b2_8742.jpeg "其他技能")
 
 
 ##个人项目经验
