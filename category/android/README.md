@@ -7,3 +7,25 @@
 ###Note
 - android 3.0 版本后 `AsyncTask` 改为默认串行执行：http://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/
 - android 注意内存泄露问题：http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/
+- rect2rect
+
+```java
+//TODO 放缩处理、显示操作层
+eyeAdjustView.setVisibility(View.VISIBLE);
+btnViewAdjust.setTag(true);
+
+Matrix matrix = new Matrix();
+float minY = Math.min(eyesInfo.p[0].y, eyesInfo.p[5].y);
+float maxY = Math.max(eyesInfo.p[0].y, eyesInfo.p[5].y);
+float w = eyesInfo.p[5].x - eyesInfo.p[0].x;
+float minX = eyesInfo.p[0].x - w * 0.25f;
+float maxX = eyesInfo.p[0].x + w * 1.25f;
+
+RectF mTempSrc = new RectF(minX, minY, maxX, maxY);
+RectF mTempDst = new RectF(0, 0, imageView.getWidth(), imageView.getHeight());
+matrix.setRectToRect(mTempSrc, mTempDst, Matrix.ScaleToFit.CENTER);
+imageView.setImageMatrix(matrix);
+imageView.invalidate();
+
+eyeAdjustView.setFeatures(matrix, eyesInfo, imageView);
+```
