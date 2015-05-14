@@ -30,7 +30,8 @@ http://blog.csdn.net/nekocode/article/details/7966376
 http://blog.csdn.net/nekocode/article/details/8935876
 
 ####Android
-- **CloudShare** `libvlc`  
+- ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/180506_7610d45f_8742.png "在这里输入图片标题")  
+**CloudShare** `libvlc`  
 http://blog.csdn.net/nekocode/article/details/8625678
 - **FXiami** `虾米音乐` `media player`  
 http://blog.csdn.net/nekocode/article/details/8718501
