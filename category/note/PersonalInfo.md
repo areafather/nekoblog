@@ -7,10 +7,11 @@
 
 初中时期就开始接触 `Visual Basic` 语言，痴迷系统安全领域，当时做过很多 `nt kernel`、`hook` 的研究，建过 VB6 的技术BBS。大学后开始正式学习 `C++` 语言，做了两年游戏开发（PC端），获得学院多个奖项。后来加入学校创新班，开始学习 `Java` & `Android应用开发` ，并于大三开始周转各种创业团队以及公司，担任 Android 客户端工程师、团队技术骨干。
 
-Blog：http://blog.csdn.net/nekocode  
-Git@ OSC：http://git.oschina.net/nekocode  
-Github：https://github.com/nekocode  
-
+- Blog：http://blog.csdn.net/nekocode  
+- Git@ OSC：http://git.oschina.net/nekocode  
+- Github：https://github.com/nekocode  
+- Email：syfyw@qq.com
+- Wechat：![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/170355_b8ae140d_8742.jpeg "在这里输入图片标题")
 
 ##能力
 ####语言能力
