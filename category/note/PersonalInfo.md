@@ -12,6 +12,10 @@ Git@ OSC：http://git.oschina.net/nekocode
 Github：https://github.com/nekocode  
 
 
+###语言能力
+![语言](http://git.oschina.net/uploads/images/2015/0514/164041_1465e75b_8742.jpeg "语言")
+
+
 ###个人项目经验
 ####Game
 - **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`  
@@ -49,5 +53,4 @@ http://www.anzhi.com/soft_2082389.html
 ####Other
 - Taskiller `c++`：提取每个进程crc32特征码，并维护黑名单列表。每20秒检测一次并强制结束黑名单内进程。
 - cxi `c++`：批处理带Mask灰度块的图形文件，转换为带alpha通道的png文件。
-
 
