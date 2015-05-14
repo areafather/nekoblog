@@ -21,6 +21,10 @@ float w = eyesInfo.p[5].x - eyesInfo.p[0].x;
 float minX = eyesInfo.p[0].x - w * 0.25f;
 float maxX = eyesInfo.p[0].x + w * 1.25f;
 
+//rect范围空间不能为0
+if(minY == maxY) maxY++;
+if(minX == maxX) maxX++;
+
 RectF mTempSrc = new RectF(minX, minY, maxX, maxY);
 RectF mTempDst = new RectF(0, 0, imageView.getWidth(), imageView.getHeight());
 matrix.setRectToRect(mTempSrc, mTempDst, Matrix.ScaleToFit.CENTER);
