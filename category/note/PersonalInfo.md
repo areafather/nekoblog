@@ -20,12 +20,35 @@ http://blog.csdn.net/nekocode/article/details/7966376
 http://blog.csdn.net/nekocode/article/details/8935876
 
 ####Android
+- **CloudShare** `libvlc`
+http://blog.csdn.net/nekocode/article/details/8625678
+- **FXiami** `虾米音乐` `media player`
+http://blog.csdn.net/nekocode/article/details/8718501
+- **大学城随身购**
+http://blog.csdn.net/nekocode/article/details/16923543
+- **学道**
+http://blog.csdn.net/nekocode/article/details/24520593
+- **Neinei** `匿名社交`
+http://www.anzhi.com/soft_1647390.html
+- **Witech** `VOIP`
+http://www.anzhi.com/soft_2082389.html
+- **MovieTogether**
+- **Fastfood Client App**
+- **Seedori魔镜**
+- **全民工具** `X5 Engine` `leancloud`
+- **Murmur** `shader` `leancloud`
+- **校校**
+
+
+- *DoctorTang*
+- *广大图书查询*
+- *WuhuiMail*
+
 
 
 ####Other
 - Taskiller `c++`：提取每个进程crc32特征码，并维护黑名单列表。每20秒检测一次并强制结束黑名单内进程。
 - cxi `c++`：批处理带Mask灰度块的图形文件，转换为带alpha通道的png文件。
-
 
 
 
