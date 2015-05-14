@@ -15,7 +15,7 @@
 ###个人项目经验
 ####Game
 - **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua` 
-http://blog.csdn.net/nekocode/article/details/7966376
+ http://blog.csdn.net/nekocode/article/details/7966376
 - **Battle Beat** `c++` `DirectX`
  http://blog.csdn.net/nekocode/article/details/8935876
 
