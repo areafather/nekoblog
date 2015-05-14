@@ -24,14 +24,15 @@
 
 ##个人项目经验
 ####Game
-- **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`  
+- ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/180506_7610d45f_8742.png "在这里输入图片标题")  
+**FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`  
 http://blog.csdn.net/nekocode/article/details/7966376
-- **Battle Beat** `c++` `DirectX`  
+- ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/181723_85316f9c_8742.png "在这里输入图片标题")  
+**Battle Beat** `c++` `DirectX`  
 http://blog.csdn.net/nekocode/article/details/8935876
 
 ####Android
-- ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/180506_7610d45f_8742.png "在这里输入图片标题")  
-**CloudShare** `libvlc`  
+- **CloudShare** `libvlc`  
 http://blog.csdn.net/nekocode/article/details/8625678
 - **FXiami** `虾米音乐` `media player`  
 http://blog.csdn.net/nekocode/article/details/8718501
