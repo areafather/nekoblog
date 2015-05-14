@@ -72,9 +72,6 @@ http://www.anzhi.com/soft_2082389.html
 - **Murmur** `shader` `leancloud`  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231833_e5e0cb48_8742.png "在这里输入图片标题")  
 
-- ***校校*** (开发中)  
-![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/233447_b8774ec4_8742.png "在这里输入图片标题")
-
 - ***DoctorTang***（弃）  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231904_4e91d161_8742.png "在这里输入图片标题")  
 
