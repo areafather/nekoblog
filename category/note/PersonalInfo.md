@@ -11,7 +11,8 @@
 - Git@ OSC：http://git.oschina.net/nekocode  
 - Github：https://github.com/nekocode  
 - Email：syfyw@qq.com
-- Wechat：![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/170355_b8ae140d_8742.jpeg "在这里输入图片标题")
+- Wechat：  
+![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/170355_b8ae140d_8742.jpeg "在这里输入图片标题")
 
 ##能力
 ####语言能力
