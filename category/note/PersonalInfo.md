@@ -14,25 +14,25 @@
 
 ###个人项目经验
 ####Game
-- **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`   
+- **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`
  http://blog.csdn.net/nekocode/article/details/7966376
 
 - **Battle Beat** `c++` `DirectX`
-http://blog.csdn.net/nekocode/article/details/8935876
+ http://blog.csdn.net/nekocode/article/details/8935876
 
 ####Android
 - **CloudShare** `libvlc`
-http://blog.csdn.net/nekocode/article/details/8625678
+ http://blog.csdn.net/nekocode/article/details/8625678
 - **FXiami** `虾米音乐` `media player`
-http://blog.csdn.net/nekocode/article/details/8718501
+ http://blog.csdn.net/nekocode/article/details/8718501
 - **大学城随身购**
-http://blog.csdn.net/nekocode/article/details/16923543
+ http://blog.csdn.net/nekocode/article/details/16923543
 - **学道**
-http://blog.csdn.net/nekocode/article/details/24520593
+ http://blog.csdn.net/nekocode/article/details/24520593
 - **Neinei** `匿名社交`
-http://www.anzhi.com/soft_1647390.html
+ http://www.anzhi.com/soft_1647390.html
 - **Witech** `VOIP`
-http://www.anzhi.com/soft_2082389.html
+ http://www.anzhi.com/soft_2082389.html
 - **MovieTogether**
 - **Fastfood Client App**
 - **Seedori魔镜**
