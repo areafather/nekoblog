@@ -1,4 +1,5 @@
 #note
+- [个人主页](PersonalInfo.md)
 
 ###公司文件
 - [Android 工程师入职前培训](TrainingBeforeEntry_Android.md)
