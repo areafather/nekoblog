@@ -32,7 +32,7 @@ http://blog.csdn.net/nekocode/article/details/7966376
 http://blog.csdn.net/nekocode/article/details/8935876  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/181723_85316f9c_8742.png "在这里输入图片标题")  
 
-###Android `斜体的表示 未开发完 或者 正在开发 项目`
+###Android
 - **CloudShare** `libvlc`  
 http://blog.csdn.net/nekocode/article/details/8625678  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231347_08b800d4_8742.png "在这里输入图片标题")  
@@ -72,16 +72,16 @@ http://www.anzhi.com/soft_2082389.html
 - **Murmur** `shader` `leancloud`  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231833_e5e0cb48_8742.png "在这里输入图片标题")  
 
-- ***校校***  
+- ***校校*** (开发中)  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/233447_b8774ec4_8742.png "在这里输入图片标题")
 
-- ***DoctorTang***  
+- ***DoctorTang***（弃）  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231904_4e91d161_8742.png "在这里输入图片标题")  
 
-- ***广大图书查询***  
+- ***广大图书查询*** （弃） 
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231922_e1e083b3_8742.png "在这里输入图片标题")  
 
-- ***WuhuiMail***  
+- ***WuhuiMail*** （弃）  
 
 
 
