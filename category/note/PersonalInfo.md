@@ -1,7 +1,7 @@
 #PersonalInfo
 
 ###个人简介
-杨凡 Mark Yueng，Android开发工程师。
+杨凡 Mark Yueng，**Android开发工程师**。
 
 广州大学计算机学院软件工程专业11级本科应届毕业生，现任 `学壹传媒` Android开发工程师。广州大学Android开发俱乐部的创始人，校创新班的负责人。
 
