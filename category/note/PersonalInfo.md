@@ -5,7 +5,7 @@
 
 广州大学计算机学院软件工程专业11级本科应届毕业生，现任 `学壹传媒` Android开发工程师。广州大学Android开发俱乐部的创始人，校创新班的负责人。
 
-初中时期就开始接触 `Visual Basic` 语言，痴迷系统安全领域，当时做过很多nt kernel、hook的研究，建过 VB6 的技术BBS。大学后开始正式学习 `C++` 语言，做了两年游戏开发（PC端），获得学院多个奖项。后来加入学校创新班，开始学习 `Java` & `Android应用开发` ，并于大三开始周转各种创业团队以及公司，担任 Android 客户端工程师、团队技术骨干。
+初中时期就开始接触 `Visual Basic` 语言，痴迷系统安全领域，当时做过很多 `nt kernel`、`hook` 的研究，建过 VB6 的技术BBS。大学后开始正式学习 `C++` 语言，做了两年游戏开发（PC端），获得学院多个奖项。后来加入学校创新班，开始学习 `Java` & `Android应用开发` ，并于大三开始周转各种创业团队以及公司，担任 Android 客户端工程师、团队技术骨干。
 
 Blog：http://blog.csdn.net/nekocode  
 Git@ OSC：http://git.oschina.net/nekocode  
