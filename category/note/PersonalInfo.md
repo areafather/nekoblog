@@ -15,7 +15,7 @@
 ###个人项目经验
 ####Game
 - **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`
-http://blog.csdn.net/nekocode/article/details/7966376
+[http://blog.csdn.net/nekocode/article/details/7966376](http://blog.csdn.net/nekocode/article/details/7966376)
 - **Battle Beat** `c++` `DirectX`
 http://blog.csdn.net/nekocode/article/details/8935876
 
@@ -49,6 +49,5 @@ http://www.anzhi.com/soft_2082389.html
 ####Other
 - Taskiller `c++`：提取每个进程crc32特征码，并维护黑名单列表。每20秒检测一次并强制结束黑名单内进程。
 - cxi `c++`：批处理带Mask灰度块的图形文件，转换为带alpha通道的png文件。
-
 
 
