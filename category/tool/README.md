@@ -21,3 +21,4 @@
 
 ###系统安全
 - [weigongkai.com](http://www.weigongkai.com/)：社工库~
+- [weigongkai.com/shell](http://www.weigongkai.com/shell/)：webshell生成
