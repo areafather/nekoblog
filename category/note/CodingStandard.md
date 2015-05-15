@@ -3,7 +3,6 @@
 
 - **包命名**：包名所有部分都用 `小写`，前缀是一个顶级域名，通常是 **com net org cc**，第二域是 `公司名`，第三域是 `项目名`。  
 *example*： **cc.thecampus.xiaoxiao**  
-  
 - **类命名**：使用 [大驼峰式命名法](http://baike.baidu.com/link?url=Sa5pW2KrG5v21runD8gvGgKC9CBM04X2EYIeA2mgFL9NCb-XamrsczUro5o0Xk3pW_jBnT8o-olFmENfdZibz_)  
 *example*： **BaseActivity**
 - **方法命名**：使用 [小驼峰式命名法](http://baike.baidu.com/link?url=Sa5pW2KrG5v21runD8gvGgKC9CBM04X2EYIeA2mgFL9NCb-XamrsczUro5o0Xk3pW_jBnT8o-olFmENfdZibz_)
