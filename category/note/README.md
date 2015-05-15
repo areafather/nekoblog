@@ -12,4 +12,4 @@
 - 非即时聊天？(发送有能量条，或者随机)
 
 ###常用软件
-- [任务栏时间增强工具 CHKen Tray Clock](http://down.tech.sina.com.cn/content/43158.html)
+- [任务栏时间增强工具 CHKen Tray Clock](http://down.tech.sina.com.cn/content/43159.html)
