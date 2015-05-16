@@ -30,6 +30,17 @@
 *example*： **bg_btn_done_normal**
 
 ##包路径规则
+1. **项目名文件夹内存放**
+ - Activity
+ - Application 可存放全局静态常量
+2. **beans**
+3. **fragments**
+4. **widgets**
+5. **adapters**
+6. **utils**
+7. **services**
+8. **receivers**
+9. **more**
 
 ##避免一些坏习惯
 1. **Duplicated Code**  
