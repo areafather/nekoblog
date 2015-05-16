@@ -30,7 +30,7 @@
 *example*： **bg_btn_done_normal**
 
 ##包路径规则
-1. **项目名文件夹内存放**
+1. **\**：src 项目根目录下存放以下类
  - Activity
  - Application 可存放全局静态常量
 2. **beans**
@@ -38,9 +38,13 @@
 4. **widgets**
 5. **adapters**
 6. **utils**
-7. **services**
-8. **receivers**
-9. **more**
+7. **network**
+8. **services**
+9. **receivers**
+10. **other...**  
+
+*example：*
+![输入图片说明](http://git.oschina.net/uploads/images/2015/0516/122148_00245332_8742.jpeg "在这里输入图片标题")
 
 ##避免一些坏习惯
 1. **Duplicated Code**  
