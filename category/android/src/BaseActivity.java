@@ -1,5 +1,6 @@
-package com.onecampus.yi;
+package cn.nekocode.murmur;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,22 +10,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-import com.onecampus.yi.utils.LruImageCache;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-/**
- * Created by nekocode on 2015/3/23 0023.
- */
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
+
 public class BaseActivity extends ActionBarActivity {
     private static ArrayList<Handler> handlers = new ArrayList<Handler>();
     protected MyHandler handler = new MyHandler(this);
     protected RequestQueue queue;
-    protected ImageLoader imageLoader;
 
     public BaseActivity _this;
 
@@ -42,16 +41,31 @@ public class BaseActivity extends ActionBarActivity {
 
     public static void broadcast(Message message) {
         for (Handler handler : handlers) {
-            Message send = new Message();
-            send.copyFrom(message);
-            handler.sendMessage(send);
+            Message msg = new Message();
+            msg.copyFrom(message);
+            handler.sendMessage(msg);
         }
     }
 
     public void sendMsg(Message message) {
-        Message send = new Message();
-        send.copyFrom(message);
-        handler.sendMessage(send);
+        Message msg = new Message();
+        msg.copyFrom(message);
+        handler.sendMessage(msg);
+    }
+
+    public void sendMsgDelayed(Message message, int delayMillis) {
+        Message msg = new Message();
+        msg.copyFrom(message);
+        handler.sendMessageDelayed(msg, delayMillis);
+    }
+
+    public void runDelayed(Runnable runnable, int delayMillis) {
+        Message msg = new Message();
+        msg.what = -101;
+        msg.arg1 = -102;
+        msg.arg2 = -103;
+        msg.obj = runnable;
+        handler.sendMessageDelayed(msg, delayMillis);
     }
 
     @Override
@@ -60,9 +74,14 @@ public class BaseActivity extends ActionBarActivity {
 
         _this = this;
         queue = Volley.newRequestQueue(this);
-        imageLoader = new ImageLoader(queue, LruImageCache.getLruImageCache());
         addHandler(handler);
     }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -77,17 +96,30 @@ public class BaseActivity extends ActionBarActivity {
     @Override
     public void onResume() {
         super.onResume();
+//        MobclickAgent.onResume(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
+//        MobclickAgent.onPause(this);
     }
 
     @Override
     public void finish() {
         deleteHandler(handler);
         super.finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        queue.cancelAll(new RequestQueue.RequestFilter() {
+            @Override
+            public boolean apply(Request<?> request) {
+                return true;
+            }
+        });
+        super.onDestroy();
     }
 
     static class MyHandler extends Handler {
@@ -101,6 +133,11 @@ public class BaseActivity extends ActionBarActivity {
         public void handleMessage(Message msg) {
             final BaseActivity outer = mOuter.get();
             if (outer == null) {
+                return;
+            }
+
+            if(msg.what==-101 && msg.arg1==-102 && msg.arg2==-103) {
+                ((Runnable) msg.obj).run();
                 return;
             }
 
