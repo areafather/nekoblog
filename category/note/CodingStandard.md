@@ -68,7 +68,7 @@
 ##避免一些坏习惯
 1. **Duplicated Code**  
 代码重复几乎是最常见的异味了。他也是Refactoring 的主要目标之一。代码重复往往来自于copy-and-paste 的编程风格。
-2. **Long method** 
+2. **Long method**  
 它是传统结构化的“遗毒“。一个方法应当具有自我独立的意图，不要把几个意图
 放在一起。
 3. **Large Class**  
