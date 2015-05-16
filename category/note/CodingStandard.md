@@ -65,6 +65,9 @@
     - MainActivity.java
 ```
 
+##[BaseActivity](http://git.oschina.net/nekocode/nekoblog/blob/master/category/android/src/BaseActivity.java)
+
+
 ##避免一些坏习惯
 1. **Duplicated Code**  
 代码重复几乎是最常见的异味了。他也是Refactoring 的主要目标之一。代码重复往往来自于copy-and-paste 的编程风格。
