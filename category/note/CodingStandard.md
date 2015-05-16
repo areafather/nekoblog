@@ -43,7 +43,7 @@
 9. **receivers**
 10. **other...**  
 
-*example：*
+*example：*  
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0516/122148_00245332_8742.jpeg "在这里输入图片标题")
 
 ##避免一些坏习惯
