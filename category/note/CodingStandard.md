@@ -7,7 +7,7 @@
 *example*： **BaseActivity**  
 3. **方法命名**：使用 [小驼峰式命名法](http://baike.baidu.com/link?url=Sa5pW2KrG5v21runD8gvGgKC9CBM04X2EYIeA2mgFL9NCb-XamrsczUro5o0Xk3pW_jBnT8o-olFmENfdZibz_)  
 类的获取方法前置 `get`，设置方法前置 `set`，布尔型判断方法不用 `get`，用 `is` 或者 `equal`；  
-*example*： **getAge()  setAge(age)  isFemale()**  
+*example*： **getAge()** 、 **setAge(age)** 、 **isFemale()**  
 方法的第一个单词尽可能采用动词  
 *example*： **addHandler()**  
 4. **变量命名**：使用 *小驼峰式命名法*  
@@ -15,7 +15,7 @@
 *example*： **imageLoader**  
 5. **View命名**  
 种类 + 名字，`layout id`的命名保持和变量一直，方便使用 **ButterKnife** 注解  
-*example*： **textViewName  btnLoad  eidtTextAge**  
+*example*： **textViewName** 、 **btnLoad** 、 **eidtTextAge**  
 6. **常量命名**  
 全部大写，单词间用下划线隔开  
 *example*： **MAX_WIDTH**  
@@ -25,8 +25,8 @@
  - 背景前缀： **bg_**
  - 选择器前缀： **selector_**
  - 列表View的子视图前缀： **item_**
- - 其他前缀： **activity_**  **fragment_**  **menu_**
- - 名称后缀应该为状态词： **_normal**  **_pressed**  
+ - 其他前缀： **activity_** 、 **fragment_** 、 **menu_**
+ - 名称后缀应该为状态词： **_normal** 、 **_pressed**  
 *example*： **bg_btn_done_normal**
 
 ##包路径规则
