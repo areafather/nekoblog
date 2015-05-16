@@ -46,32 +46,23 @@
 *example：*  
 ```
 - com.thecampus.xiaoxiao
-  
     - adapters
         - ToolAdapter.java
-  
     - beans
         - ToolBean.java
-  
     - fragments
         - DiscoverFragment.java
-  
     - lib
         - YiLib.java    //jni lib
-  
     - network
         - API.java    //服务器端API
         - XiaoxiaoRequest.java
-  
     - utils
         - ImageUtils.java
-  
     - widgets
         - PoImageView.java
-    
     - MyApplication.java
     - MainActivity.java
-
 ```
 
 ##避免一些坏习惯
