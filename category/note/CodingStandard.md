@@ -65,8 +65,11 @@
     - MainActivity.java
 ```
 
-##[BaseActivity](http://git.oschina.net/nekocode/nekoblog/blob/master/category/android/src/BaseActivity.java)
+##BaseActivity
+- [BaseActivity.java](http://git.oschina.net/nekocode/nekoblog/blob/master/category/android/src/BaseActivity.java)
 
+##Note
+- 网络调用用Runnable Callback
 
 ##避免一些坏习惯
 1. **Duplicated Code**  
