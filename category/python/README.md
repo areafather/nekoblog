@@ -9,6 +9,7 @@
 
 ###GUI
 - [Python GUI编程(Tkinter)](http://www.yiibai.com/python/python_gui_programming.html)
+- [pygame](http://eyehere.net/2011/python-pygame-novice-professional-index/)
 
 ###note
 - Python 没有规定缩进是几个空格还是Tab。按照约定俗成的管理，应该始终坚持使用4个空格的缩进。
