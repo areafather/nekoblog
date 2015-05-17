@@ -7,6 +7,9 @@
 - [Sublime text x64](http://www.cr173.com/soft/121149.html)
 
 
+###GUI
+- [Python GUI编程(Tkinter)](http://www.yiibai.com/python/python_gui_programming.html)
+
 ###note
 - Python 没有规定缩进是几个空格还是Tab。按照约定俗成的管理，应该始终坚持使用4个空格的缩进。
 - Python 程序是大小写敏感的，如果写错了大小写，程序会报错。
