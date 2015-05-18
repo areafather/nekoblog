@@ -12,8 +12,10 @@
 - [pygame](http://eyehere.net/2011/python-pygame-novice-professional-index/)
 
 ###note
-- Python 没有规定缩进是几个空格还是Tab。按照约定俗成的管理，应该始终坚持使用4个空格的缩进。
-- Python 程序是大小写敏感的，如果写错了大小写，程序会报错。
+- Python 没有规定缩进是几个空格还是Tab。按照约定俗成的管理，应该始终坚持使用4个空格的缩进。  
+
+- Python 程序是大小写敏感的，如果写错了大小写，程序会报错。  
+
 - 
 ```python
 def fuc();
