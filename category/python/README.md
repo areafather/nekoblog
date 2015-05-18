@@ -101,7 +101,17 @@ for k,v in d.iteritems():
 ```
 - abs函数实际上是定义在__builtin__模块中的，所以要让修改abs变量的指向在其它模块也生效，要用  
 ```python
-__builtin__.abs = my_abs。
+__builtin__.abs = my_abs
+```
+
+- **map/reduce**
+```python
+def fn(x, y):
+   return x * 10 + y
+def char2num(s):
+   return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
+reduce(fn, map(char2num, '13579'))
+ #输出(int)：13579
 ```
 
 
