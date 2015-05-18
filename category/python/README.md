@@ -87,5 +87,22 @@ func(*args, **kw)
 使用 **`*args`** 和 *`**kw`* 是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
 
 
+- **列表生成式**
+```python
+>>> [m + n for m in 'ABC' for n in 'XYZ']
+['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+```
+
+- 遍历字典的键，值
+```python
+d = {'a':0, 'b':1, 'c':2}
+for k,v in d.iteritems():
+    print k,':',v
+```
+- abs函数实际上是定义在__builtin__模块中的，所以要让修改abs变量的指向在其它模块也生效，要用  
+```python
+__builtin__.abs = my_abs。
+```
+
 
 
