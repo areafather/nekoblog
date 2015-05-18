@@ -15,6 +15,6 @@ nekocode的 `markdown` 博客
 - [UI Design](http://git.oschina.net/nekocode/nekoblog/tree/master/category/ui)
 - [Web Tools](http://git.oschina.net/nekocode/nekoblog/tree/master/category/tool)
 - [Note](http://git.oschina.net/nekocode/nekoblog/tree/master/category/note)
-- more....
+- more...
 
 ![二维码](http://git.oschina.net/uploads/images/2015/0512/222407_1417b5cd_8742.png "二维码")
