@@ -8,7 +8,7 @@ sudo apt-get install numlockx
  #完成后打开rc.local进行修改
 sudo vim /etc/rc.local
  #在最后一行添加内容
-if [-x /usr/bin/numlockx ]; then
+if [ -x /usr/bin/numlockx ]; then
 numlockx on
 fi
 ```
