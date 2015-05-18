@@ -16,6 +16,13 @@
 
 - Python 程序是大小写敏感的，如果写错了大小写，程序会报错。 
 
+- 以下几个值转换成布尔值为 `False`  
+```python
+bool(None)
+bool('')
+bool(0)
+```
+
 - 从raw_input()读取的内容永远以字符串的形式返回，把字符串和整数比较就不会得到期待的结果，必须先用int()把字符串转换为我们想要的整型：  
 ```java
 birth = int(raw_input('birth: '))
@@ -104,7 +111,7 @@ for k,v in d.iteritems():
 __builtin__.abs = my_abs
 ```
 
-- **map/reduce**
+- **map/reduce** & `lambda`
 ```python
 def fn(x, y):
    return x * 10 + y
@@ -112,7 +119,20 @@ def char2num(s):
    return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
 reduce(fn, map(char2num, '13579'))
  #输出(int)：13579
+ #下面可以用lambda函数进行代码缩减
+def str2int(s):
+  return reduce(lambda x,y:x*10+y, map(lambda x:{'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[x], s))
 ```
+- **Python内建的 `filter()` 函数用于过滤序列。**  
+和map()类似，filter()也接收一个函数和一个序列。和map()不同的时，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。
 
-
-
+- **闭包(Closure)**  
+```java
+def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+    return sum
+```
