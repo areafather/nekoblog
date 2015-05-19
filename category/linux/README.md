@@ -17,6 +17,17 @@ fi
 ```
 sudo apt-get install python-dev
 sudo apt-get install pip
-#下载编译zlib : http://www.tuicool.com/articles/QjEvm2
+##--
+sudo apt-get install libjpeg62-dev
+sudo apt-get install zlib1g-dev
+sudo apt-get install libfreetype6-dev
+sudo apt-get install liblcms1-dev
+#setup.py 214 line
+#add_directory(library_dirs, "/usr/lib/x86_64-linux-gnu")
+sudo rm -rf /usr/lib/python2.7/dist-packages/PIL
+sudo rm /usr/lib/python2.7/dist-packages/PIL.pth
+sudo rm -rf /usr/local/lib/python2.7/dist-packages/PIL
+sudo rm /usr/local/lib/python2.7/dist-packages/PIL.pth
+##--
 sudo pip install PIL --allow-external PIL --allow-unverified PIL
 ```
