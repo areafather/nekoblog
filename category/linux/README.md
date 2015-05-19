@@ -12,3 +12,9 @@ if [ -x /usr/bin/numlockx ]; then
 numlockx on
 fi
 ```
+
+- 安装PIL(Python Imaging Library)  
+```
+sudo apt-get install python-dev
+sudo easy_install PIL
+```
