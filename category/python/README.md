@@ -5,6 +5,7 @@
 
 ###IDE
 - [Sublime text x64](http://www.cr173.com/soft/121149.html)
+- [PyCharm](http://www.jetbrains.com/pycharm/)
 
 
 ###GUI
@@ -114,25 +115,58 @@ __builtin__.abs = my_abs
 - **map/reduce** & `lambda`
 ```python
 def fn(x, y):
-   return x * 10 + y
+    return x * 10 + y
 def char2num(s):
-   return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
+    return {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[s]
 reduce(fn, map(char2num, '13579'))
  #输出(int)：13579
  #下面可以用lambda函数进行代码缩减
 def str2int(s):
-  return reduce(lambda x,y:x*10+y, map(lambda x:{'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[x], s))
+    return reduce(lambda x,y:x*10+y, map(lambda x:{'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}[x], s))
 ```
 - **Python内建的 `filter()` 函数用于过滤序列。**  
 和map()类似，filter()也接收一个函数和一个序列。和map()不同的时，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素。
 
-- **闭包(Closure)**  
-```java
-def lazy_sum(*args):
-    def sum():
-        ax = 0
-        for n in args:
-            ax = ax + n
-        return ax
-    return sum
+- **闭包(Closure)**：内部函数可以 `访问` 外部函数的参数和局部变量 (**可读不可写**)  
+```python
+def fuc1(num):
+    def fuc2():
+        num2 = num + 1
+        return num2
+    return fuc2
+f = fuc1(10)
+f()
+ #输出 11
 ```
+
+- **装饰器(Decorator)**：增强函数的功能  
+`wrapper() 函数的参数定义是 (*args, **kw)，因此， wrapper() 函数可以接受任意参数的调用！！`  
+[三层嵌套Decorator](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000)  
+```python
+import functools
+def mylog(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        print 'call %s:'%func.__name__
+        return func(*args,**kw)
+    return wrapper
+@mylog
+def now():
+    print '2015'
+now()
+ #输出 2015
+```  
+这里的 functools 是为了将 wrapper 的 `__name__` 变为 func 的 `__name__`
+
+- **偏函数**：当函数的参数个数太多，需要简化时，使用 functools.partial 可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。  
+```java
+import functools
+int2 = functools.partial(int, base=2)
+int2('1000000')
+#输出64
+```
+
+- 每一个包目录下面都会有一个 `__init__.py` 的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。`__init__.py` 可以是空文件，也可以有Python代码，因为 `__init__.py` 本身就是一个模块，而它的模块名就是包目录命名
+
+
+
