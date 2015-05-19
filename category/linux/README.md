@@ -16,5 +16,7 @@ fi
 - 安装PIL(Python Imaging Library)  
 ```
 sudo apt-get install python-dev
-sudo easy_install PIL
+sudo apt-get install pip
+#下载编译zlib : http://www.tuicool.com/articles/QjEvm2
+sudo pip install PIL --allow-external PIL --allow-unverified PIL
 ```
