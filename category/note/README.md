@@ -8,7 +8,7 @@
 ###杂记
 - [产品经理常用的一些工具](http://www.zhihu.com/question/29342383/answer/46805616)
 - https://ruby-china.org/topics/3266
-- [现代魔法学院(高质量文章平台)]http://www.nowamagic.net/academy/
+- [现代魔法学院(高质量文章平台)](http://www.nowamagic.net/academy/)
 
 ###idea
 - 非即时聊天？(发送有能量条，或者随机)
