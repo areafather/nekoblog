@@ -9,3 +9,16 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 ``` 
 defaults write com.apple.finder AppleShowAllFiles -bool false  
 ```  
+
+-  `.gitignore` OS generated files 
+
+```  
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+```  
