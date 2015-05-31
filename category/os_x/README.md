@@ -22,3 +22,8 @@ Icon?
 ehthumbs.db
 Thumbs.db
 ```  
+
+- 指定文件拥有者为当前用户。**`-r`** 通常代表递归 
+``` 
+sudo chown -R $USER /usr/local
+```
