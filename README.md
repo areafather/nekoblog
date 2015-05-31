@@ -16,6 +16,7 @@ nekocode的 `markdown` 博客
 - [Web Tools](http://git.oschina.net/nekocode/nekoblog/tree/master/category/tool)
 - [Note](http://git.oschina.net/nekocode/nekoblog/tree/master/category/note)
 - [Linux](http://git.oschina.net/nekocode/nekoblog/tree/master/category/linux)
+- [OS X](http://git.oschina.net/nekocode/nekoblog/tree/master/category/os_x)
 - more...
 
 ![二维码](http://git.oschina.net/uploads/images/2015/0512/222407_1417b5cd_8742.png "二维码")
