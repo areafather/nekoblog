@@ -36,3 +36,7 @@ Textmate安装时有选项：是否建立命令行的连接。如果当时没有
 sudo ln -s /Applications/TextMate.app/Contents/Resources/mate /usr/bin 
 这样，平时在终端里，也可以用”mate your_file”来打开textmate编辑文件了。
 ```
+
+- [终极 Shell——ZSH](http://zhuanlan.zhihu.com/mactalk/19556676)
+
+- [配置ZSH](http://blog.163.com/qy_gong/blog/static/1718738792013102992830558/)
