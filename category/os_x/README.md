@@ -31,6 +31,7 @@ sudo chown -R $USER /usr/local
 
 - 终端中使用textmate打开文件 
 Textmate安装时有选项：是否建立命令行的连接。如果当时没有选的话，可以执行如下命令：  
+
 ```  
 sudo ln -s /Applications/TextMate.app/Contents/Resources/mate /usr/bin 
 这样，平时在终端里，也可以用”mate your_file”来打开textmate编辑文件了。
