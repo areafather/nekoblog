@@ -40,3 +40,9 @@ sudo ln -s /Applications/TextMate.app/Contents/Resources/mate /usr/bin
 - [终极 Shell——ZSH](http://zhuanlan.zhihu.com/mactalk/19556676)
 
 - [配置ZSH](http://blog.163.com/qy_gong/blog/static/1718738792013102992830558/)
+
+- Android Studio更新提示没有写权限
+
+``` 
+sudo chmod -R 777 /Applications/Android\ Studio.app/Contents/
+```
