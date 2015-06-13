@@ -1,4 +1,4 @@
-#交互_6月13号
+#MovieTogether交互
 
 - 针对选择性别实现的 widget。  
 ![输入图片说明](http://git.oschina.net/nekocode/nekoblog/raw/master/category/ui/img/gif4.gif "在这里输入图片标题")
