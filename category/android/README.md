@@ -35,3 +35,51 @@ imageView.invalidate();
 
 eyeAdjustView.setFeatures(matrix, eyesInfo, imageView);
 ```
+
+- recyclerview adapter onitemclicklistener
+
+```java
+public class TestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    // ...
+
+    private AdapterView.OnItemClickListener onItemClickListener = null;
+    private void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    // ...
+    
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ItemViewHolder) {
+            ItemViewHolder vh = (ItemViewHolder) holder;
+            final int p = position;
+            vh.onClickListener = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(onItemClickListener != null) {
+                        onItemClickListener.onItemClick(null, v, p, getItemId(p));
+                    }
+                }
+            };
+        }
+    }
+
+    static class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        View.OnClickListener onClickListener;
+
+        ItemViewHolder(View view) {
+            super(view);
+
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(onClickListener != null)
+                onClickListener.onClick(v);
+        }
+    }
+}
+```
