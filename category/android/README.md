@@ -1,6 +1,7 @@
 #android
 
 ###Todo
+- kotlin、retrofit、ref:http://blog.jobbole.com/65170/
 - android 3.0 后引入的数据异步加载工具：http://www.2cto.com/kf/201501/370570.html
 - 聊天气泡动画：http://www.zcool.com.cn/work/ZNTMwMTkwMA==.html
 - 图像清晰度算法（Image Quality Assessment）：http://nkwavelet.blog.163.com/blog/static/227756038201461532247117/
