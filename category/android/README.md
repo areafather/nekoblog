@@ -83,3 +83,5 @@ public class TestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 }
 ```
+
+- 设置ITALIC需要将字体的Typeface设置为MONOSPACE 
