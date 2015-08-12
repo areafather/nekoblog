@@ -7,3 +7,29 @@
 - [kotlin中文博客教程](http://my.oschina.net/yuanhonglong/blog?catalog=3333352)
 
 ###note
+
+```java
+val a: Int = 10000
+print(a === a) // Prints 'true'
+val boxedA: Int? = a
+val anotherBoxedA: Int? = a
+print(boxedA === anotherBoxedA) // !!!Prints 'false'!!!
+
+// ====
+
+val a: Int = 10000
+print(a == a) // Prints 'true'
+val boxedA: Int? = a
+val anotherBoxedA: Int? = a
+print(boxedA == anotherBoxedA) // Prints 'true'
+
+// ====
+
+val a: Int = 10000
+val boxedA: Int = a
+val anotherBoxedA: Int = a
+print(boxedA === anotherBoxedA) // Prints 'true'
+```
+
+
+
