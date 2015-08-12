@@ -31,5 +31,4 @@ val anotherBoxedA: Int = a
 print(boxedA === anotherBoxedA) // Prints 'true'
 ```
 
-
-
+- [android base framework some part with kotlin](http://git.oschina.net/nekocode/BaseFramework)
