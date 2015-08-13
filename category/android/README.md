@@ -88,4 +88,4 @@ public class TestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 - 设置ITALIC需要将字体的Typeface设置为MONOSPACE 
 
-- 需要context的地方使用ApplicationContext，而不是传Activity : Context，这样有可能会导致activity无法被回收（内存泄露）
+- 需要context的地方（非UI）尽量使用ApplicationContext，而不是传Activity : Context，这样有可能会导致activity无法被回收（内存泄露）
