@@ -5,6 +5,7 @@
 - [Getting started with Android and Kotlin](http://kotlinlang.org/docs/tutorials/kotlin-android.html)
 - [Working with Kotlin in Android Studio](http://blog.jetbrains.com/kotlin/2013/08/working-with-kotlin-in-android-studio/)
 - [kotlin中文博客教程](http://my.oschina.net/yuanhonglong/blog?catalog=3333352)
+- https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8/preview?hl=en&forcehl=1&sle=true
 
 ###note
 
