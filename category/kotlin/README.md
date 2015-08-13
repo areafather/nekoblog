@@ -34,3 +34,5 @@ print(boxedA === anotherBoxedA) // Prints 'true'
 - [android base framework some part with kotlin](http://git.oschina.net/nekocode/BaseFramework)
 
 - [github.com/JetBrains/anko](https://github.com/JetBrains/anko)
+
+- [kotlinAndroidLib (android studio plugin)](https://github.com/vladlichonos/kotlinAndroidLib)
