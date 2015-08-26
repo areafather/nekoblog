@@ -10,6 +10,7 @@
 - https://ruby-china.org/topics/3266
 - [现代魔法学院(高质量文章平台)](http://www.nowamagic.net/academy/)
 - [工具、解决问题才是社交APP出发点，强搬硬套易走偏](http://biangejia.com/archives/5428)
+- [褪墨・时间管理](http://www.mifengtd.cn/)
 
 ###idea
 - 非即时聊天？(发送有能量条，或者随机)
