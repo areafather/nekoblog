@@ -5,13 +5,13 @@
 
 ```
 举个简单的例子。在Django 1.3之后引入了「Class-based view」，有「ListView」和「DetailView」。Django的「ListView.as_view(model=Publisher,)」不需要指定去render哪个template，而是自动去使用了「/path/to/project/books/templates/books/publisher_list.html」这个模板。这即是convention over configuration的一个典型示范。优先使用默认的约定，而不是非要明确的指定要render的template。
-```  
+```
 
 - kotlin：**`限制优于约定`**  
 
 ```
 nullable 和 notnullable、var 和 val 等。语法上限制比口头约定更不易造成潜在 bug。
-```   
+```
 
 - java线程锁：http://blog.csdn.net/ghsau/article/details/7461369/
 
