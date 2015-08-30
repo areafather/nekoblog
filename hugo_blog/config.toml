@@ -1,3 +1,13 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "nekocode"
+builddrafts = false
+theme = "hyde"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  description = "full stack developer"
+  author = "Nikola Tesla"
