@@ -1,5 +1,5 @@
 baseurl = "http://www.nekocode.cn/"
-languageCode = "en-us"
+languageCode = "zh-CN"
 title = "nekocode"
 theme = "hyde"
 
