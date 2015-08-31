@@ -5,6 +5,7 @@ nekocode的 `markdown` 博客
 
 ###Peronal Info
 - [Homepage](http://dwz.cn/mark-yueng)
+- [Github Pages](http://nekocode.github.io/) (build with [hugo](http://git.oschina.net/nekocode/nekoblog/tree/master/hugo_blog))
 
 ###Category
 - [Android](http://git.oschina.net/nekocode/nekoblog/tree/master/category/android)
