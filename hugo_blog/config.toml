@@ -1,13 +1,12 @@
-baseurl = "http://replace-this-with-your-hugo-site.com/"
+baseurl = "http://www.nekocode.cn/"
 languageCode = "en-us"
 title = "nekocode"
-builddrafts = false
 theme = "hyde"
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-
 [params]
-  description = "full stack developer"
-  author = "Nikola Tesla"
+	description = "full statck developer"
+	#disqusShortname = "spf13"
+
+[[menu.main]]
+	Name = "git@osc"
+	Url = "http://git.oschina.net/nekocode"
