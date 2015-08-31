@@ -1,4 +1,4 @@
-baseurl = "http://www.nekocode.cn/"
+baseurl = "http://nekocode.github.io/"
 languageCode = "zh-CN"
 title = "nekocode"
 theme = "hyde"
