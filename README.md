@@ -8,7 +8,7 @@ nekocode的 `markdown` 博客
 - [Github Pages](http://nekocode.github.io/) (build with [hugo](http://git.oschina.net/nekocode/nekoblog/tree/master/hugo_blog))
 
 ###Category
-- [Android](http://git.oschina.net/nekocode/nekoblog/tree/master/category/android)
+- [Android](category/android)
 - [Java](http://git.oschina.net/nekocode/nekoblog/tree/master/category/java)
 - [Python](http://git.oschina.net/nekocode/nekoblog/tree/master/category/python)
 - [C++](http://git.oschina.net/nekocode/nekoblog/tree/master/category/c++)
