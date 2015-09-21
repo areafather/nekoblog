@@ -13,6 +13,7 @@
 - android 注意内存泄露问题：http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/
 - [androiddevtools](http://www.androiddevtools.cn/)
 - rect2rect
+- [react native](http://blog.csdn.net/zhe13/article/details/48439967?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 
 ```java
 //TODO 放缩处理、显示操作层
