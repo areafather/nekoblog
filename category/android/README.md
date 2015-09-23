@@ -7,6 +7,8 @@
 - 图像清晰度算法（Image Quality Assessment）：http://nkwavelet.blog.163.com/blog/static/227756038201461532247117/
 
 ###Note
+- [Android gradle tasks](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks)
+- [gradle plugin user guide chinese](https://avatarqing.gitbooks.io/gradlepluginuserguidechineseverision/content/introduction/README.html)
 - [Fragment的一些讲解](http://blog.csdn.net/lmj623565791/article/details/42628537)
 - http://blog.mohitkanwal.com/blog/2015/03/07/styling-material-toolbar-in-android/
 - android 3.0 版本后 `AsyncTask` 改为默认串行执行：http://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/
