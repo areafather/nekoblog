@@ -32,7 +32,7 @@ val anotherBoxedA: Int = a
 print(boxedA === anotherBoxedA) // Prints 'true'
 ```
 
-- [android base framework some part with kotlin](http://git.oschina.net/nekocode/BaseFramework)
+- [kotlin_android_base_framework](https://github.com/nekocode/kotlin_android_base_framework)
 
 - [github.com/JetBrains/anko](https://github.com/JetBrains/anko)
 
@@ -40,15 +40,15 @@ print(boxedA === anotherBoxedA) // Prints 'true'
 
 
 ```kotlin
-    public var heightScale: Float = 0.8f
-        set(value) {
-            $heightScale = value
-            this.requestLayout()
-        }
-    // backing filed syntax is deprecated, user 'field' instead
-    public var heightScale: Float = 0.8f
-        set(value) {
-            field = value
-            this.requestLayout()
-        }
+public var heightScale: Float = 0.8f
+    set(value) {
+        $heightScale = value
+        this.requestLayout()
+    }
+// backing filed syntax is deprecated, user 'field' instead
+public var heightScale: Float = 0.8f
+    set(value) {
+        field = value
+        this.requestLayout()
+    }
 ```
