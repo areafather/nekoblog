@@ -9,7 +9,7 @@
 
 ###note
 
-```java
+```kotlin
 val a: Int = 10000
 print(a === a) // Prints 'true'
 val boxedA: Int? = a
@@ -37,3 +37,18 @@ print(boxedA === anotherBoxedA) // Prints 'true'
 - [github.com/JetBrains/anko](https://github.com/JetBrains/anko)
 
 - [kotlinAndroidLib (android studio plugin)](https://github.com/vladlichonos/kotlinAndroidLib)
+
+
+```kotlin
+    public var heightScale: Float = 0.8f
+        set(value) {
+            $heightScale = value
+            this.requestLayout()
+        }
+    // backing filed syntax is deprecated, user 'field' instead
+    public var heightScale: Float = 0.8f
+        set(value) {
+            field = value
+            this.requestLayout()
+        }
+```
