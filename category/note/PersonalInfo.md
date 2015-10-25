@@ -29,7 +29,7 @@
 
 ##个人项目经验（? ~ 2014 年）
 
-以下是我截至 2014 为止开发过的一些项目（都是独立开发）。 **2014 年以后的一些可公开项目请参考本 Github 账号的主页。**
+以下是我截至 2014 为止开发过的一些项目（都是独立开发）。 **2014 年以后的一些可公开项目请参考本 [Github 账号的主页](https://github.com/nekocode)。**
 
 ###Game
 - **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`  
