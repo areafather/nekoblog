@@ -1,28 +1,36 @@
 #[PersonalInfo](http://dwz.cn/mark-yueng)
 
 ##个人简介
-**杨凡** Mark Yueng， **Android开发工程师** 。
+**Mark Yueng 杨凡， Android 开发工程师** 。
 
-广州大学计算机学院软件工程专业11级本科应届毕业生，现任 `学壹传媒` Android开发工程师。广州大学Android开发俱乐部的创始人，校创新班的负责人。
+广州大学计算机学院软件工程专业 2011 级本科应届毕业生，现任 **`学壹传媒` Android 开发工程师兼 Web 开发工程师**。广州大学 Android 开发俱乐部的创始人，校创新班的负责人。
 
-初中时期就开始接触 `Visual Basic` 语言，痴迷系统安全领域，当时做过很多 `nt kernel`、`hook` 的研究，建过 VB6 的技术BBS。大学后开始正式学习 `C++` 语言，做了两年游戏开发（PC端），获得学院多个奖项。后来加入学校创新班，开始学习 `Java` & `Android应用开发` ，并于大三开始周转各种创业团队以及公司，担任 Android 客户端工程师、团队技术骨干。
+初中时期就开始接触 Visual Basic 语言，痴迷系统安全领域，当时做过很多 nt kernel、hook 的研究，建过 VB6 的技术 BBS。大学后开始正式学习 C++ 语言，做了两年游戏开发（PC端），获得学院多个奖项。后来加入学校创新班，开始学习 Java & Android 应用开发 ，并于大三开始周转各种创业团队以及公司，担任多个团队中 Android 开发工程师、团队技术骨干的角色。
 
 - Blog：http://blog.csdn.net/nekocode  
 - Github：https://github.com/nekocode  
-- Git@ OSC：http://git.oschina.net/nekocode  
+- Git@OSC：http://git.oschina.net/nekocode  
 - Email：syfyw@qq.com  nekocode.cn@gmail.com
 - Wechat：  
-![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/174759_65ff640d_8742.jpeg "在这里输入图片标题")
+![wechat](img/wechat.jpg "wechat")
 
 ##能力
 ####语言能力
-![语言能力](http://git.oschina.net/uploads/images/2015/0514/174826_97372f82_8742.jpeg "语言能力")
+- 主要技术栈语言
+![主要技术栈语言](img/lang.png "主要技术栈语言")
 
-####其他技能
-![其他技能](http://git.oschina.net/uploads/images/2015/0514/174858_782492b2_8742.jpeg "其他技能")
+- 其他语言
+![其他语言](img/lang2.png "其他语言")
 
+####其他领域
+- **系统安全**
+- **平面设计**
+- **产品**
 
-##个人项目经验
+##个人项目经验（? ~ 2014 年）
+
+以下是我截至 2014 为止开发过的一些项目（都是独立开发）。** 2014 年以后的一些可公开项目请参考本 Github 账号的主页。**
+
 ###Game
 - **FScript AVG Game Engine** `c++` `DirectX` `script parser` `lua`  
 http://blog.csdn.net/nekocode/article/details/7966376  
@@ -79,7 +87,6 @@ http://www.anzhi.com/soft_2082389.html
 ![输入图片说明](http://git.oschina.net/uploads/images/2015/0514/231922_e1e083b3_8742.png "在这里输入图片标题")  
 
 - ***WuhuiMail*** （弃）  
-
 
 
 ####Other
