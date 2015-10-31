@@ -9,6 +9,7 @@
 
 - Blog：http://blog.csdn.net/nekocode  
 - Github：https://github.com/nekocode  
+- Zhihu：http://www.zhihu.com/people/nekocode
 - Git@OSC：http://git.oschina.net/nekocode  
 - Email：syfyw@qq.com  nekocode.cn@gmail.com
 - Wechat：  
