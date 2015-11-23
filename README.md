@@ -5,6 +5,7 @@ nekocode的 `markdown` 博客
 
 ###Peronal Info
 - [Homepage](category/note/PersonalInfo.md)
+- [Zhihu Column](http://zhuanlan.zhihu.com/kotandroid)
 - [Github Pages](http://nekocode.github.io/) (build with [hugo](hugo_blog))
 
 ###Category
