@@ -1,4 +1,4 @@
-#[PersonalInfo](http://dwz.cn/mark-yueng)
+#PersonalInfo
 
 ##此页面等待更新中
 
@@ -16,15 +16,15 @@
 - Git@OSC：http://git.oschina.net/nekocode  
 - Email：syfyw@qq.com  nekocode.cn@gmail.com
 - Wechat：  
-![wechat](img/wechat.jpg "wechat")
+![wechat](art/wechat.jpg "wechat")
 
 ##能力
 ####语言能力
 - **主要技术栈语言**  
-![主要技术栈语言](img/lang.png "主要技术栈语言")
+![主要技术栈语言](art/lang.png "主要技术栈语言")
 
 - **其他语言**  
-![其他语言](img/lang2.png "其他语言")
+![其他语言](art/lang2.png "其他语言")
 
 ####其他领域
 - 系统安全
