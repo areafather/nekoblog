@@ -41,19 +41,13 @@ eyeAdjustView.setFeatures(matrix, eyesInfo, imageView);
 
 ## Java
 
-- [Grails：约定优于配置](http://www.infoq.com/cn/articles/case-study-grails-partii/)  
+- [Grails：约定优于配置](http://www.infoq.com/cn/articles/case-study-grails-partii/)   
+举个简单的例子。在 Django 1.3 之后引入了「Class-based view」，有「ListView」和「DetailView」。Django 的「ListView.as_view(model=Publisher,)」不需要指定去 render 哪个template，而是自动去使用了「/path/to/project/books/templates/books/publisher_list.html」这个模板。这即是 **convention over configuration** 的一个典型示范。优先使用默认的约定，而不是非要明确的指定要 render 的 template。
 
-```
-举个简单的例子。在 Django 1.3 之后引入了「Class-based view」，有「ListView」和「DetailView」。
-Django 的「ListView.as_view(model=Publisher,)」不需要指定去 render 哪个template，而是自动去使用了「/path/to/project/books/templates/books/publisher_list.html」这个模板。
-这即是 **convention over configuration** 的一个典型示范。优先使用默认的约定，而不是非要明确的指定要 render 的 template。
-```
 
-- kotlin：**`限制优于约定`**  
-
-```
+- kotlin：**`限制优于约定`**   
 nullable 和 notnullable、var 和 val 等。语法上限制比口头约定更不易造成潜在 bug。
-```
+
 
 - Java 线程锁：http://blog.csdn.net/ghsau/article/details/7461369/
 - [Java 内部类会隐式持有外部类实例的引用](http://droidyue.com/blog/2014/10/02/the-private-modifier-in-java/)
@@ -137,7 +131,29 @@ public var heightScale: Float = 0.8f
 
 ## Linux
 
-待定
+- 双系统 Grub 引导   
+```
+nano  /boot/grub/grub.cfg
+
+# 添加以下菜单项：
+menuentry 'Microsoft Windows 8' {
+        insmod ntfs
+        set root='hd0,2'
+        chainloader /efi/Microsoft/Boot/bootmgfw.efi
+}
+```
+
+
+- 默认打开小键盘   
+```
+yaourt -Ss numlockx
+# 使用 systemd 方式开启执行脚本 http://my.oschina.net/osgit/blog/102567
+```
+
+
+- [Shadowsocks](https://lc4t.me/arch-ss/)
+- [安装 Android Studio](http://alwayswithme.github.io/jekyll/update/2015/08/12/setup-android-in-archlinux.html)
+- [Vim 学习](http://ju.outofmemory.cn/entry/79671)
 
 
 
@@ -146,7 +162,7 @@ public var heightScale: Float = 0.8f
 ###教程
 - [廖雪峰的官方博客](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000)
 - [简明 Python 教程](http://itlab.idcquan.com/linux/manual/Python_chinese/)
-- [iPython的一些用法](http://blog.sina.com.cn/s/blog_6fb8aa0d0101r5o1.html)
+- [iPython 的一些用法](http://blog.sina.com.cn/s/blog_6fb8aa0d0101r5o1.html)
 
 ###IDE
 - [Sublime text x64](http://www.cr173.com/soft/121149.html)
@@ -154,11 +170,11 @@ public var heightScale: Float = 0.8f
 
 
 ###GUI
-- [Python GUI编程(Tkinter)](http://www.yiibai.com/python/python_gui_programming.html)
+- [Python GUI编程（Tkinter）](http://www.yiibai.com/python/python_gui_programming.html)
 - [pygame](http://eyehere.net/2011/python-pygame-novice-professional-index/)
 
 ###note
-- Python 没有规定缩进是几个空格还是Tab。按照约定俗成的管理，应该始终坚持使用4个空格的缩进。  
+- Python 没有规定缩进是几个空格还是Tab。按照约定俗成的管理，应该始终坚持使用 4 个空格的缩进。  
 - Python 程序是大小写敏感的，如果写错了大小写，程序会报错。 
 
 - 以下几个值转换成布尔值为 `False`  
@@ -310,10 +326,7 @@ int2('1000000')
 ```
 
 - 每一个包目录下面都会有一个 `__init__.py` 的文件，这个文件是必须存在的，否则，Python 就把这个目录当成普通目录，而不是一个包。`__init__.py` 可以是空文件，也可以有 Python 代码，因为 `__init__.py` 本身就是一个模块，而它的模块名就是包目录命名
-
-
 - **如果要获得一个对象的所有属性和方法，可以使用 dir() 函数，它返回一个包含字符串的 list**
-
 - 类的静态变量里面，使用 `类名.` 访问的是单例的类静态变量，使用 `self.` 访问的是类实例化时深度复制（**值传递**）的变量
 
 - [ ] yield 的用法
