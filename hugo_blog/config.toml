@@ -8,5 +8,5 @@ theme = "hyde"
 	#disqusShortname = "spf13"
 
 [[menu.main]]
-	Name = "git@osc"
-	Url = "http://git.oschina.net/nekocode"
+	Name = "Zhihu Column"
+	Url = "http://zhuanlan.zhihu.com/kotandroid"
