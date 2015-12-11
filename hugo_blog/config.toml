@@ -1,7 +1,7 @@
 baseurl = "http://nekocode.github.io/"
 languageCode = "zh-CN"
 title = "nekocode"
-theme = "hyde"
+theme = "hugo-bootswatch"
 
 [params]
 	description = "full statck developer"
