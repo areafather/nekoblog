@@ -10,10 +10,10 @@
 
 初中时期就开始接触 Visual Basic 语言，痴迷系统安全领域，当时做过很多 nt kernel、hook 的研究，建过 VB6 的技术 BBS。大学后开始正式学习 C++ 语言，做了两年游戏开发（PC端），获得学院多个奖项。后来加入学校创新班，开始学习 Java & Android 应用开发 ，并于大三开始周转各种创业团队以及公司，担任多个团队中 Android 开发工程师、团队技术骨干的角色。
 
-- Blog：http://blog.csdn.net/nekocode  
+
 - Github：https://github.com/nekocode  
 - Zhihu：http://www.zhihu.com/people/nekocode
-- Git@OSC：http://git.oschina.net/nekocode  
+- CSDN：http://blog.csdn.net/nekocode  
 - Email：syfyw@qq.com  nekocode.cn@gmail.com
 - Wechat：  
 ![wechat](art/wechat.jpg "wechat")
