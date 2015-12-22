@@ -36,7 +36,6 @@ eyeAdjustView.setFeatures(matrix, eyesInfo, imageView);
 
 - 设置 ITALIC 需要将字体的 Typeface 设置为 MONOSPACE 
 - 需要 context 的地方（非 UI）尽量使用 ApplicationContext ，而不是传 Activity:Context，因为有可能会导致 activity 无法被回收（内存泄露）
-- Fragment 在屏幕旋转时实例并未被销毁，不需要重建，但 Fragment 内的属性和 View 会重建，这里邀考虑好 Fragment View 重建和 Activity View 重建的一个顺序问题，不然很容易遇到坑。
 
 
 ## Java
