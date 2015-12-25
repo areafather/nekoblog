@@ -6,7 +6,7 @@ date = "2015-08-31T15:25:06+08:00"
 title = "使用 hugo 创建你的博客"
 +++
 
-```shell
+```
 hugo new site hugo_blog
 cd hugo_blog
 

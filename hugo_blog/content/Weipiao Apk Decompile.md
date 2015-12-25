@@ -10,6 +10,7 @@ title = "微票儿 APP 接口逆向"
 ## 抓包
 
 使用 Fiddler 进行抓包，分析出获取电影的 API 请求包它的结构如下：
+
 ```
 POST http://androidcgi.wepiao.com/movie/list HTTP/1.1
 channelId: 9
@@ -25,6 +26,7 @@ sign=31988D406D64DF28A27502591004BBB8&uid=&v=2015110401&t=1450945308&status=2&ci
 
 
 需要关注的参数有 sigin，t，status，cityId 几个，其余参数按照上面设置，无需变更。
+
 - t：时间戳
 - status：为 1 时表示获取 正在热映 的电影，为 2 时表示获取 即将上映 的电影
 - cityId：当前城市 ID
