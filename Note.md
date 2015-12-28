@@ -346,7 +346,7 @@ int2('1000000')
 - **如果要获得一个对象的所有属性和方法，可以使用 dir() 函数，它返回一个包含字符串的 list**
 - 类的静态变量里面，使用 `类名.` 访问的是单例的类静态变量，使用 `self.` 访问的是类实例化时深度复制（**值传递**）的变量
 
-- [ ] yield 的用法
+- **Python yield 使用浅析**：https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/
 
 
 
