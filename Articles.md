@@ -15,6 +15,7 @@
 - [目前国内有哪些公司在大规模使用 MongoDB 呢？](http://cn.v2ex.com/t/18643)
 
 ### Feed/Timeline
-[几个大型网站的 Feeds(Timeline)设计简单对比](http://datafans.net/?p=1163)
-[DB solution for user activity feed](http://stackoverflow.com/questions/10974255/db-solution-for-user-activity-feed)
-[MongoDB database schema design](http://stackoverflow.com/questions/10918921/mongodb-database-schema-design)
+- [几个大型网站的 Feeds(Timeline) 设计简单对比](http://datafans.net/?p=1163)
+- [关于类微博的 timeline 的设计思考](http://datafans.net/?p=1180)
+- [DB solution for user activity feed](http://stackoverflow.com/questions/10974255/db-solution-for-user-activity-feed)
+- [MongoDB database schema design](http://stackoverflow.com/questions/10918921/mongodb-database-schema-design)
