@@ -150,15 +150,18 @@ public var heightScale: Float = 0.8f
 
 - [Linux工具快速教程](http://linuxtools-rst.readthedocs.org/zh_CN/latest/index.html)
 
-- 双系统 Grub 引导   
+- 双系统 Grub 引导
 ```
 nano  /boot/grub/grub.cfg
 
 # 添加以下菜单项：
-menuentry 'Microsoft Windows 8' {
-        insmod ntfs
-        set root='hd0,2'
-        chainloader /efi/Microsoft/Boot/bootmgfw.efi
+menuentry 'Microsoft Windows 8' --class windows --class os {
+	insmod ntfs
+	insmod search_fs_uuid
+	insmod chain
+	# set root='hd0,gpt1'
+	search --no-floppy --fs-uuid --set=root 67E3-17ED
+	chainloader ($root)/EFI/Microsoft/Boot/bootmgfw.efi
 }
 ```
 
