@@ -1,5 +1,3 @@
-# Articles' URLs
-
 ## Java/Android
 - [IoC 的通俗解释](http://www.jianshu.com/p/3968ffabdf9d)
 - [ButterKnife VS AndroidAnnotations](http://stackoverflow.com/questions/24351817/dagger-and-butter-knife-vs-android-annotations)

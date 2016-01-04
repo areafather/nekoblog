@@ -148,6 +148,8 @@ public var heightScale: Float = 0.8f
 
 ## Linux
 
+- [Linux工具快速教程](http://linuxtools-rst.readthedocs.org/zh_CN/latest/index.html)
+
 - 双系统 Grub 引导   
 ```
 nano  /boot/grub/grub.cfg
