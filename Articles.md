@@ -12,6 +12,7 @@
 - [NoSQL 开篇——为什么要使用 NoSQL](http://www.infoq.com/cn/news/2011/01/nosql-why/)
 - [目前国内有哪些公司在大规模使用 MongoDB 呢？](http://cn.v2ex.com/t/18643)
 - [MongoDB快速入门](http://www.yiibai.com/mongodb/mongodb_quick_guide.html)
+- [MongoDB 倾向于将数据都放在一个 Collection 下吗？](http://segmentfault.com/q/1010000000589390)
 
 ### Feed/Timeline
 - [几个大型网站的 Feeds(Timeline) 设计简单对比](http://datafans.net/?p=1163)
