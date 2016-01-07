@@ -19,3 +19,6 @@
 - [关于类微博的 timeline 的设计思考](http://datafans.net/?p=1180)
 - [DB solution for user activity feed](http://stackoverflow.com/questions/10974255/db-solution-for-user-activity-feed)
 - [MongoDB database schema design](http://stackoverflow.com/questions/10918921/mongodb-database-schema-design)
+
+### Tornado
+- [Tornado使用经验](http://www.keakon.net/2012/12/03/Tornado%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C)
