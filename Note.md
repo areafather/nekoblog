@@ -354,6 +354,10 @@ int2('1000000')
 - **Python yield 使用浅析**：https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/
 
 
+### tornado
+- tornado 只实现了 post 格式为 `formdata` 以及 `urlencode` 两种方式的 post 数据的自动解析。针对post json 格式数据没有自动解析，需要自己从 body 里面拿出来解析。
+
+
 
 ## Note
 
