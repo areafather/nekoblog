@@ -11,7 +11,7 @@
 ### NoSQL
 - [NoSQL 开篇——为什么要使用 NoSQL](http://www.infoq.com/cn/news/2011/01/nosql-why/)
 - [目前国内有哪些公司在大规模使用 MongoDB 呢？](http://cn.v2ex.com/t/18643)
-- [MongoDB快速入门](http://www.yiibai.com/mongodb/mongodb_quick_guide.html)
+- [MongoDB 快速入门](http://www.yiibai.com/mongodb/mongodb_quick_guide.html)
 - [MongoDB 倾向于将数据都放在一个 Collection 下吗？](http://segmentfault.com/q/1010000000589390)
 
 ### Feed/Timeline
@@ -21,4 +21,5 @@
 - [MongoDB database schema design](http://stackoverflow.com/questions/10918921/mongodb-database-schema-design)
 
 ### Tornado
-- [Tornado使用经验](http://www.keakon.net/2012/12/03/Tornado%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C)
+- [Tornado 使用经验](http://www.keakon.net/2012/12/03/Tornado%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C)
+- [tornado 解析 http body 的过程分析](http://www.cnblogs.com/huazi/archive/2012/11/07/2758581.html)
