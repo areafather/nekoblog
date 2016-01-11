@@ -352,6 +352,7 @@ int2('1000000')
 - 类的静态变量里面，使用 `类名.` 访问的是单例的类静态变量，使用 `self.` 访问的是类实例化时深度复制（**值传递**）的变量
 
 - **Python yield 使用浅析**：https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/
+- **circular-dependency-between-python-classes**：http://stackoverflow.com/questions/23026530/circular-dependency-between-python-classes
 
 
 ### tornado
