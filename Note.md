@@ -8,6 +8,8 @@
 - android 注意内存泄露问题：http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/
 - [androiddevtools](http://www.androiddevtools.cn/)
 - [react native](http://blog.csdn.net/zhe13/article/details/48439967?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+- [RxJava 操作符动态图解](http://rxmarbles.com/#debounceWithSelector) 
+
 
 ```java
 //TODO 放缩处理、显示操作层
