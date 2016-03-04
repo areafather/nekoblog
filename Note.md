@@ -91,6 +91,8 @@ public static void main(String args[])
 }
 ```
 
+- 推荐用于处理二进制数据：https://github.com/square/okio
+
 
 ## Kotlin
 
