@@ -6,6 +6,9 @@
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - [Monokai Theme](https://github.com/stephenway/monokai.terminal)
 
+## Notice
+0. 使用 brew 安装 Python3 时应该使用 `brew install python --framework`。因为 Framework 安装模式更加独立，不会冲突链接到系统原先版本的 Python。
+
 ## Vim
 - 使用官方最新版的 vim
 ```
