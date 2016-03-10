@@ -25,7 +25,6 @@ brew install mysql
 mysql.server start
 mysqladmin -u root -p password <密码>
 ```
-添加用户：http://blog.csdn.net/h1017597898/article/details/9815987
 
 
 ## Vim
