@@ -9,6 +9,11 @@
 - [androiddevtools](http://www.androiddevtools.cn/)
 - [react native](http://blog.csdn.net/zhe13/article/details/48439967?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 - [RxJava 操作符动态图解](http://rxmarbles.com/#debounceWithSelector) 
+- Activity 生命周期相关：
+ - [Activity生命周期详解一](http://stormzhang.com/android/2014/09/14/activity-lifecycle1)
+ - [Activity生命周期详解二](http://stormzhang.com/android/2014/09/17/android-lifecycle2/)
+ - [onSaveInstanceState & onRestoreInstanceState](http://stormzhang.com/android/2014/09/22/onsaveinstancestate-and-onrestoreinstancestate/)
+ - [Android Activity/Fragment Lifecycle](http://stormzhang.com/android/2014/08/08/activity-fragment-lifecycle/)
 
 
 ```java
