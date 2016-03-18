@@ -1,5 +1,11 @@
 ## Git
 
+- 将远程分支映射到本地
+
+``` sh
+git checkout -b <BRANCH> origin/<BRANCH>
+```
+
 - Clone 远程仓库中的某条分支
 
 ```sh
