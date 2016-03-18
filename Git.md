@@ -48,3 +48,11 @@ git rebase --continue | --skip | --abort | --edit-todo
 ```
 
 实际上，在 rebase 之前的提交会以 ORIG_HEAD 之名存留。如果 rebase 之后无法复原到原先的状态，可以用 `git reset --hard ORIG_HEAD` 复原到 rebase 之前的状态。
+
+- 远程分支强制覆盖到本地
+
+```
+git fetch --all  
+git reset --hard origin/master 
+git pull
+```
