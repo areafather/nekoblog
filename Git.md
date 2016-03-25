@@ -56,3 +56,9 @@ git fetch --all
 git reset --hard origin/master 
 git pull
 ```
+
+- 解决冲突
+```
+git checkout --ours <file>
+git checkout --theirs <file>
+```
