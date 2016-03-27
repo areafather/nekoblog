@@ -97,6 +97,20 @@ public static void main(String args[])
 ```
 
 - 推荐用于处理二进制数据：https://github.com/square/okio
+- 单例模式探索：http://www.tekbroaden.com/singleton-java.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+
+```java
+public enum Singleton {
+    INSTANCE;
+    private String name;
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+}
+```
 
 
 ## Kotlin
