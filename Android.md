@@ -42,7 +42,17 @@ eyeAdjustView.setFeatures(matrix, eyesInfo, imageView);
 ```
 
 - 设置 ITALIC 需要将字体的 Typeface 设置为 MONOSPACE 
-- 需要 context 的地方（非 UI）尽量使用 ApplicationContext ，而不是传 Activity:Context，因为有可能会导致 activity 无法被回收（内存泄露）
+- 非 GUI 的地方需要用到 Context 的地方尽量使用 ApplicationContext ，而不是传 Activity:Context，因为有可能会导致 activity 无法被回收（内存泄露）。另外要用 LayoutInflation 和 Dialog 的地方必须使用 Activity:Context。
+```
+// 在开发第三方工具时要用到 ApplicationContext 最好这样做
+public void init(Context context) {
+    context = context.getApplicationContext()
+    
+    // ...
+}
+```
+
+
 - **ViewPager 不应该使用 getScrollX() 获取当前滑动的 X 坐标**，因为在 ViewPager 所在 Fragment 进行 Resume/Recreate 的时候（例如屏幕旋转），无论 currentItem 为多少，scrollX 都会被置零，所以应该通过 **OnPageChangeListener** 来计算出真实的 scrollX：
 ```
 // ...
