@@ -62,3 +62,8 @@ git pull
 git checkout --ours <file>
 git checkout --theirs <file>
 ```
+
+- 回到未跟踪前（撤销 Add）
+```
+git reset head .
+```
