@@ -10,6 +10,11 @@ OS X 的生活
 
 ### Notice
 - 使用 brew 安装 Python3 时应该使用 `brew install python --framework`。因为 Framework 安装模式更加独立，不会冲突链接到系统原先版本的 Python。
+- 安装 enjarify 时应该将脚本链接到 `/usr/local/bin/` 文件夹下，具体原因可查看 [stackexchange](http://apple.stackexchange.com/questions/196224/unix-ln-s-command-not-permitted-in-osx-el-capitan-beta3)
+
+```
+ln -s $PWD/enjarify.sh /usr/local/bin/enjarify
+```
 
 
 ### Note
