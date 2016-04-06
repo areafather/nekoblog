@@ -33,7 +33,7 @@ mysqladmin -u root -p password <密码>
 
 - 安装 [dryrun](https://github.com/cesarferreira/dryrun)
 ```sh
-# 更换 gem 源
+# 更换 gem 源（下面可以替换为山东理工大学的源 http://ruby.sdutlinux.org/）
 gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 gem sources -u
 
