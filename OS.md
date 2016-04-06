@@ -31,9 +31,21 @@ mysql.server start
 mysqladmin -u root -p password <密码>
 ```
 
+- 安装 rvm
+```sh
+brew instal gpg
+# http://www.rvm.io/
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable
+
+source ~/.rvm/scripts/rvm
+rvm install ruby-2.3.0
+rvm use ruby-2.3.0
+```
+
 - 安装 [dryrun](https://github.com/cesarferreira/dryrun)
 ```sh
-# 更换 gem 源（下面可以替换为山东理工大学的源 http://ruby.sdutlinux.org/）
+# 更换 gem 源（也可以替换为山东理工大学的源 http://ruby.sdutlinux.org/）
 gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 gem sources -u
 
