@@ -35,6 +35,7 @@ mysqladmin -u root -p password <密码>
 ```sh
 # 更换 gem 源
 gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+gem sources -u
 
 # 安装 dryrun
 gem install dryrun
