@@ -72,6 +72,14 @@ public void onPageScrolled(int position, float positionOffset,
 // ...
 ```
 
+#### 现场还原
+
+- 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
+
+- Fragment 在发生屏幕旋转等状况后，系统会持久化它的一些视图以及数据状态。旋转后 `FragmentManager` 会反系列化旋转前持久化的信息，新建实例，并在新实例的 `onCreate()` 中返回之前储存的各种 State（`Fragment.onSaveInstanceState()` 中插入的）。而 View State 会自动传递到各个 View 的 `View.onRestoreInstanceState()` 函数中。
+
+- 如果在 Fragment 中使用了 `setRetainInstance(true)`，则 Fragment 的实例会被保留下来，不重新创建，这意味着实例内的所有属性也会被保存下来（不会被重置），但是依然会重新触发 Fragment 的生命周期事件。所以通常这种状况仅适用于进行持续性后台任务的 Fragment（例如没有视图的单纯进行下载操作的 Fragment），在屏幕旋转后也不会打断正在进行的任务。
+
 
 ## Java
 
