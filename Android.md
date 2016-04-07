@@ -80,6 +80,16 @@ public void onPageScrolled(int position, float positionOffset,
 
 - 如果在 Fragment 中使用了 `setRetainInstance(true)`，则 Fragment 的实例会被保留下来，不重新创建，这意味着实例内的所有属性也会被保存下来（不会被重置），但是依然会重新触发 Fragment 的生命周期事件。所以通常这种状况仅适用于进行持续性后台任务的 Fragment（例如没有视图的单纯进行下载操作的 Fragment），在屏幕旋转后也不会打断正在进行的任务。要注意的是，这种情况下如果有视图的话，视图会被重新创建。
 
+#### 视图事件传递
+
+**[事件分发](http://blog.csdn.net/guolin_blog/article/details/9097463)：**
+- 首先你需要知道一点，只要你触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法。
+- dispatchTouchEvent()`（来自父控件调用）` -> onTouchEvent() -> onClick()
+- 父控件的 onInterceptTouchEvent 返回 true 的话，直接拦截该事件，不尝试分发给子控件。
+- 子控件中如果将传递的事件消费掉，父控件将无法在 onTouchEvent() 接收到任何事件。
+- 父控件分发事件中，如果调用点击所在子控件的 dispatchTouchEvent() 返回 false 则说明子控件不消费该事件，则事件最终还是会回流到父控件的 onTouchEvent() 中。
+
+**[ViewGroup](http://blog.csdn.net/guolin_blog/article/details/12921889)**
 
 ## Java
 
