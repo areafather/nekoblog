@@ -72,6 +72,8 @@ public void onPageScrolled(int position, float positionOffset,
 // ...
 ```
 
+- 对 NestedFragment 的 `findFragmentByTag()` **必需在 ParentFragment 的 `onViewCreated()`（视图创建后）中进行，否则将返回空。** [Check about this.](https://www.google.com/?gws_rd=ssl#safe=off&q=getChildFragmentManager()+findFragmentByTag)
+
 #### 现场还原
 
 - 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
