@@ -52,6 +52,11 @@ public void init(Context context) {
 }
 ```
 
+- 拼接 SpannableString
+```
+TextUtils.concat(spanStr1, " " , spanStr2)
+```
+
 
 - **ViewPager 不应该使用 getScrollX() 获取当前滑动的 X 坐标**，因为在 ViewPager 所在 Fragment 进行 Resume/Recreate 的时候（例如屏幕旋转），无论 currentItem 为多少，scrollX 都会被置零，所以应该通过 **OnPageChangeListener** 来计算出真实的 scrollX：
 ```
