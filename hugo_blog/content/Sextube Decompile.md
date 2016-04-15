@@ -36,7 +36,7 @@ b64decode = base64.b64decode
 #
 # 普通司机
 #
-class Dirver:
+class Driver:
     # 车牌号
     plate_number = '13-954'
 
@@ -52,7 +52,7 @@ class Dirver:
 #
 # 老司机
 #
-class OldDriver(Dirver):
+class OldDriver(Driver):
     # 车牌号
     plate_number = 'abcdefgherpussyyyyyyyyyuserverion1cache2gohomewithfatherandmotherandsister3dif4cliff'
 
