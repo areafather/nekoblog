@@ -1,7 +1,7 @@
 +++
-Categories = ["Development", "Decompile"]
+Categories = ["Python", "Decompile"]
 Description = ""
-Tags = ["Development", "Nginx"]
+Tags = ["Python", "Decompile"]
 date = "2015-12-25T15:29:23+08:00"
 title = "微票儿 APP 接口逆向"
 

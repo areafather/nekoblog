@@ -1,22 +1,23 @@
 +++
-Categories = ["Development", "Python"]
+Categories = ["Python", "Decompile"]
 Description = ""
-Tags = ["Development", "Nginx"]
+Tags = ["Python", "Decompile"]
 date = "2016-04-15T13:05:23+08:00"
 title = "老司机 APP 逆向"
 
 +++
 
 ## 前言
+
 本文对 ~~S**ube~~ 进行反编译工作，未使用 Fiddler 进行抓包，直接 Jadx 进行爆破。
 
 ## 一些爆破点
 
 - au.com.stklab.minehd.e.a.class  
-**密钥生成**
+**密钥生成算法**
 
 - au.com.stklab.minehd.b.a.class  
-**视频链接生成**
+**视频链接合成步骤**
 
 ## Kernel
 代码做了反和谐处理，请勿用于非法用途！
@@ -130,7 +131,7 @@ if __name__ == '__main__':
 ```
 
 
-## DEMO
+## 结果
 
 **Success!**
 
