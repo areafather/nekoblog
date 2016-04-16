@@ -6,7 +6,7 @@ nekocode的 `markdown` 博客
 ### Primary
 - **[Zhihu Column](http://zhuanlan.zhihu.com/kotandroid)**
 - **[Github Pages](http://nekocode.github.io/) (Build with [Hugo](hugo_blog))**
-- **[Personal Info](PersonalInfo.md)**
+- **[Resume](http://nekocode.github.io/resume.pdf)**
 
 ### Note
 - **[Android.md](Android.md)**

@@ -3,17 +3,17 @@
 
 > [Download PDF](resume.pdf)
 > [nekocode.cn@gmail.com](nekocode.cn@gmail.com)
-> **[[Github]](http://github.com/nekocode)** / [Zhihu](https://www.zhihu.com/people/nekocode)
+> Wechat: nekocode
 
 ---
 
 ### Skills
 
 * **Android 工程开发**
-  熟练使用 Kotlin，Java。有较强的开发和架构能力，有过多款工具／社交类产品的开发经验，能很好地完成各种复杂的开发需求。开发过 IDE Plugin，能使用脚本和工具快速提高开发效率。
+  熟练使用 Kotlin，Java。有较强的开发和架构能力，有过多款工具／社交类产品的开发经验，能很好地完成各种复杂的开发需求。有过 IDE Plugin 的开发经验，能使用脚本和工具快速提高开发效率。
 
 * **后端工程开发**
-  熟练掌握 Python。熟悉后端技术栈的各种知识，关注 Tornado，MongoDB，Redis 等各种新技术，有过高并发服务端的开发经验，有一定的服务器运维能力。
+  熟练掌握 Python 以及相关后端技术栈知识。关注 Tornado，MongoDB，Redis 等各种新技术，有过高并发服务端的开发经验，有一定的服务器运维能力。
 
 * **游戏引擎开发**
   有一年多的游戏引擎开发经验，曾独立开发 2D 游戏引擎。掌握较为完善的图形开发知识，对 DirectX，Shader 有较深入了解，对 Processing，WebGL，D3.js，Three.js 等图形／可视化技术十分感兴趣。 
@@ -32,7 +32,7 @@
 1. MySQL
 1. Redis
 1. Web Services / REST
-1. API Blueprint
+1. APIDoc
 1. Git
 
 ---
@@ -51,4 +51,13 @@
 
 **广州大学** : *计算机 软件工程*    __2011 - 2015__
  本科学士，CET-4
+  
+---
 
+### Other
+
+* **Github**
+  [http://github.com/nekocode](http://github.com/nekocode)
+  
+* **Zhihu**
+  [https://www.zhihu.com/people/nekocode](https://www.zhihu.com/people/nekocode)
