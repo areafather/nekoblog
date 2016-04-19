@@ -202,6 +202,10 @@ public var heightScale: Float = 0.8f
     }
 ```
 
+- lateinit 是 Kotlin 语法级的，它比 Delegates.notNull() 更轻量（编译后不产生 Stub 代码）
+
+
+
 ## Others
 - [IoC 的通俗解释](http://www.jianshu.com/p/3968ffabdf9d)
 - [ButterKnife VS AndroidAnnotations](http://stackoverflow.com/questions/24351817/dagger-and-butter-knife-vs-android-annotations)
