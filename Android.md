@@ -204,6 +204,7 @@ public var heightScale: Float = 0.8f
 
 - lateinit 是 Kotlin 语法级的，它比 Delegates.notNull() 更轻量（编译后不产生 Stub 代码）
 - **Data Class 在 Kotlin 中是值传递的，而不是引用传递！**
+- **Data Class 的 copy() 只对基础类型 or Data Class 进行深复制，Collection／非基础类型（List, Map...）是浅复制，需要自己处理**
 
 
 
