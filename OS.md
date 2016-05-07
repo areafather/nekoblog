@@ -58,6 +58,18 @@ gem install dryrun
 pbcopy < filepath
 ```
 
+- 在 zsh 中使用 ss 提供的 proxy
+``` sh
+brew install proxychains-ng
+
+vim /usr/local/etc/proxychains.conf
+# Add proxy to the [ProxyList]
+# socks5 127.0.0.1 1080
+
+# Test
+proxychains4 curl google.com
+```
+
 
 ### Vim
 - 使用官方最新版的 vim
