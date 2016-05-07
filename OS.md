@@ -53,6 +53,11 @@ gem sources -u
 gem install dryrun
 ```
 
+- 将文件内容复制到剪贴板
+``` sh
+pbcopy < filepath
+```
+
 
 ### Vim
 - 使用官方最新版的 vim
