@@ -206,6 +206,7 @@ public var heightScale: Float = 0.8f
 - **Data Class 在 Kotlin 中是值传递的，而不是引用传递！**
 - **Data Class 的 copy() 只对基础类型 or Data Class 进行深复制，Collection／非基础类型（List, Map...）是浅复制，需要自己处理**
 
+- 慎用 Lazy 代理／慎用 `kotterknife`，在 Fragment Detach 导致 View 被销毁时（Fragment 实例并未被回收），当 Fragment 重新 Attach 时不会重新执行 FindView。
 
 
 ## Others
