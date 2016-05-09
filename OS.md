@@ -108,6 +108,15 @@ yaourt -Ss numlockx
 # 使用 systemd 方式开启执行脚本 http://my.oschina.net/osgit/blog/102567
 ```
 
+- **CentOS** 下安装 Python3
+```
+# 安装 EPEL 源
+sudo yum install epel-release
+sudo yum install python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+```
+
 
 - [Shadowsocks](https://lc4t.me/arch-ss/)
 - [安装 Android Studio](http://alwayswithme.github.io/jekyll/update/2015/08/12/setup-android-in-archlinux.html)
