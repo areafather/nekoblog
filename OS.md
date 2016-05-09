@@ -153,7 +153,7 @@ systemctl enable mariadb
 # 设置 root密码等相关
 mysql_secure_installation
 # 测试登录
-mysql -uroot -p123456
+mysql -uroot -p<password>
 ```
 
 - grep 命令有问题时，使用 `yum update` 或 `yum update grep` 更新 grep 版本
