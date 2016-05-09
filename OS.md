@@ -108,7 +108,14 @@ yaourt -Ss numlockx
 # 使用 systemd 方式开启执行脚本 http://my.oschina.net/osgit/blog/102567
 ```
 
-- **CentOS** 下安装 Python3
+- [Shadowsocks](https://lc4t.me/arch-ss/)
+- [安装 Android Studio](http://alwayswithme.github.io/jekyll/update/2015/08/12/setup-android-in-archlinux.html)
+- [Vim 学习](http://ju.outofmemory.cn/entry/79671)
+
+
+## CentOS 运维相关
+
+- 安装 Python3
 ```
 # 安装 EPEL 源
 sudo yum install epel-release
@@ -117,7 +124,14 @@ sudo yum install python34-setuptools
 sudo easy_install-3.4 pip
 ```
 
+- 添加新用户，并禁用 root 用户登录
+```
+# 添加新用户并更改密码
+useradd <username>
+passwd <username>
 
-- [Shadowsocks](https://lc4t.me/arch-ss/)
-- [安装 Android Studio](http://alwayswithme.github.io/jekyll/update/2015/08/12/setup-android-in-archlinux.html)
-- [Vim 学习](http://ju.outofmemory.cn/entry/79671)
+# 修改 sshd 配置，禁止 root 用户登录
+vim /etc/ssh/sshd_config
+
+# 将 PermitRootLogin 的 yes 改成 no
+```
