@@ -115,6 +115,8 @@ yaourt -Ss numlockx
 
 ## CentOS 运维相关
 
+- grep 命令有问题时，使用 `yum update` 或 `yum update grep` 更新 grep 版本
+- 
 - 安装 Python3
 ```sh
 # 安装 EPEL 源
@@ -156,5 +158,9 @@ mysql_secure_installation
 mysql -uroot -p<password>
 ```
 
-- grep 命令有问题时，使用 `yum update` 或 `yum update grep` 更新 grep 版本
+- 安装 MySQL-python (for python2.7) 和 PyMySQL (for python3.x)
+```
+yum install MySQL-python
+pip3 install pymysql
+```
 
