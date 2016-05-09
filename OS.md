@@ -116,22 +116,45 @@ yaourt -Ss numlockx
 ## CentOS 运维相关
 
 - 安装 Python3
-```
+```sh
 # 安装 EPEL 源
-sudo yum install epel-release
-sudo yum install python34
-sudo yum install python34-setuptools
-sudo easy_install-3.4 pip
+yum install epel-release
+yum install python34
+yum install python34-setuptools
+easy_install-3.4 pip
 ```
 
 - 添加新用户，并禁用 root 用户登录
-```
+```sh
 # 添加新用户并更改密码
 useradd <username>
 passwd <username>
 
 # 修改 sshd 配置，禁止 root 用户登录
 vim /etc/ssh/sshd_config
-
 # 将 PermitRootLogin 的 yes 改成 no
+
+# 添加用户进 sudoers（可以使用 sudo 命令）
+cd /etc
+chmod 777 sudoers
+vim sudoers
+# 在原先的 root ALL=(ALL) ALL 下添加
+# <username> ALL=(ALL) ALL
+chmod 440 sudoers
 ```
+
+- 安装并配置 MariaDB
+```sh
+yum install mariadb mariadb-server
+# 启动mariadb
+systemctl start mariadb
+# 开机自启动
+systemctl enable mariadb
+# 设置 root密码等相关
+mysql_secure_installation
+# 测试登录
+mysql -uroot -p123456
+```
+
+- grep 命令有问题时，使用 `yum update` 或 `yum update grep` 更新 grep 版本
+
