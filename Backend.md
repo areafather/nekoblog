@@ -17,3 +17,6 @@
 ### Tornado
 - [Tornado 使用经验](http://www.keakon.net/2012/12/03/Tornado%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C)
 - [tornado 解析 http body 的过程分析](http://www.cnblogs.com/huazi/archive/2012/11/07/2758581.html)
+
+### 系统 & 运维
+- [CentOS 运维相关](https://github.com/nekocode/nekoblog/blob/master/OS.md#centos-运维相关)
