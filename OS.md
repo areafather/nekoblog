@@ -167,4 +167,17 @@ pip3 install pymysql
 - 安装 Redis
 ```sh
 yum install redis
+cd /etc
+chmod 777 redis.conf
+vim redis.conf
+# 修改配置：
+# daemonize yes  # Redis 将以守护进程的方式运行
+# timeout 300    # 当客户端闲置 300 秒后中断链接
+chmod 644 redis.conf
+
+# 开启服务
+systemctl start redis.service
+# Test
+redis-cli
 ```
+
