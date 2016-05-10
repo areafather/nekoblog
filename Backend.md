@@ -1,5 +1,6 @@
 ## Backend
 ### SQL
+- [MySQL 资源大全中文版](https://github.com/jobbole/awesome-mysql-cn)
 - [varchar 和 text 说不清的那些事](http://ourmysql.com/archives/1357)
 
 ### NoSQL
