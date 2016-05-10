@@ -27,8 +27,18 @@ killall Finder
 - 安装配置 MySQL
 ```
 brew install mysql
+# 启动服务
 mysql.server start
+# 更改密码
 mysqladmin -u root -p password <密码>
+
+# Test
+mysql -u root -p
+```
+
+- 安装 MyCli
+```sh
+brew install mycli
 ```
 
 - 安装 rvm
