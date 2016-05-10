@@ -116,7 +116,7 @@ yaourt -Ss numlockx
 ## CentOS 运维相关
 
 - grep 命令有问题时，使用 `yum update` 或 `yum update grep` 更新 grep 版本
-- 
+
 - 安装 Python3
 ```sh
 # 安装 EPEL 源
