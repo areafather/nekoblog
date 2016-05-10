@@ -159,8 +159,12 @@ mysql -uroot -p<password>
 ```
 
 - 安装 MySQL-python (for python2.7) 和 PyMySQL (for python3.x)
-```
+```sh
 yum install MySQL-python
 pip3 install pymysql
 ```
 
+- 安装 Redis
+```sh
+yum install redis
+```
