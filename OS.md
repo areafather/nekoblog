@@ -197,13 +197,45 @@ systemctl start redis.service
 redis-cli
 ```
 
-- 安装 Supervisor
+- 安装并配置 Supervisor
 ```sh
 pip install supervisor
 
-# 创建默认配置
-echo_supervisord_conf  >/etc/supervisord.conf
+# 在当前目录创建默认配置
+echo_supervisord_conf  >supervisord.conf
+# 创建 log 目录来储存输出
+mkdir log
 # 修改配置
-vi /etc/supervisord.conf
-# 配置参考：https://www.keakon.net/2012/12/17/%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E9%87%8D%E5%90%AFTornado
+vi supervisord.conf
+
+# 以下为配置
+[unix_http_server]
+file = /tmp/supervisor.sock
+
+[supervisord]
+logfile = %(here)s/log/supervisord.log
+pidfile = /tmp/supervisord.pid
+directory = %(here)s
+
+[supervisorctl]
+serverurl = unix:///tmp/supervisor.sock
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[program:myapp]
+command = python3 index.py
+directory = %(here)s
+stdout_logfile = %(here)s/log/myapp.log
+stderr_logfile = %(here)s/log/myapp_err.log
+
+# 启动所有应用
+supervisorctl -c supervisord.conf start all
+# 重启所有应用
+supervisorctl -c supervisord.conf restart all
+# 停止所有应用
+supervisorctl -c supervisord.conf stop all
+# 修改配之后需要重载
+supervisorctl -c supervisord.conf reload
 ```
+
