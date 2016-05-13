@@ -239,3 +239,24 @@ supervisorctl -c supervisord.conf stop all
 supervisorctl -c supervisord.conf reload
 ```
 
+- 安装 Nginx
+```sh
+yum install nginx
+# 修改配置
+vim /etc/nginx/nginx.conf
+# 运行 nginx，并设置为开机自启动
+systemctl start nginx
+systemctl enable nginx
+```
+
+- 复制文件到服务器上（也可以用 FTP 的方式）
+```sh
+scp xxx.sql <username>@xxx.xxx.xxx.xxx:~/WWW
+```
+
+- 导入 SQL 文件
+```
+create database <name>;
+use database <name>;
+source ~/WWW/xxx.sql;
+```
