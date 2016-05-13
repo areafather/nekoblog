@@ -260,3 +260,9 @@ create database <name>;
 use database <name>;
 source ~/WWW/xxx.sql;
 ```
+
+- 安装 pycrypto 库
+```
+yum install python-dev
+pip install pycrypto
+```
