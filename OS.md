@@ -263,6 +263,8 @@ source ~/WWW/xxx.sql;
 
 - 安装 pycrypto 库
 ```
-yum install python-dev
+yum install python-devel
 pip install pycrypto
+yum install python34-devel
+pip3 instlal pycrypto
 ```
