@@ -217,7 +217,7 @@ public var heightScale: Float = 0.8f
  - [对 RxJava 中 .repeatWhen() 和 .retryWhen() 操作符的思考](http://www.qingpingshan.com/rjbc/java/49285.html)
  - [缓存 Token，失效时使用 Retry 进行再授权](https://github.com/rengwuxian/RxJavaSamples/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Frengwuxian%2Frxjavasamples%2Fmodule%2Ftoken_advanced_5%2FTokenAdvancedFragment.java)
 
-[Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
+#### [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
 - 能不用 `Observable.create()`（只调用一次）的话尽量不用，可以考虑使用 `Observable.fromCallable()` 或者 `Observable.deffer()` 内置操作符（每次调用） 。（http://www.jianshu.com/p/c83996149f5b）
 - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
 - 在任何时候（创建或者流传递途中）都应该记得进行 `isUnsubscribed()` 判断。
