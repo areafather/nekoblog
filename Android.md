@@ -14,6 +14,7 @@
  - [Activity生命周期详解二](http://stormzhang.com/android/2014/09/17/android-lifecycle2/)
  - [onSaveInstanceState & onRestoreInstanceState](http://stormzhang.com/android/2014/09/22/onsaveinstancestate-and-onrestoreinstancestate/)
  - [Android Activity/Fragment Lifecycle](http://stormzhang.com/android/2014/08/08/activity-fragment-lifecycle/)
+ - [Android Studio 的一些使用技巧](http://qiita.com/takahirom/items/a211b1fcc4304c487c4b#_reference-b274ebea0a18ddb1e0dc)
 
 
 ```java
