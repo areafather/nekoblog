@@ -7,38 +7,43 @@
 - 定义好调色板，所有颜色 **只能** 从调色板中获取，不能使用硬编码
 - 图标可以考虑使用流行图标字体库（Fontawesome）
 - 开发前对一遍设计稿，定好所有 Dimen，尽量使用 Dimen 板
-- Multiple State（多状态） Drawable 命名规则：https://github.com/inmite/android-selector-chapek
+- Multiple State（多状态） Drawable 命名规则：[android-selector-chapek](https://github.com/inmite/android-selector-chapek)
 - 设计规范越完整，开发越容易工作
 
 ### 开发
-- **必须写注释（行内注释，函数注释以及类注释等）**
+- **必须写注释（行内注释，函数注释以及类注释等）**，Doc Gen 选用 [Dodoka](https://kotlinlang.org/docs/reference/kotlin-doc.html)
 - 善用 `TODO`，`FIXME` 进行标注
 - 必须写单元测试（V／M 层都需要）
 - 使用 CI（持续集成）进行远程构建
+- 使用 Lint 工具进行代码静态检查
 - 收集各种常用 Lib （log, bugly, ...）
-- 添加 **Lib 层** 用来对大多数第三方库进行封装（Wrap），方便日后更换
-- 上架前必须进行 **混淆** 和 **签名**
+- 可以添加多一层 **Lib 层**，用来对大多数第三方库进行一层包裹（Wrap），方便日后更换
+- 所有基于事件响应的场景尽量使用 Rx 来实现，包括 View 的事件响应（可参考 [ReactiveAndroid](https://github.com/kittinunf/ReactiveAndroid)）
 - 所有调试用的 Log 请用使用 `Debug` 作为 Flag 进行输出，Release 环境下必须使用混淆去掉所有 Log 的代码
+- 上架前必须进行 **混淆** 和 **签名**
+- 使用 [Nimbledroid](https://nimbledroid.com/) 进行应用性能分析
 - 适当使用依赖注入（常用的模块，需要单元测试的模块）
 - 尽量使用 Anko DSL 来创建视图
 
 
 ## 架构
-MVP，Flux／Redux
+MVP，Flux／Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)**。
 
 ### 层次流程
 - **`View` -> `Model` -> `Presenter`**
 `View` 和高复用性的 `Model` 同时开发，`Presenter` 最后开发
 
-- 前期 `View` 层开发需要用到的数据全部使用 `ViewObject`，需要什么属性就定义什么属性，以后在 `Presenter` 层进行 `DO` 到 `VO` 再到 `View` 的 **Transform**（转换）过程。（`VO` 中可以使用 `data: Any` 属性携带 `DO`）
+- 前期 `View` 层开发需要用到的数据全部使用 `ViewObject`，需要什么属性就定义什么属性，以后在 `Presenter` 层进行 `DO` 到 `VO` 再到 `View` 的 **Convert**（转换）过程。（`VO` 中可以使用 `data: Any` 属性携带 `DO`）
 
-- **所有 `VO` 只能保存在 Presenter 层内，View 层最多只能保存 `VO` 的引用！**（另外要注意，Adapter 应当放在 Presenter 层内）
+- `DO` 到 `VO` 的转化过程请不要在 UI 线程进行操作。（可以在 Presenter 中使用 Rx 的 Map 操作在非主线程调度器上进行转换）
+
+- **所有 `VO`，`DO` 只能保存在 Presenter 层内，View 层最多只能保存 `VO` 的引用！**（另外要注意，Adapter 应当放在 Presenter 层内）
 
 - `View` 层不能接触 `Model` 层的任何数据和接口！
 
-- 和 `DO` 是一对一转换关系的 `VO` 可以在内部定义转换方法。
-
 - **页面跳转** 放到 `Presente` 层中。
+
+- `View` 和 `Presenter` 之间是双向依赖，所以通过接口解藕，便于进行 UI Mock 测试，而 `Presenter` 和 `Model` 是单向依赖，可以直接编写单元测试来测试 `Model`。
 
 ### Flux 的一些思想
 - **Pure function**
