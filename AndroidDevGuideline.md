@@ -1,37 +1,27 @@
-# Android Development Workflow
-Android 团队开发工作流
+# Android Development Guideline
+**数库科技** Android 开发准则
 
 ## 总览
 
-#### Git
-- 使用 Pull Request
-- 保证经常从 dev 对本分支进行 rebase
-- dev 分支发生强制推送后需要及时通知所有组员
-- 每次 Pull Request 的粒度尽量细分
-
 #### 设计
-- 定义好调色板，所有颜色只能从调色板中获取
+- 定义好调色板，所有颜色 **只能** 从调色板中获取，不能使用硬编码
 - 图标可以考虑使用流行图标字体库（Fontawesome）
-- 开发前对一遍设计稿，定好所有 Dimen
+- 开发前对一遍设计稿，定好所有 Dimen，尽量使用 Dimen 板
+- Multiple State（多状态） Drawable 命名规则：https://github.com/inmite/android-selector-chapek
 - 设计规范越完整，开发越容易工作
 
 #### 开发
-- 收集各种常用 lib （log, bugly, ...）
 - **必须写注释（行内注释，函数注释以及类注释等）**
-- 所有调试用的 Log 请用使用 Debug 作为 Flag 进行输出
-- TODO: 使用单 Activity 多 Fragment 还是多 Activity
-- 如果要支持横屏的话，务必每个根布局添加 ScrollView
+- 善用 `TODO`，`FIXME` 进行标注
+- 必须写单元测试（V／M 层都需要）
+- 使用 CI（持续集成）进行远程构建
+- 收集各种常用 Lib （log, bugly, ...）
+- 添加 **Lib 层** 用来对大多数第三方库进行封装（Wrap），方便日后更换
+- 上架前必须进行 **混淆** 和 **签名**
+- 所有调试用的 Log 请用使用 `Debug` 作为 Flag 进行输出，Release 环境下必须使用混淆去掉所有 Log 的代码
 - 适当使用依赖注入（常用的模块，需要单元测试的模块）
-- TODO: 资源文件命名要遵守一套守则，例如：fragment_{包逻辑路径}_{页面名}.xml
 - 尽量使用 Anko DSL 来创建视图
-- Dip(), Sp() 等包裹一下，使用 ApplicationContext
 - 接口用于解耦模块，继承用于整合功能
-- 必需进行单元测试（V／M 层都需要）
-- TODO: 考虑 Launcher 的前期测试处理
-- TODO: 收集 Intellij 的 Plugin（例如 Style 抽离，Anko DSL Preview 等）
-- TODO: 使用统一一套 Code Live Template（规范 TODO，FIXME 和 Comment）
-
-- ~~更强大的 layout？可以拦截 onDraw 函数，支持画分割线，阴影~~
 
 
 ## 架构
@@ -119,7 +109,7 @@ git rebase -i <COMMIT_HASH>
 git rebase --continue
 ```
 
-- 需要提交到 `dev` 分支时，需要针对 `dev` 在个人分支上进行 rebase 操作，并处理冲突
+- 需要提交到 `dev` 分支时，需要针对 `dev` 在个人分支上进行 Rebase 操作，并处理冲突
 
 ```sh
 git fetch
@@ -136,6 +126,7 @@ git push -f origin _yangfan
 - 在 Gitlab 上提交 Merge Request(/Pull Request) 到 dev 分支，等待 Master 进行 Code Review
 
 ### Notice
+- 每次 Commit 要保证粒度足够细，包含的更改和描述一致，且可编译运行
 - 提交 PR 前如果确保当前分支在 dev 分支 HEAD 处的话可以不进行 Rebase
 - dev 分支将处于 protected 状态，非不得已要执行 force push 的话，要提交通知所有开发成员
 
