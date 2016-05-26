@@ -30,8 +30,7 @@
 MVP，Flux／Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)**。
 
 ### 层次流程
-- **`View` -> `Model` -> `Presenter`**
-`View` 和高复用性的 `Model` 同时开发，`Presenter` 最后开发
+- **`View` -> `Model` -> `Presenter`**：`View` 和高复用性的 `Model` 同时开发，`Presenter` 最后开发
 
 - 前期 `View` 层开发需要用到的数据全部使用 `ViewObject`，需要什么属性就定义什么属性，以后在 `Presenter` 层进行 `DO` 到 `VO` 再到 `View` 的 **Convert**（转换）过程。（`VO` 中可以使用 `data: Any` 属性携带 `DO`）
 
@@ -41,7 +40,7 @@ MVP，Flux／Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)**。
 
 - `View` 层不能接触 `Model` 层的任何数据和接口！
 
-- **页面跳转** 放到 `Presente` 层中。
+- **页面跳转** 放到 `Presenter` 层中。
 
 - `View` 和 `Presenter` 之间是双向依赖，所以通过接口解藕，便于进行 UI Mock 测试，而 `Presenter` 和 `Model` 是单向依赖，可以直接编写单元测试来测试 `Model`。
 
@@ -110,4 +109,8 @@ git push -f origin _yangfan
 - 每次 Commit 要保证粒度足够细，包含的更改和描述一致，且可编译运行
 - 提交 PR 前如果确保当前分支在 dev 分支 HEAD 处的话可以不进行 Rebase
 - dev 分支将处于 protected 状态，非不得已要执行 force push 的话，要提交通知所有开发成员
+
+
+## 代码守则
+参考并修改自 [android-best-practices](https://github.com/futurice/android-best-practices) 和 [Android-Guideline](https://github.com/RxSmart/Link-Android-Guideline/blob/master/Android-Guideline.md)。
 
