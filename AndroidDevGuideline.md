@@ -125,13 +125,20 @@ git push -f origin _yangfan
 
 - 要注意 Kotlin 的默认可视修饰符为 `public`
 - Kotlin 的 `internal` 修饰符，可以让目标对象只在同一 Module（IDE 下的 Module） 下可访问（例如创建一个插件 Module 的时候，可以使用 `internal` 对外隐藏一些实现细节）
-- Android 下的组件以及控件尽量以 **类型** 的缩写小写字母作为前缀，例如以下一些可选的前缀
- - `act` (Activity), `frg` (Fragment)
- - `tv` (TextView), `et` (EditText), `btn` (Button),  `rv` (RecyclerView) 类推...
 - 静态常量命名字母全部大写，单词之间用下划线分隔，且必须使用 `const val` 修饰符
 - Android SDK中诸如 `SharedPreferences`，`Bundle` 和 `Intent` 等，都采用 **key-value** 的方式进行赋值，当使用这些组件的时候，**key** 必须被 `private const val` 所修饰，并以 `KEY_` 作为前缀。
+- Android 下的组件以及控件尽量以 **类型** 的缩写小写字母作为前缀，例如以下一些可选的前缀（可依此类推）：  
 
-示例：
+| Type           | Prefix   |
+| -------------- | -------- |
+| Activity       | `act`    |
+| Fragment       | `frg`    |
+| TextView       | `tv`     |
+| EditText       | `et`     |
+| Button         | `btn`    |
+| RecyclerView   | `rv`     |
+
+**示例：**
 ```kotlin
 internal class TestActivity: Activity() {
     compainion object {
@@ -181,15 +188,15 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 7. 被定义的内部类或者接口
 
 
-## 资源文件 Resources
+## 资源文件（Resources）
 
-资源等`.xml`文件应该采用 **小写字母_下划线** 的组合形式，并遵循前缀表明类型的习惯，形如 `type_foo_bar.xml`。
+资源等 `.xml` 文件应该采用 **小写字母_下划线** 的组合形式，并遵循前缀表明类型的习惯，形如 `type_name.xml`。
 
-### Lyout相关
+### Lyout 相关
 
 - 布局（Layout）文件命名方式：
 
-布局文件应该与Android组件的命名相匹配，以组件类型作为前缀，并且能够清晰的表达意图所在。例如：如果为`SignInActivity`创建一个布局文件，那么应该命名为`activity_sign_in.xml`。基本规则如下：
+布局文件应该与 Android 组件的命名相匹配，以组件类型作为前缀，并且能够清晰的表达意图所在。基本规则如下：
 
 | Component        | Class Name             | Layout Name                   |
 | ---------------- | ---------------------- | ----------------------------- |
@@ -199,43 +206,20 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 | AdapterView item | ---                    | `item_person.xml`             |
 | Partial layout   | ---                    | `partial_stats_bar.xml`       |
 
-值得一提的是，一些布局文件需要通过`Adapter`填充，如`ListView`，`Recyclerview`等列表视图，这种场景下，布局的命名应该以`item_`作为前缀。另外还有一种比较常见的情况，一个布局文件作为另一个布局文件的一部分而存在，或者使用了`include`，`merge`等标签的布局，可以使用`partial_`、`include_`或者`merge_`作为前缀，这一类布局的命名同样应该清晰的表达其意图。
+值得一提的是，一些布局文件需要通过 `Adapter` 填充，如 `ListView`，`Recyclerview` 等列表视图，这种场景下，布局的命名应该以 `item_` 作为前缀。另外还有一种比较常见的情况，一个布局文件作为另一个布局文件的一部分而存在，或者使用了 `include`，`merge` 等标签的布局，可以使用 `partial_`、`include_` 或者 `merge_` 作为前缀，这一类布局的命名同样应该清晰的表达其意图。
 
-- Id命名方式：
+- Id 命名方式：
 
-控件Id的命名应该以该控件类型的缩写作为后缀，并且也应该是**小写字母_下划线**的组合形式，能够清晰表达意图是命名的前提：
-
-| Element            | Suffix          |
-| -----------------  | ----------------|
-| `TextView`         | `_tv`           |
-| `ImageView`        | `_iv`           |
-| `Button`           | `_btn`          |
-| `Menu`             | `_menu`         |
-
-例如：
-
-```xml
-<ImageView
-    android:id="@+id/profile_iv"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-```
-
-```xml
-<menu>
-	<item
-        android:id="@+id/done_menu"
-        android:title="Done" />
-</menu>
-```
+控件 Id 的命名应该以该控件类型的缩写作为前缀，和 [代码中的控件名保持一致](https://github.com/nekocode/nekoblog/blob/master/AndroidDevGuideline.md#property-定义与命名规范)。
 
 对于如何排版一个布局文件，请尽量遵循以下规范：
 
 - 每个属性独占一行，缩进四个空格
--  `android:id`作为第一个属性存在
-- 如果存在`style`属性，则紧随`id`之后
-- 如果不存在`style`属性，则`android:layout_****`紧随`id`之后
-- 当布局中的一个元素不再包含子元素时，另起一行，使用自闭合标签`/>`，方便调整和添加新的属性
+- `android:id` 作为第一个属性存在
+- 如果存在 `style` 属性，则紧随 `id` 之后
+- 如果不存在 `style` 属性，则 `android:layout_****` 紧随 `id` 之后
+- 当布局中的一个元素不再包含子元素时，另起一行，使用自闭合标签 `/>`，方便调整和添加新的属性
+- 善用 IDE 的 Reformat Code 功能，尽量在编辑完 XML 文件后进行格式化
 
 示例如下：
 
@@ -249,24 +233,24 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
     >
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/tvTitle"
         style="@style/FancyText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="@string/name"
+        tools:text="This is title."
         />
 
-    <include layout="@layout/reusable_part" />
+    <include layout="@layout/partial_header" />
 
 </LinearLayout>
 ```
 
-### Drawable相关
+### Drawable 相关
 
-- 常规Drawable（图像）文件命名方式：
+- 常规 Drawable（图像）文件命名方式：
 
-| Asset Type   | Prefix            |		Example              |
+| Asset Type   | Prefix            |		Example          |
 |--------------| ------------------|-----------------------------|
 | Action bar   | `ab_`             | `ab_stacked.9.png`          |
 | Button       | `btn_`	           | `btn_send_pressed.9.png`    |
@@ -278,7 +262,7 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 | Tabs         | `tab_`            | `tab_pressed.9.png`         |
 
 
-- 常规icon（图标）文件命名方式：
+- 常规 icon（图标）文件命名方式：
 
 | Asset Type                      | Prefix             | Example                      |
 | --------------------------------| ----------------   | ---------------------------- |
@@ -290,7 +274,7 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 | Dialog icons                    | `ic_dialog`        | `ic_dialog_info.png`         |
 
 
-- 常规selector states（选中状态）文件命名方式：
+- 常规 selector states（选中状态）文件命名方式：
 
 | State	       | Suffix          | Example                     |
 |--------------|-----------------|-----------------------------|
@@ -302,27 +286,9 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 
 
 
-### Color相关
+### Color 相关
 
-`colors.xml`文件就像个“调色板”，只映射颜色的ARGB值，不应该存在其他类型的数值，更不要使用它为不同的按钮来定义ARGB值。
-
-不建议使用以下命名规则：
-
-```xml
-<resources>
-	<color name="button_foreground">#FFFFFF</color>
-	<color name="button_background">#2A91BD</color>
-	<color name="comment_background_inactive">#5F5F5F</color>
-	<color name="comment_background_active">#939393</color>
-	<color name="comment_foreground">#FFFFFF</color>
-	<color name="comment_foreground_important">#FF9D2F</color>
-	...
-	<color name="comment_shadow">#323232</color>
-```
-
-使用这种定义方式，我们需要非常的谨慎，一不小心就会重复定义ARGB值，而且当改变基本色时，会造成很多冗余重复的操作。
-
-相反地，我们应该根据颜色或者风格对ARGB赋值：
+`colors.xml` 文件就像个“调色板”，只映射颜色的 ARGB 值，不应该存在其他类型的数值，不要使用它为不同的按钮来定义 ARGB 值。应该像下面：
 
 ```xml
 <resources>
@@ -343,14 +309,14 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 </resources>
 ```
 
-对同一色调，不同色域进行定义时，像"brand_primary"、"brand_secondary"、 "brand_negative"这样的命名也是不错的选择。
+对同一色调，不同色域进行定义时，像 "brand_primary"、"brand_secondary"、 "brand_negative" 这样的命名也是不错的选择。
 
-值得一提的是，这样规范的颜色很容易修改或重构，App一共使用了多少种不同的颜色变会得非常清晰。
+值得一提的是，这样规范的颜色很容易修改或重构，App 一共使用了多少种不同的颜色变会得非常清晰。
 
 
-### Dimen相关
+### Dimen 相关
 
-我们应该像对待`colors.xml`一样对待`dimens.xml`文件，与定义颜色调色板无异，也应该定义一个规范字体大小的“字号板”。
+我们应该像对待 `colors.xml` 一样对待 `dimens.xml` 文件，与定义颜色调色板无异，也应该定义一个规范字体大小的 **“字号板”**。
 
 一个很好的建议：
 
@@ -378,13 +344,13 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 </resources>
 ```
 
-同样的，在定义`margin`和`padding`时，可以使用`spacing_****`作为前缀对其命名，而不是像对待`String`字符串那样直接写值。
+同样的，在定义 `margin` 和 `padding` 时，可以使用 `spacing_****` 作为前缀对其命名，而不是像对待 `String` 字符串那样直接写值。
 
 这样写的好处是，使组织结构和修改风格甚至布局变得非常容易。
 
-### String相关
+### String 相关
 
-String命名的前缀应该能够清楚地表达它的功能职责，如，`registration_email_hint`，`registration_name_hint`。如果一个Sting不属于任何模块，这也就意味着它是通用的，应该遵循以下规范：
+String 命名的前缀应该能够清楚地表达它的功能职责，如，`registration_email_hint`，`registration_name_hint`。如果一个 Sting 不属于任何模块，这也就意味着它是通用的，应该遵循以下规范：
 
 
 | Prefix             | Description                           |
@@ -394,16 +360,15 @@ String命名的前缀应该能够清楚地表达它的功能职责，如，`regi
 | `title_`           | 标题提示，如，Dialog标题              |
 | `action_`          | 动作提示，如，“保存”，“取消”，“创建”  |
 
-### Style与Theme相关
+### Style 与 Theme 相关
 
-Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。应该谨慎使用`style`与`theme`，避免重复冗余的文件出现。可以有多个`styles.xml` 文件，如：`styles.xml`，`style_home.xml`，`style_item_details.xml`，`styles_forms.xml`等。
-**`res/values`目录下的文件可以任意命名，但前提是该文件能够明确表达职责所属，因为起作用的并不是文件本身，而是内部的标签属性。**
+Style 与 Theme 的命名统一使用 [驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。应该谨慎使用 `style` 与 `theme`，避免重复冗余的文件出现。可以有多个 `styles.xml` 文件，如：`styles.xml`，`style_home.xml`，`style_item_details.xml`，`styles_forms.xml` 等。
+**`res/values` 目录下的文件可以任意命名，但前提是该文件能够明确表达职责所属，因为起作用的并不是文件本身，而是内部的标签属性。**
 
 
 ### 使用 Designtime Attributes（tools 标签）
 
-- 布局预览应使用`tools:****`相关属性，避免`android:text`等硬编码的出现，具体可参考[Designtime Attributes](http://tools.android.com/tips/layout-designtime-attributes)。
-示例如下：
+- 布局预览应使用 `tools:****` 相关属性，避免 `android:text` 等硬编码的出现，具体可参考 [Designtime Attributes](http://tools.android.com/tips/layout-designtime-attributes)。示例如下：
 
 ```xml
 <TextView
@@ -412,28 +377,19 @@ Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wik
     tools:text="Home Link" />
 ```
 
-避免以下代码的出现：
-
-```xml
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Home Link" />
-```
-
 ### 通用 `style`
 
-值得一提的是，`android:layout_****`属性应该在XML中定义，同时其它属性`android:****`应放在`style`中。核心准则是保证Layout属性(position, margin, size等)和content属性在布局文件中，同时将所有的外观细节属性（color, padding, font）放
-在style文件中。
+值得一提的是，`android:layout_****` 属性应该在XML中定义，同时其它属性 `android:****` 应放在 `style` 中。核心准则是保证 Layout 属性（position, margin, size 等）和 content 属性在布局文件中，同时将所有的外观细节属性（color, padding, font）放
+在 style 文件中。
 
 另外，在上面提到的准则中，有以下几点需要注意：
 
-- `android:id`明显应该在layout文件中
-- Layout文件中的`android:orientation`属性对于一个`LinearLayout`布局来说，更具有意义
-- 由于使用`android:text`定义内容，所以这个属性应该放在Layout文件中
-- 有时候将`android:layout_width`和`android:layout_height`属性放到一个`style.xml`中作为一个通用的风格更有意义，但是默认情况下把这些属性放到Layout文件中比放到`style.xml`文件中更加直观。
+- `android:id` 明显应该在 layout 文件中
+- Layout 文件中的 `android:orientation` 属性对于一个 `LinearLayout` 布局来说，更具有意义
+- 由于使用 `android:text` 定义内容，所以这个属性应该放在 Layout 文件中
+- 有时候将 `android:layout_width` 和 `android:layout_height` 属性放到一个 `style.xml` 中作为一个通用的风格更有意义，但是默认情况下把这些属性放到 Layout 文件中比放到 `style.xml` 文件中更加直观。
 
 ### 避免层级冗余的嵌套
 
-Layout结构优化方面，应尽量避免深层次的布局嵌套，这不仅会引发性能瓶颈，还会带来项目维护上的麻烦。在书写布局之前应该对ViewTree充分的分析，善用[`<merge>`标签](http://stackoverflow.com/questions/8834898/what-is-the-purpose-of-androids-merge-tag-in-xml-layouts)减少层级嵌套，或者使用[Hierarchy Viewer](http://developer.android.com/intl/zh-cn/tools/help/hierarchy-viewer.html)等UI优化工具对Layout进行分析与优化。可参考[Optimizing Your UI](http://developer.android.com/intl/zh-cn/tools/debugging/debugging-ui.html)与[Optimizing Layout Hierarchies](http://developer.android.com/intl/zh-cn/training/improving-layouts/optimizing-layout.html)。
+Layout 结构优化方面，应尽量避免深层次的布局嵌套，这不仅会引发性能瓶颈，还会带来项目维护上的麻烦。在书写布局之前应该 对 ViewTree 充分的分析，善用 [`<merge>`标签](http://stackoverflow.com/questions/8834898/what-is-the-purpose-of-androids-merge-tag-in-xml-layouts) 减少层级嵌套，或者使用 [Hierarchy Viewer](http://developer.android.com/intl/zh-cn/tools/help/hierarchy-viewer.html) 等 UI 优化工具对 Layout 进行分析与优化。可参考 [Optimizing Your UI](http://developer.android.com/intl/zh-cn/tools/debugging/debugging-ui.html) 与 [Optimizing Layout Hierarchies](http://developer.android.com/intl/zh-cn/training/improving-layouts/optimizing-layout.html)。
 
