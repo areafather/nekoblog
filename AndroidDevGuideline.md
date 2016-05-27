@@ -4,7 +4,7 @@
 ## 总览
 
 ### 设计
-- 定义好调色板，所有颜色 **只能** 从调色板中获取，不能使用硬编码
+- 定义好调色板，所有颜色 **只能** 从调色板中获取，任何地方都应该避免硬编码
 - 图标可以考虑使用流行图标字体库（Fontawesome）
 - 开发前对一遍设计稿，定好所有 Dimen，尽量使用 Dimen 板
 - Multiple State（多状态） Drawable 命名规则：[android-selector-chapek](https://github.com/inmite/android-selector-chapek)
@@ -47,11 +47,9 @@ MVP，Flux／Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)**。
 - `View` 和 `Presenter` 之间是双向依赖，所以通过接口解藕，便于进行 UI Mock 测试，而 `Presenter` 和 `Model` 是单向依赖，可以直接编写单元测试来测试 `Model`。
 
 ### Flux 的一些思想
-- **FP 的思想很适合前端（Rx 在 Android 领域的火爆验证了这一点）**
-- **Pure function**
-Function 不影响外部变量（不产生副作用），且给定输入，输出不变。
-- **Map，Reduce**
-数据的流处理，将指定流通过 `MapReduce`  加工成任意流。
+- **FP 的思想很适合前端**：Rx 在 Android 领域的火爆验证了这一点（对事件或数据的流加工）
+- **Pure function**：Function 不影响外部变量（不产生副作用），且给定输入，输出不变。
+- **Map，Reduce**：对数据的流处理，任意流都可以通过 `Map&Reduce` 加工成任意流。
 
 
 ## Git 协同守则
@@ -117,7 +115,7 @@ git push -f origin _yangfan
 # 代码守则
 参考并修改自 [android-best-practices](https://github.com/futurice/android-best-practices) 和 [Android-Guideline](https://github.com/RxSmart/Link-Android-Guideline/blob/master/Android-Guideline.md)。
 
-## Kotlin/Java 文件
+## Kotlin 源代码
 
 对类文件使用 [驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。包名使用 [小写连写](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html)，单词较多可以使用 `_` 分割符。
 
@@ -148,25 +146,23 @@ internal class TestActivity: Activity() {
 
 ### Kotlin 语言相关
 
-看完并理解 **[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/)**。
-
 - 理解好 Kotlin 中的 **[Function 类型](https://kotlinlang.org/docs/reference/functions.html)**，理解 `inline` 和 `infix` 修饰符，掌握 Kotlin 中的 **[Extensions](https://kotlinlang.org/docs/reference/extensions.html)** 和 **[DSL 的定义](https://kotlinlang.org/docs/reference/type-safe-builders.html)**，领悟 Function 在 Kotlin 的地位（第一公民）。
-- `ByteArray`、`ShortArray`、`IntArray` 等并不继承于 `Array`，它们在 Jvm 中表现为 `byte[]`... ，所以应该更倾向于选择它们
-- 使用 `Any` 而不是 `Object`（注意 Lint 的提示，也会建议使用 `Any`）
-- 用好 `Pair` 和 `Triple` 来避免某些情况新建类
-- 使用好注解：`@Deprecated`（标注不推荐的对象）、`@ReplaceWith`（标注能进行替换的代码块）
-- 注意好 `Throwable`、`Exception` 和 `Error` 的区别，对于可捕捉的错误应该使用 `Exception` 而不是 `Throwable`
-- 理解好 `apply()`、`let()`、`with()`、`to()`、`repeat()` 的糖用法
-- 使用 `val localA = A!! // or checkNotNull(A)` 将 Nullable 变量转换为 NotNull 类型的 Local Scope 变量
-
+- 看完并理解 **[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/)**。
+- `ByteArray`、`ShortArray`、`IntArray` 等并不继承于 `Array`，它们在 Jvm 中表现为 `byte[]`... ，所以应该更倾向于选择它们。
+- 使用 `Any` 而不是 `Object`。（注意 Lint 的提示，也会建议使用 `Any`）
+- 用好 `Pair` 和 `Triple` 来避免某些情况新建类。
+- 使用好注解：`@Deprecated`（标注不推荐的对象）、`@ReplaceWith`（标注能进行替换的代码块）。
+- 注意好 `Throwable`、`Exception` 和 `Error` 的区别，对于可捕捉的错误应该使用 `Exception` 而不是 `Throwable`。
+- 理解好 `apply()`、`let()`、`with()`、`to()`、`repeat()` 的糖用法。
+- 使用 `val localA = A!! // or checkNotNull(A)` 将 Nullable 变量转换为 NotNull 类型的 Local Scope 变量。
 
 ### Log 输出规范
 
 使用 `Log` 类打印一些重要的信息对开发者而言是很重要的事情，切记不要使用 `Toast` 来做信息打印。
 
-**VERBOSE** 和 **DEBUG** 类型的 Log 不应该出现在 Release 版本中，**INFORMATION**、**WARNING** 和 **ERROR** 类型的 Log 可以留下来，因为这些信息的输出能够帮助我们快速地定位问题所在，当然前提是，需要隐藏重要的信息输出，如，用户手机号，邮箱等。
+VERBOSE 和 DEBUG 类型的 Log 不应该出现在 Release 版本中，INFORMATION、WARNING 和 ERROR 类型的 Log 可以留下来，因为这些信息的输出能够帮助我们快速地定位问题所在，当然前提是，需要隐藏重要的信息输出，如，用户手机号，邮箱等。
 
-只在Debug环境中输出日志的小技巧：
+只在 Debug 环境中输出日志的小技巧：
 
 ```kotlin
 if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
@@ -183,12 +179,6 @@ if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
 5. 被 `private` 修饰的函数
 6. 被 `public` 修饰的函数
 7. 被定义的内部类或者接口
-
-### 提高程序可读性
-
-我们应该在日常开发中养成添加注释的习惯，避免 **魔鬼数字** 与 **硬编码** 的出现，这样不仅可以提高可读性与可维护性，还能为逻辑的重构带来很大的便捷。
-
-这里有个很好的建议，使用 [RxJava](https://github.com/ReactiveX/RxJava) 让程序变得更加可读，更加函数化。
 
 
 ## 资源文件 Resources
