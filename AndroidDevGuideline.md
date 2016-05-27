@@ -111,9 +111,10 @@ git push -f origin _yangfan
 - 提交 PR 前如果确保当前分支在 dev 分支 HEAD 处的话可以不进行 Rebase
 - dev 分支将处于 protected 状态，非不得已要执行 force push 的话，要提交通知所有开发成员
 
+---
 
-# 代码守则
-参考并修改自 [android-best-practices](https://github.com/futurice/android-best-practices) 和 [Android-Guideline](https://github.com/RxSmart/Link-Android-Guideline/blob/master/Android-Guideline.md)。
+# 编码准则
+参考并修改自 [Android-Best-Practices](https://github.com/futurice/android-best-practices) 和 [Android-Guideline](https://github.com/RxSmart/Link-Android-Guideline/blob/master/Android-Guideline.md)。
 
 
 ## Kotlin 源代码
