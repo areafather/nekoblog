@@ -24,6 +24,7 @@
 - 使用 [Redex](https://github.com/facebook/redex) 等工具对 Dex 文件进行优化（也可使用 (redex-plugin)[https://github.com/timmutton/redex-plugin]）
 - 使用 [Nimbledroid](https://nimbledroid.com/) 进行应用性能分析
 - 适当使用依赖注入（常用的模块，需要单元测试的模块）
+- **使用 Fragment 来构建页面内容，使用 Activity 来管理 Fragment**
 - 尽量使用 Anko DSL 来创建视图
 
 
@@ -115,27 +116,15 @@ git push -f origin _yangfan
 ## 代码守则
 参考并修改自 [android-best-practices](https://github.com/futurice/android-best-practices) 和 [Android-Guideline](https://github.com/RxSmart/Link-Android-Guideline/blob/master/Android-Guideline.md)。
 
-### 摘要
-- 使用 Gradle 和它推荐的工程结构
-- 把密码和敏感数据放在 gradle.properties
-- 在 layoutout XMLs 布局时，使用 Styles 文件来避免使用重复的属性
-- 使用多个 Style 文件来避免单一的一个大 Style 文件
-- 总是使用 colors.xml 和 dimens.xml DRY(不要重复自己)，只是定义调色板和通用常数
-- 总是使用 ProGuard 和 DexGuard 混淆来项目
+### **Java文件**
 
-### **命名规范**
+对 Java 类文件使用 [驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。包名使用 [小写连写](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html)，单词较多可以使用 `_` 分割符。
 
-#### **Java文件**
-
-对Java类文件使用[驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。
-
-对于继承自Android组件的类来说，类名应该以这个组件的类型作后缀，如：`SignInActivity, UserProfileFragment, ImageUploaderService, ChangePasswordDialog`
-
-#### **XML文件**
+### **XML文件**
 
 资源等`.xml`文件应该采用**小写字母_下划线**的组合形式。
 
-##### **Drawable相关**
+#### **Drawable相关**
 
 - 常规Drawable（图像）文件命名方式：
 
@@ -174,7 +163,7 @@ git push -f origin _yangfan
 | Selected     | `_selected`     | `btn_order_selected.9.png`  |
 
 
-##### **Lyout相关**
+#### **Lyout相关**
 
 - 布局（Layout）文件命名方式：
 
@@ -219,7 +208,7 @@ git push -f origin _yangfan
 ```
 
 
-##### **Color相关**
+#### **Color相关**
 
 `colors.xml`文件就像个“调色板”，只映射颜色的ARGB值，不应该存在其他类型的数值，更不要使用它为不同的按钮来定义ARGB值。
 
@@ -265,7 +254,7 @@ git push -f origin _yangfan
 值得一提的是，这样规范的颜色很容易修改或重构，App一共使用了多少种不同的颜色变会得非常清晰。
 
 
-##### **Dimen相关**
+#### **Dimen相关**
 
 我们应该像对待`colors.xml`一样对待`dimens.xml`文件，与定义颜色调色板无异，也应该定义一个规范字体大小的“字号板”。
 
@@ -299,7 +288,7 @@ git push -f origin _yangfan
 
 这样写的好处是，使组织结构和修改风格甚至布局变得非常容易。
 
-##### **String相关**
+#### **String相关**
 
 String命名的前缀应该能够清楚地表达它的功能职责，如，`registration_email_hint`，`registration_name_hint`。如果一个Sting不属于任何模块，这也就意味着它是通用的，应该遵循以下规范：
 
@@ -316,12 +305,9 @@ String命名的前缀应该能够清楚地表达它的功能职责，如，`regi
 Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。应该谨慎使用`style`与`theme`，避免重复冗余的文件出现。可以有多个`styles.xml` 文件，如：`styles.xml`，`style_home.xml`，`style_item_details.xml`，`styles_forms.xml`等。
 **`res/values`目录下的文件可以任意命名，但前提是该文件能够明确表达职责所属，因为起作用的并不是文件本身，而是内部的标签属性。**
 
+### **XML文件规范**
 
-### **编码规范与指导方针**
-
-#### **XML文件规范**
-
-##### **属性排序**
+#### **属性排序**
 
 对于如何排版一个布局文件，请尽量遵循以下规范：
 
@@ -356,7 +342,7 @@ Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wik
 </LinearLayout>
 ```
 
-##### **使用`tools`标签预览视图**
+#### **使用`tools`标签预览视图**
 
 - 布局预览应使用`tools:****`相关属性，避免`android:text`等硬编码的出现，具体可参考[Designtime attributes](http://tools.android.com/tips/layout-designtime-attributes)。
 示例如下：
@@ -377,7 +363,7 @@ Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wik
     android:text="Home Link" />
 ```
 
-##### **通用`style`**
+#### **通用`style`**
 
 值得一提的是，`android:layout_****`属性应该在XML中定义，同时其它属性`android:****`应放在`style`中。核心准则是保证Layout属性(position, margin, size等)和content属性在布局文件中，同时将所有的外观细节属性（color, padding, font）放
 在style文件中。
@@ -389,14 +375,14 @@ Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wik
 - 由于使用`android:text`定义内容，所以这个属性应该放在Layout文件中
 - 有时候将`android:layout_width`和`android:layout_height`属性放到一个`style.xml`中作为一个通用的风格更有意义，但是默认情况下把这些属性放到Layout文件中比放到`style.xml`文件中更加直观。
 
-##### **避免层级冗余的嵌套**
+#### **避免层级冗余的嵌套**
 
 Layout结构优化方面，应尽量避免深层次的布局嵌套，这不仅会引发性能瓶颈，还会带来项目维护上的麻烦。在书写布局之前应该对ViewTree充分的分析，善用[`<merge>`标签](http://stackoverflow.com/questions/8834898/what-is-the-purpose-of-androids-merge-tag-in-xml-layouts)减少层级嵌套，或者使用[Hierarchy Viewer](http://developer.android.com/intl/zh-cn/tools/help/hierarchy-viewer.html)等UI优化工具对Layout进行分析与优化。可参考[Optimizing Your UI](http://developer.android.com/intl/zh-cn/tools/debugging/debugging-ui.html)与[Optimizing Layout Hierarchies](http://developer.android.com/intl/zh-cn/training/improving-layouts/optimizing-layout.html)。
 
 
-#### **Java代码规范**
+### **Java代码规范**
 
-##### **处理`Exception`**
+#### **处理`Exception`**
 
 如果对异常没有任何处理方案，至少应该在`catch`代码块中添加打印异常逻辑`e.printStackTrace()`，以下是不建议采用的处理方式：
 
@@ -410,7 +396,7 @@ void setServerPort(String value) {
 
 你可能认为这种异常的触发概率极低，或者认为即便发生，也不需要做着重的处理，因此在`catch()`代码块中不添加任何逻辑，这大大增加了定位异常的难度，这里的建议是尽量处理每一个异常，具体的处理逻辑依赖于所处的上下文场景，对异常的处理同样能够增加系统的弹性，让程序变更健壮。
 
-##### **Field定义与命名规范**
+#### **Field定义与命名规范**
 
 对Field的定义应该放在文件的首位，并且遵守以下规范：
 
@@ -432,7 +418,7 @@ public class MyClass {
 }
 ```
 
-##### **缩写词命名规范**
+#### **缩写词命名规范**
 
 | Good             | Bad              |
 | --------------   | --------------   |
@@ -442,7 +428,7 @@ public class MyClass {
 | `long id`        | `long ID`        |
 
 
-##### **注解使用规范**
+#### **注解使用规范**
 
 - `@Override`： 子类实现或者重写父类方法时，必须使用`@Override`对函数进行标注。
 - `@SuppressWarnings`： 注解`@SuppressWarnings`应该用在消除那些明确不可能发生的警告上，示例如下：
@@ -465,13 +451,13 @@ private Handler mHandler = new Handler() {
 ```
 更多关于注解的使用技巧与规范请参考[这里](http://source.android.com/source/code-style.html#use-standard-java-annotations)。
 
-##### **限制变量的作用域**
+#### **限制变量的作用域**
 
 定义变量时，应该保证变量所在域的最小化，这样做不仅能够增加代码的可读性和可维护性，还能有效减少出错的可能性。变量定义在尽可能小的域中，也是良好封装性的体现。
 
 变量应该在首次使用时被初始化，如果没有足够的条件来使用它，那么就应该延迟创建，直到真正需要使用的时候再去进行初始化操作。
 
-##### **Log输出规范**
+#### **Log输出规范**
 
 使用`Log`类打印一些重要的信息对开发者而言是很重要的事情，切记不要使用`Toast`来做信息打印。
 
@@ -503,7 +489,7 @@ public class MyClass {
 if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x);
 ```
 
-##### **类成员排序规范**
+#### **类成员排序规范**
 
 关于这个并没有硬性要求，不过好的排序方式，能够提高可读性和易学性。这里给出一些排序建议：
 
@@ -563,7 +549,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-##### **方法函数中的参数排序规范**
+#### **方法函数中的参数排序规范**
 
 在Android日常开发中，很多情况下都需要使用`Context`，所以经常被作为参数传入方法中，这里给出的建议是，如果函数签名中存在`Context`，则作为第一个参数，如果存在`Callback`则作为最后一个参数，示例如下：
 
@@ -571,7 +557,7 @@ public class MainActivity extends Activity {
 public void loadUserAsync(Context context, int userId, UserCallback callback);
 ```
 
-##### **字符串常量的命名与赋值规范**
+#### **字符串常量的命名与赋值规范**
 
 Android SDK中诸如`SharedPreferences`，`Bundle`和`Intent`等，都采用**key-value**的方式进行赋值，当使用这些组件的时候，**key**必须被`static final`所修饰，并且命名应该符合以下规范：
 
@@ -595,7 +581,7 @@ static final String EXTRA_SURNAME = "com.myapp.extras.EXTRA_SURNAME";
 static final String ACTION_OPEN_USER = "com.myapp.action.ACTION_OPEN_USER";
 ```
 
-##### **Activity和Fragment打开方式**
+#### **Activity和Fragment打开方式**
 
 当通过`Intent`或者`Bundle`向`Activity`与`Fragment`传值时，应该遵循上面提到的`key-value`规范，公开一个被`public static`修饰的方法，方法的参数应该包含所有打开这个`Activity`或者`Fragment`的信息，示例如下：
 
@@ -627,7 +613,7 @@ public static UserFragment newInstance(User user) {
 2. 如`EXTRA_USER`，`ARGUMENT_USER`等常量`key`，应该放在本类中被`private`所修饰，不应该暴露给其它外部类。
 
 
-#### **提高程序可读性**
+### **提高程序可读性**
 
 我们应该在日常开发中养成添加注释的习惯，避免**魔鬼数字**与**硬编码**的出现，这样不仅可以提高可读性与可维护性，还能为逻辑的重构带来很大的便捷。
 
