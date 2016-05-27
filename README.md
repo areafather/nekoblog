@@ -11,7 +11,6 @@ nekocode的 `markdown` 博客
 ### Note
 - **[Android.md](Android.md)**
 - **[AndroidDevGuideline.md](AndroidDevGuideline.md)**
-- **[AndroidBestPractices.md](AndroidBestPractices.md)**
 - **[Python.md](Python.md)**
 - **[Backend.md](Backend.md)**
 - **[Git.md](Git.md)**
