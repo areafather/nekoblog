@@ -47,6 +47,7 @@ MVP，Flux／Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)**。
 - `View` 和 `Presenter` 之间是双向依赖，所以通过接口解藕，便于进行 UI Mock 测试，而 `Presenter` 和 `Model` 是单向依赖，可以直接编写单元测试来测试 `Model`。
 
 ### Flux 的一些思想
+- **FP 的思想很适合前端（Rx 在 Android 领域的火爆验证了这一点）**
 - **Pure function**
 Function 不影响外部变量（不产生副作用），且给定输入，输出不变。
 - **Map，Reduce**
@@ -116,52 +117,83 @@ git push -f origin _yangfan
 ## 代码守则
 参考并修改自 [android-best-practices](https://github.com/futurice/android-best-practices) 和 [Android-Guideline](https://github.com/RxSmart/Link-Android-Guideline/blob/master/Android-Guideline.md)。
 
-### **Java文件**
+### Kotlin/Java 文件
 
-对 Java 类文件使用 [驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。包名使用 [小写连写](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html)，单词较多可以使用 `_` 分割符。
+对类文件使用 [驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。包名使用 [小写连写](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html)，单词较多可以使用 `_` 分割符。
 
-### **XML文件**
+#### Property 定义与命名规范
 
-资源等`.xml`文件应该采用**小写字母_下划线**的组合形式。
+对 Property 的定义应该放在文件的首位，另外请注意 **[Kotlin 可视修饰符和 Java 的不同](http://kotlinlang.org/docs/reference/visibility-modifiers.html)**，并且遵守以下规范：
 
-#### **Drawable相关**
+- 要注意 Kotlin 的默认可视修饰符为 `public`
+- Kotlin 的 `internal` 修饰符，可以让目标对象只在同一 Module（IDE 下的 Module） 下可访问（例如创建一个插件 Module 的时候，可以使用 `internal` 对外隐藏一些实现细节）
+- Android 下的组件以及控件尽量以 **类型** 的缩写小写字母作为前缀，例如以下一些可选的前缀
+ - `act` (Activity), `frg` (Fragment)
+ - `tv` (TextView), `et` (EditText), `btn` (Button),  `rv` (RecyclerView) 类推...
+- 静态常量命名字母全部大写，单词之间用下划线分隔，且必须使用 `const val` 修饰符
+- Android SDK中诸如 `SharedPreferences`，`Bundle` 和 `Intent` 等，都采用 **key-value** 的方式进行赋值，当使用这些组件的时候，**key** 必须被 `private const val` 所修饰，并以 `KEY_` 作为前缀。
 
-- 常规Drawable（图像）文件命名方式：
+示例：
+```kotlin
+internal class TestActivity: Activity() {
+    compainion object {
+        const val CONSTANT: Int = 0
+        private const val KEY_ARG_TITLE = "title"
+    }
+    val title: String = "Title"
+    var listSize: Int? = null
+    private var frgHomepage: Fragment? = null
+}
+```
 
-| Asset Type   | Prefix            |		Example              |
-|--------------| ------------------|-----------------------------|
-| Action bar   | `ab_`             | `ab_stacked.9.png`          |
-| Button       | `btn_`	           | `btn_send_pressed.9.png`    |
-| Dialog       | `dialog_`         | `dialog_top.9.png`          |
-| Divider      | `divider_`        | `divider_horizontal.9.png`  | 
-| Icon         | `ic_`	           | `ic_star.png`               |
-| Menu         | `menu_	`          | `menu_submenu_bg.9.png`     |
-| Notification | `notification_`   | `notification_bg.9.png`     |
-| Tabs         | `tab_`            | `tab_pressed.9.png`         |
+#### Kotlin 语言相关
+
+看完并理解 **[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/)**。
+
+- 理解好 Kotlin 中的 **[Function 类型](https://kotlinlang.org/docs/reference/functions.html)**，理解 `inline` 和 `infix` 修饰符，掌握 Kotlin 中的 **[Extensions](https://kotlinlang.org/docs/reference/extensions.html)** 和 **[DSL 的定义](https://kotlinlang.org/docs/reference/type-safe-builders.html)**，领悟 Function 在 Kotlin 的地位（第一公民）。
+- `ByteArray`、`ShortArray`、`IntArray` 等并不继承于 `Array`，它们在 Jvm 中表现为 `byte[]`... ，所以应该更倾向于选择它们
+- 使用 `Any` 而不是 `Object`（注意 Lint 的提示，也会建议使用 `Any`）
+- 用好 `Pair` 和 `Triple` 来避免某些情况新建类
+- 使用好注解：`@Deprecated`（标注不推荐的对象）、`@ReplaceWith`（标注能进行替换的代码块）
+- 注意好 `Throwable`、`Exception` 和 `Error` 的区别，对于可捕捉的错误应该使用 `Exception` 而不是 `Throwable`
+- 理解好 `apply()`、`let()`、`with()`、`to()`、`repeat()` 的糖用法
+- 使用 `val localA = A!! // or checkNotNull(A)` 将 Nullable 变量转换为 NotNull 类型的 Local Scope 变量
 
 
-- 常规icon（图标）文件命名方式：
+#### Log 输出规范
 
-| Asset Type                      | Prefix             | Example                      |
-| --------------------------------| ----------------   | ---------------------------- |
-| Icons                           | `ic_`              | `ic_star.png`                |
-| Launcher icons                  | `ic_launcher`      | `ic_launcher_calendar.png`   |
-| Menu icons and Action Bar icons | `ic_menu`          | `ic_menu_archive.png`        |
-| Status bar icons                | `ic_stat_notify`   | `ic_stat_notify_msg.png`     |
-| Tab icons                       | `ic_tab`           | `ic_tab_recent.png`          |
-| Dialog icons                    | `ic_dialog`        | `ic_dialog_info.png`         |
+使用 `Log` 类打印一些重要的信息对开发者而言是很重要的事情，切记不要使用 `Toast` 来做信息打印。
+
+**VERBOSE** 和 **DEBUG** 类型的 Log 不应该出现在 Release 版本中，**INFORMATION**、**WARNING** 和 **ERROR** 类型的 Log 可以留下来，因为这些信息的输出能够帮助我们快速地定位问题所在，当然前提是，需要隐藏重要的信息输出，如，用户手机号，邮箱等。
+
+只在Debug环境中输出日志的小技巧：
+
+```kotlin
+if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x)
+```
+
+#### 类成员排序规范
+
+关于这个并没有硬性要求，不过好的排序方式，能够提高可读性和易学性。这里给出一些排序建议：
+
+1. 常量
+2. 字段
+3. 构造函数
+4. 被重写的函数（不区分修饰符类型）
+5. 被 `private` 修饰的函数
+6. 被 `public` 修饰的函数
+7. 被定义的内部类或者接口
+
+### **提高程序可读性**
+
+我们应该在日常开发中养成添加注释的习惯，避免 **魔鬼数字** 与 **硬编码** 的出现，这样不仅可以提高可读性与可维护性，还能为逻辑的重构带来很大的便捷。
+
+这里有个很好的建议，使用 [RxJava](https://github.com/ReactiveX/RxJava) 让程序变得更加可读，更加函数化。
 
 
-- 常规selector states（选中状态）文件命名方式：
+### 资源文件 Resources
 
-| State	       | Suffix          | Example                     |
-|--------------|-----------------|-----------------------------|
-| Normal       | `_normal`       | `btn_order_normal.9.png`    |
-| Pressed      | `_pressed`      | `btn_order_pressed.9.png`   |
-| Focused      | `_focused`      | `btn_order_focused.9.png`   |
-| Disabled     | `_disabled`     | `btn_order_disabled.9.png`  |
-| Selected     | `_selected`     | `btn_order_selected.9.png`  |
-
+资源等`.xml`文件应该采用 **小写字母_下划线** 的组合形式，并遵循前缀表明类型的习惯，形如 `type_foo_bar.xml`。
 
 #### **Lyout相关**
 
@@ -206,6 +238,78 @@ git push -f origin _yangfan
         android:title="Done" />
 </menu>
 ```
+
+对于如何排版一个布局文件，请尽量遵循以下规范：
+
+- 每个属性独占一行，缩进四个空格
+-  `android:id`作为第一个属性存在
+- 如果存在`style`属性，则紧随`id`之后
+- 如果不存在`style`属性，则`android:layout_****`紧随`id`之后
+- 当布局中的一个元素不再包含子元素时，另起一行，使用自闭合标签`/>`，方便调整和添加新的属性
+
+示例如下：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/FancyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/name"
+        />
+
+    <include layout="@layout/reusable_part" />
+
+</LinearLayout>
+```
+
+#### **Drawable相关**
+
+- 常规Drawable（图像）文件命名方式：
+
+| Asset Type   | Prefix            |		Example              |
+|--------------| ------------------|-----------------------------|
+| Action bar   | `ab_`             | `ab_stacked.9.png`          |
+| Button       | `btn_`	           | `btn_send_pressed.9.png`    |
+| Dialog       | `dialog_`         | `dialog_top.9.png`          |
+| Divider      | `divider_`        | `divider_horizontal.9.png`  | 
+| Icon         | `ic_`	           | `ic_star.png`               |
+| Menu         | `menu_	`          | `menu_submenu_bg.9.png`     |
+| Notification | `notification_`   | `notification_bg.9.png`     |
+| Tabs         | `tab_`            | `tab_pressed.9.png`         |
+
+
+- 常规icon（图标）文件命名方式：
+
+| Asset Type                      | Prefix             | Example                      |
+| --------------------------------| ----------------   | ---------------------------- |
+| Icons                           | `ic_`              | `ic_star.png`                |
+| Launcher icons                  | `ic_launcher`      | `ic_launcher_calendar.png`   |
+| Menu icons and Action Bar icons | `ic_menu`          | `ic_menu_archive.png`        |
+| Status bar icons                | `ic_stat_notify`   | `ic_stat_notify_msg.png`     |
+| Tab icons                       | `ic_tab`           | `ic_tab_recent.png`          |
+| Dialog icons                    | `ic_dialog`        | `ic_dialog_info.png`         |
+
+
+- 常规selector states（选中状态）文件命名方式：
+
+| State	       | Suffix          | Example                     |
+|--------------|-----------------|-----------------------------|
+| Normal       | `_normal`       | `btn_order_normal.9.png`    |
+| Pressed      | `_pressed`      | `btn_order_pressed.9.png`   |
+| Focused      | `_focused`      | `btn_order_focused.9.png`   |
+| Disabled     | `_disabled`     | `btn_order_disabled.9.png`  |
+| Selected     | `_selected`     | `btn_order_selected.9.png`  |
+
 
 
 #### **Color相关**
@@ -305,46 +409,10 @@ String命名的前缀应该能够清楚地表达它的功能职责，如，`regi
 Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。应该谨慎使用`style`与`theme`，避免重复冗余的文件出现。可以有多个`styles.xml` 文件，如：`styles.xml`，`style_home.xml`，`style_item_details.xml`，`styles_forms.xml`等。
 **`res/values`目录下的文件可以任意命名，但前提是该文件能够明确表达职责所属，因为起作用的并不是文件本身，而是内部的标签属性。**
 
-### **XML文件规范**
 
-#### **属性排序**
+#### 使用 `tools` 标签的 Designtime Attributes
 
-对于如何排版一个布局文件，请尽量遵循以下规范：
-
-- 每个属性独占一行，缩进四个空格
--  `android:id`作为第一个属性存在
-- 如果存在`style`属性，则紧随`id`之后
-- 如果不存在`style`属性，则`android:layout_****`紧随`id`之后
-- 当布局中的一个元素不再包含子元素时，另起一行，使用自闭合标签`/>`，方便调整和添加新的属性
-
-示例如下：
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-
-    <TextView
-        android:id="@+id/name"
-        style="@style/FancyText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="@string/name"
-        />
-
-    <include layout="@layout/reusable_part" />
-
-</LinearLayout>
-```
-
-#### **使用`tools`标签预览视图**
-
-- 布局预览应使用`tools:****`相关属性，避免`android:text`等硬编码的出现，具体可参考[Designtime attributes](http://tools.android.com/tips/layout-designtime-attributes)。
+- 布局预览应使用`tools:****`相关属性，避免`android:text`等硬编码的出现，具体可参考[Designtime Attributes](http://tools.android.com/tips/layout-designtime-attributes)。
 示例如下：
 
 ```xml
@@ -379,291 +447,3 @@ Style与Theme的命名统一使用[驼峰命名法](https://en.wikipedia.org/wik
 
 Layout结构优化方面，应尽量避免深层次的布局嵌套，这不仅会引发性能瓶颈，还会带来项目维护上的麻烦。在书写布局之前应该对ViewTree充分的分析，善用[`<merge>`标签](http://stackoverflow.com/questions/8834898/what-is-the-purpose-of-androids-merge-tag-in-xml-layouts)减少层级嵌套，或者使用[Hierarchy Viewer](http://developer.android.com/intl/zh-cn/tools/help/hierarchy-viewer.html)等UI优化工具对Layout进行分析与优化。可参考[Optimizing Your UI](http://developer.android.com/intl/zh-cn/tools/debugging/debugging-ui.html)与[Optimizing Layout Hierarchies](http://developer.android.com/intl/zh-cn/training/improving-layouts/optimizing-layout.html)。
 
-
-### **Java代码规范**
-
-#### **处理`Exception`**
-
-如果对异常没有任何处理方案，至少应该在`catch`代码块中添加打印异常逻辑`e.printStackTrace()`，以下是不建议采用的处理方式：
-
-```java
-void setServerPort(String value) {
-    try {
-        serverPort = Integer.parseInt(value);
-    } catch (NumberFormatException e) { }
-}
-```
-
-你可能认为这种异常的触发概率极低，或者认为即便发生，也不需要做着重的处理，因此在`catch()`代码块中不添加任何逻辑，这大大增加了定位异常的难度，这里的建议是尽量处理每一个异常，具体的处理逻辑依赖于所处的上下文场景，对异常的处理同样能够增加系统的弹性，让程序变更健壮。
-
-#### **Field定义与命名规范**
-
-对Field的定义应该放在文件的首位，并且遵守以下规范：
-
-- 被Private修饰的非静态变量，以**m**作为前缀
-- 被Private修饰的静态变量，以**s**作为前缀
-- 其他变量以小写字母做前缀
-- 静态常量命名字母全部大写，单词之间用下划线分隔
-
-示例：
-
-```java
-public class MyClass {
-    public static final int SOME_CONSTANT = 42;
-    public int publicField;
-    private static MyClass sSingleton;
-    int mPackagePrivate;
-    private int mPrivate;
-    protected int mProtected;
-}
-```
-
-#### **缩写词命名规范**
-
-| Good             | Bad              |
-| --------------   | --------------   |
-| `XmlHttpRequest` | `XMLHTTPRequest` |
-| `getCustomerId`  | `getCustomerID`  |
-| `String url`     | `String URL`     |
-| `long id`        | `long ID`        |
-
-
-#### **注解使用规范**
-
-- `@Override`： 子类实现或者重写父类方法时，必须使用`@Override`对函数进行标注。
-- `@SuppressWarnings`： 注解`@SuppressWarnings`应该用在消除那些明确不可能发生的警告上，示例如下：
-
-```java
-//明确的类型安全（type-safe）转换
-@SuppressWarnings("unchecked")
-public static <R> FeedbackUseCase<R> createdUseCase() {
-    return (FeedbackUseCase<R>) new FeedbackUseCase();
-}
-
-//请先确保能够非常正确地使用Handler
-@SuppressWarnings("handlerLeak")
-private Handler mHandler = new Handler() {
-    @Override
-    public void handleMessage(Message msg) {
-        super.handleMessage(msg);
-    }
-};
-```
-更多关于注解的使用技巧与规范请参考[这里](http://source.android.com/source/code-style.html#use-standard-java-annotations)。
-
-#### **限制变量的作用域**
-
-定义变量时，应该保证变量所在域的最小化，这样做不仅能够增加代码的可读性和可维护性，还能有效减少出错的可能性。变量定义在尽可能小的域中，也是良好封装性的体现。
-
-变量应该在首次使用时被初始化，如果没有足够的条件来使用它，那么就应该延迟创建，直到真正需要使用的时候再去进行初始化操作。
-
-#### **Log输出规范**
-
-使用`Log`类打印一些重要的信息对开发者而言是很重要的事情，切记不要使用`Toast`来做信息打印。
-
-针对不同的信息使用对应的日志输出类型：
-
-- `Log.v(String tag, String msg)` (verbose)
-- `Log.d(String tag, String msg)` (debug)
-- `Log.i(String tag, String msg)` (information)
-- `Log.w(String tag, String msg)` (warning)
-- `Log.e(String tag, String msg)` (error)
-
-一般情况下，当前类名作为`tag`，并且使用`static final`修饰，放在类文件的首位，示例如下：
-
-```java
-public class MyClass {
-    private static final String TAG = MyClass.class.getSimpleName();
-
-    public myMethod() {
-        Log.e(TAG, "My error message");
-    }
-}
-```
-
-**VERBOSE**和**DEBUG**类型的Log不应该出现在Release版本中，**INFORMATION**、**WARNING**和**ERROR**类型的Log可以留下来，因为这些信息的输出能够帮助我们快速地定位问题所在，当然前提是，需要隐藏重要的信息输出，如，用户手机号，邮箱等。
-
-只在Debug环境中输出日志的小技巧：
-
-```java
-if (BuildConfig.DEBUG) Log.d(TAG, "The value of x is " + x);
-```
-
-#### **类成员排序规范**
-
-关于这个并没有硬性要求，不过好的排序方式，能够提高可读性和易学性。这里给出一些排序建议：
-
-1. 常量
-2. 字段
-3. 构造函数
-4. 被重写的函数（不区分修饰符类型）
-5. 被`private`修饰的函数
-6. 被`public`修饰的函数
-7. 被定义的内部类或者接口
-
-示例如下：
-
-```
-public class MainActivity extends Activity {
-    
-    private static final String TAG = MainActivity.class.getSimpleName();
-	private String mTitle;
-    private TextView mTextViewTitle;
-
-    @Override
-    public void onCreate() {
-        ...
-    }
-
-    private void setUpView() {
-        ...
-    }
-    
-    public void setTitle(String title) {
-        mTitle = title;
-    }
-
-    static class AnInnerClass {
-
-    }
-}
-```
-
-如果继承了Android组件，比如Activity或者Fragment，重写生命周期函数时，应该按照组件的生命周期进行排序，如：
-
-```java
-public class MainActivity extends Activity {
-
-    @Override
-    public void onCreate() {}
-
-    @Override
-    public void onResume() {}
-
-    @Override
-    public void onPause() {}
-
-    @Override
-    public void onDestroy() {}
-    
-}
-```
-
-#### **方法函数中的参数排序规范**
-
-在Android日常开发中，很多情况下都需要使用`Context`，所以经常被作为参数传入方法中，这里给出的建议是，如果函数签名中存在`Context`，则作为第一个参数，如果存在`Callback`则作为最后一个参数，示例如下：
-
-```java
-public void loadUserAsync(Context context, int userId, UserCallback callback);
-```
-
-#### **字符串常量的命名与赋值规范**
-
-Android SDK中诸如`SharedPreferences`，`Bundle`和`Intent`等，都采用**key-value**的方式进行赋值，当使用这些组件的时候，**key**必须被`static final`所修饰，并且命名应该符合以下规范：
-
-| Element            | Field Name Prefix   |
-| -----------------  | -----------------   |
-| SharedPreferences  | `PREF_`             |
-| Bundle             | `BUNDLE_`           |
-| Fragment Arguments | `ARGUMENT_`         |
-| Intent Extra       | `EXTRA_`            |
-| Intent Action      | `ACTION_`           |
-
-
-需要注意的是，当调用Fragment的`.getArguments()`方法时，返回值同样是一个`Bundle`，因为这也是一个常用函数，因此我们需要定义一个不同的前缀，示例如下：
-
-```java
-static final String PREF_EMAIL = "PREF_EMAIL";
-static final String BUNDLE_AGE = "BUNDLE_AGE";
-static final String ARGUMENT_USER_ID = "ARGUMENT_USER_ID";
-
-static final String EXTRA_SURNAME = "com.myapp.extras.EXTRA_SURNAME";
-static final String ACTION_OPEN_USER = "com.myapp.action.ACTION_OPEN_USER";
-```
-
-#### **Activity和Fragment打开方式**
-
-当通过`Intent`或者`Bundle`向`Activity`与`Fragment`传值时，应该遵循上面提到的`key-value`规范，公开一个被`public static`修饰的方法，方法的参数应该包含所有打开这个`Activity`或者`Fragment`的信息，示例如下：
-
-- 通过`.startActivity()`函数，开启指定**Activity**。
-
-```java
-public static void startActivity(AppCompatActivity startingActivity, User user) {
-    Intent intent = new Intent(startingActivity, ThisActivity.class);
-    intent.putParcelableExtra(EXTRA_USER, user);
-    startingActivity.startActivity(intent);
-  }
-```
-
-- 通过`.newInstance()`函数，加载指定`Fragment`。
-
-```java
-public static UserFragment newInstance(User user) {
-	UserFragment fragment = new UserFragment;
-	Bundle args = new Bundle();
-	args.putParcelable(ARGUMENT_USER, user);
-	fragment.setArguments(args)
-	return fragment;
-}
-```
-
-需要注意一下两点：
-
-1. 以上这些方法应该放在类的开头，至少应该放在`.onCreate()`之前。
-2. 如`EXTRA_USER`，`ARGUMENT_USER`等常量`key`，应该放在本类中被`private`所修饰，不应该暴露给其它外部类。
-
-
-### **提高程序可读性**
-
-我们应该在日常开发中养成添加注释的习惯，避免**魔鬼数字**与**硬编码**的出现，这样不仅可以提高可读性与可维护性，还能为逻辑的重构带来很大的便捷。
-
-这里有个很好的建议，使用[RxJava](https://github.com/ReactiveX/RxJava)让程序变得更加可读，更加函数化。
-
-这里有一个示例，可供参考，“对一个数组中的每一个元素乘以2，然后筛选小于10的元素，并放入最终的集合中”
-
-一般写法示例：
-
-```java
-Integer[] integers = { 0, 1, 2, 3, 4, 5 };
-
-Integer[] doubles = new Integer[integers.length];
-for (int i = 0; i < integers.length; i++) {
-    doubles[i] = integers[i] * 2;
-}
-List<Integer> results = new ArrayList<>(doubles.length);
-for (Integer integer : doubles) {
-    if (integer < 10) {
-        results.add(integer);
-    }
-}
-```
-
-使用`RxJava`的流式调用示例，提高可读性：
-
-```java
-//假设你了解这些操作符的工作原理
-List<Integer> results = Observable.from(integers)
-                                  .map(new Func1<Integer, Integer>() {
-                                      @Override
-                                      public Integer call(Integer integer) {
-                                          return integer * 2;
-                                      }
-                                  })
-                                  .filter(new Func1<Integer, Boolean>() {
-                                      @Override
-                                      public Boolean call(Integer integer) {
-                                          return integer < 10;
-                                      }
-                                  })
-                                  .toList()
-                                  .toBlocking()
-                                  .first();
-```
-
-另外需要补充的一点是：当使用`Builder`或者其他链式结构创建对象时，每一个方法的调用都应另起一行，并且每一行都以`.`开头，示例如下：
-
-```java
-Picasso.with(context)
-        .load(R.drawable.placeholder)
-        .into(imageView);
-```
