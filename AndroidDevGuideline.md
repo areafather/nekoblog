@@ -7,13 +7,13 @@
 - 定义好调色板，所有颜色 **只能** 从调色板中获取，任何地方都应该避免硬编码
 - 图标可以考虑使用流行图标字体库（Fontawesome）
 - 开发前对一遍设计稿，定好所有 Dimen，尽量使用 Dimen 板
-- Multiple State（多状态） Drawable 命名规则：[android-selector-chapek](https://github.com/inmite/android-selector-chapek)
+- Multiple State Drawable 命名规则：[android-selector-chapek](https://github.com/inmite/android-selector-chapek)
 - 设计规范越完整，开发越容易工作
 
 ### 开发
 - **必须写注释（行内注释，函数注释以及类注释等）**，Doc Gen 选用 [Dodoka](https://kotlinlang.org/docs/reference/kotlin-doc.html)
 - 善用 `TODO`，`FIXME` 进行标注
-- 必须写单元测试（V／M 层都需要）
+- 必须写单元测试（View / Model 层都需要）
 - 使用 CI（持续集成）进行远程构建
 - 使用 Lint 工具进行代码静态检查
 - 收集各种常用 Lib （log, bugly, ...）
@@ -24,17 +24,17 @@
 - 使用 [Redex](https://github.com/facebook/redex) 等工具对 Dex 文件进行优化（也可使用 (redex-plugin)[https://github.com/timmutton/redex-plugin]）
 - 使用 [Nimbledroid](https://nimbledroid.com/) 进行应用性能分析
 - 适当使用依赖注入（常用的模块，需要单元测试的模块）
-- **使用 Fragment 来构建页面内容，使用 Activity 来管理 Fragment**
+- **使用 Fragment 来构建页面内容，Activity 只用来管理 Fragment**
 - 尽量使用 Anko DSL 来创建视图
 
 
 ## 架构
-MVP，Flux／Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)**。
+MVP，Flux / Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)** 框架。
 
 ### 层次流程
 - **`View` -> `Model` -> `Presenter`**：`View` 和高复用性的 `Model` 同时开发，`Presenter` 最后开发
 
-- 前期 `View` 层开发需要用到的数据全部使用 `ViewObject`，需要什么属性就定义什么属性，以后在 `Presenter` 层进行 `DO` 到 `VO` 再到 `View` 的 **Convert**（转换）过程。（`VO` 中可以使用 `data: Any` 属性携带 `DO`）
+- 前期 `View` 层开发需要用到的数据全部使用 `ViewObject`，需要什么属性就定义什么属性，以后在 `Presenter` 层进行 `DataObject` 到 `ViewObject` 的 **Convert**（转换）过程。（`VO` 中可以使用 `data: Any` 属性携带 `DO`）
 
 - `DO` 到 `VO` 的转化过程请不要在 UI 线程进行操作。（可以在 Presenter 中使用 Rx 的 Map 操作在非主线程调度器上进行转换）
 
@@ -47,8 +47,8 @@ MVP，Flux／Redux。请参考 **[Kotgo](https://github.com/nekocode/kotgo)**。
 - `View` 和 `Presenter` 之间是双向依赖，所以通过接口解藕，便于进行 UI Mock 测试，而 `Presenter` 和 `Model` 是单向依赖，可以直接编写单元测试来测试 `Model`。
 
 ### Flux 的一些思想
-- **FP 的思想很适合前端**：Rx 在 Android 领域的火爆验证了这一点（对事件或数据的流加工）
-- **Pure function**：Function 不影响外部变量（不产生副作用），且给定输入，输出不变。
+- **FP 的思想很适合前端**：Rx 在 Android 领域的火爆验证了这一点。（事件流与数据流的概念）
+- **Pure function**：Function 不影响外部变量 / 不产生副作用，且给定输入，输出不变。
 - **Map，Reduce**：对数据的流处理，任意流都可以通过 `Map&Reduce` 加工成任意流。
 
 
