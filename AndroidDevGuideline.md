@@ -26,7 +26,7 @@
 - 适当使用依赖注入（常用的模块，需要单元测试的模块）
 - **使用 Fragment 来构建页面内容，Activity 只用来管理 Fragment**
 - 尽量使用 Anko DSL 来创建视图
-- 尽量将具有高度复用的一些 UI 组件用自定义 View（Widget） 实现，例如中间带有播放按钮的 ImageView，应该统一实现一个 View，而不是简单地用布局实现
+- 尽量将具有高度复用的一些 UI 组件用自定义 View（Widget） 实现，例如中间带有播放按钮的 ImageView，应该统一实现为一个 VideoThumbnailImageView
 
 ### 后端
 - API 文档必须标明各个属性是否为 Nullable
