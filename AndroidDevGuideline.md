@@ -125,6 +125,8 @@ git push -f origin _yangfan
 
 对类文件使用 [驼峰命名法](https://en.wikipedia.org/wiki/CamelCase)。包名使用 [小写连写](http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html)，单词较多可以使用 `_` 分割符。
 
+Project 中的 Module 尽量缩写，库使用 `lib-` 作为前缀。
+
 
 ### Property 定义与命名规范
 
