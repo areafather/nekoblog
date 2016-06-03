@@ -170,6 +170,28 @@ internal class TestActivity: Activity() {
 - 注意好 `Throwable`、`Exception` 和 `Error` 的区别，对于可捕捉的错误应该使用 `Exception` 而不是 `Throwable`。
 - 理解好 `apply()`、`let()`、`with()`、`to()`、`repeat()` 的糖用法。
 - 使用 `val localA = A!! // or checkNotNull(A)` 将 Nullable 变量转换为 NotNull 类型的 Local Scope 变量。
+- Kotlin 中用 `if (Boolean) A else B` 来取代 Java 中的 `?:` 语式
+- 在使用没有 Block 的 if 语句时执行语句必须和对应判断语句在同行内：
+
+```kotlin
+if (Boolean) A else B
+
+if (Boolean) A 
+else B
+
+if (xxx) A 
+else if (xxx) B
+else C
+```
+
+- 使用好 Kotlin 中的默认参数：
+
+```
+data class Test(var A: Boolean = true, var B: String = "")
+Test()
+Test(False)
+Test(B = "Test")
+```
 
 
 ### Log 输出规范
