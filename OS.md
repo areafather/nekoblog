@@ -255,16 +255,25 @@ scp xxx.sql <username>@xxx.xxx.xxx.xxx:~/WWW
 ```
 
 - 导入 SQL 文件
-```
+```sh
 create database <name>;
 use database <name>;
 source ~/WWW/xxx.sql;
 ```
 
 - 安装 pycrypto 库
-```
+```sh
 yum install python-devel
 pip install pycrypto
 yum install python34-devel
 pip3 instlal pycrypto
+```
+
+- 安装 Android-SDK、Android-NDK
+```sh
+wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+wget http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
+// tar -xvf 解压
+// http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line
+./android update sdk -u -a -t 1,2,5,28
 ```
