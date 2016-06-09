@@ -207,7 +207,7 @@ public var heightScale: Float = 0.8f
 ```
 
 - lateinit 是 Kotlin 语法级的，它比 Delegates.notNull() 更轻量（编译后不产生 Stub 代码）
-- Kotlin 中所有类型都为 Reference Type（封装了原子类型），但是原子类型的传参和赋值是值传递（复制），可以看看这篇 **[Java 有 Value Type 吗？](http://www.yinwang.org/blog-cn/2016/06/08/java-value-type?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)**
+- Kotlin 中封装的 Int、Float 等基础类型真实实现依然为 Java 中的原子类型（int、float），所以在传参和赋值中依然是值传递（复制）。但是也可以看看这篇 **[Java 有 Value Type 吗？](http://www.yinwang.org/blog-cn/2016/06/08/java-value-type?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)**
 - Data Class 的 copy() 只对基础类型 or Data Class 进行深复制，Collection／非基础类型（List, Map...）是浅复制，需要自己处理
 
 - 慎用 Lazy 代理／慎用 `kotterknife`，在 Fragment Detach 导致 View 被销毁时（Fragment 实例并未被回收），当 Fragment 重新 Attach 时不会重新执行 FindView。
