@@ -83,6 +83,8 @@ public void onPageScrolled(int position, float positionOffset,
 
 - 对 NestedFragment 的 `findFragmentByTag()` **必需在 ParentFragment 的 `onViewCreated()`（视图创建后）中进行，否则将返回空。** [Check about this.](https://www.google.com/?gws_rd=ssl#safe=off&q=getChildFragmentManager()+findFragmentByTag)
 
+- 使用 selectable（可长按复制） 的 TextView 时需要注意，它有一定几率会消耗触摸事件，如果父控件需要响应相关时间的话（例如父控件是个按钮），请把 TextView 的 textIsSelectable 属性设置为 false
+
 #### 现场还原
 
 - 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
