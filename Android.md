@@ -18,6 +18,7 @@
  - shift + shift：全局搜索
  - command + p：查看参数类型
  - ctrl + alt + h：查看变量或函数的调用链
+- [创建一个 RecyclerView LayoutManager](https://github.com/hehonghui/android-tech-frontier/blob/master/issue-9/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Part-1.md)
 
 
 ```java
