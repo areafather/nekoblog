@@ -23,6 +23,7 @@
 - 上架前必须进行 **混淆** 和 **签名**
 - 使用 [Redex](https://github.com/facebook/redex) 等工具对 Dex 文件进行优化（也可使用 (redex-plugin)[https://github.com/timmutton/redex-plugin]）
 - 使用 [Nimbledroid](https://nimbledroid.com/) 进行应用性能分析
+- 使用 [packer-ng-plugin](https://github.com/mcxiaoke/packer-ng-plugin) 进行多渠道打包（也可考虑参考 [MultiChannelPackageTool](https://github.com/seven456/MultiChannelPackageTool) 自己实现）
 - 适当使用依赖注入（常用的模块，需要单元测试的模块）
 - **使用 Fragment 来构建页面内容，Activity 只用来管理 Fragment**
 - 尽量使用 Anko DSL 来创建视图
