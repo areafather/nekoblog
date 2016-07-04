@@ -67,3 +67,11 @@ git checkout --theirs <file>
 ```
 git reset head .
 ```
+
+- 清空本地已经失效的远程分支引用
+```
+git fetch -p
+# or
+git remote prune origin
+# 清理远程分支，把本地不存在的远程分支删除
+```
