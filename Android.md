@@ -32,6 +32,16 @@ inner class CompanySpan(val company: Company) : MetricAffectingSpan() {
 }
 ```
 
+- 拼接 SpannableString
+
+```java
+TextUtils.concat(spanStr1, " " , spanStr2)
+```
+
+- 将 Spanned 转换为 SpannableString 使用 `TextUtils.stringOrSpannedString(text)`
+
+- `Matrix.setRectToRect()`
+
 ```java
 //TODO 放缩处理、显示操作层
 eyeAdjustView.setVisibility(View.VISIBLE);
@@ -66,11 +76,6 @@ public void init(Context context) {
     
     // ...
 }
-```
-
-- 拼接 SpannableString
-```
-TextUtils.concat(spanStr1, " " , spanStr2)
 ```
 
 
