@@ -19,8 +19,9 @@
  - command + p：查看参数类型
  - ctrl + alt + h：查看变量或函数的调用链
 - [创建一个 RecyclerView LayoutManager](https://github.com/hehonghui/android-tech-frontier/blob/master/issue-9/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Part-1.md)
-
 - [与 so 有关的一个常年大坑](https://zhuanlan.zhihu.com/p/21359984)
+
+
 - `Spannable.SPAN_EXCLUSIVE_EXCLUSIVE` 表示的是 **在该 Span 前后新输入的字符** 不会继承该 Span。
 - 可以创建自定义的 Span 来在文本中储存一些数据，例如：
 
