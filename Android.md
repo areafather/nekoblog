@@ -1,13 +1,13 @@
 ## Android
 
-- [Android gradle tasks](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks)
-- [gradle plugin user guide chinese](https://avatarqing.gitbooks.io/gradlepluginuserguidechineseverision/content/introduction/README.html)
+- [Android Gradle Tasks](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks)
+- [Gradle 指引中文篇](https://avatarqing.gitbooks.io/gradlepluginuserguidechineseverision/content/introduction/README.html)
 - [Fragment 的一些讲解](http://blog.csdn.net/lmj623565791/article/details/42628537)
 - http://blog.mohitkanwal.com/blog/2015/03/07/styling-material-toolbar-in-android/
 - android 3.0 版本后 `AsyncTask` 改为默认串行执行：http://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/
 - android 注意内存泄露问题：http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/
-- [androiddevtools](http://www.androiddevtools.cn/)
-- [react native](http://blog.csdn.net/zhe13/article/details/48439967?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
+- [AndroidDevTools](http://www.androiddevtools.cn/)
+- [ReactNative](http://blog.csdn.net/zhe13/article/details/48439967?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 - [RxJava 操作符动态图解](http://rxmarbles.com/#debounceWithSelector) 
 - Activity 生命周期相关：
  - [Activity生命周期详解一](http://stormzhang.com/android/2014/09/14/activity-lifecycle1)
@@ -20,7 +20,7 @@
  - ctrl + alt + h：查看变量或函数的调用链
 - [创建一个 RecyclerView LayoutManager](https://github.com/hehonghui/android-tech-frontier/blob/master/issue-9/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Part-1.md)
 - [与 so 有关的一个常年大坑](https://zhuanlan.zhihu.com/p/21359984)
-
+- [Android Dex分包之旅](http://yydcdut.com/2016/03/20/split-dex/)
 
 - `Spannable.SPAN_EXCLUSIVE_EXCLUSIVE` 表示的是 **在该 Span 前后新输入的字符** 不会继承该 Span。
 - 可以创建自定义的 Span 来在文本中储存一些数据，例如：
