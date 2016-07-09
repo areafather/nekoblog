@@ -103,6 +103,8 @@ public void onPageScrolled(int position, float positionOffset,
 
 - 使用 selectable（可长按复制） 的 TextView 时需要注意，它有一定几率会消耗触摸事件，如果父控件需要响应相关事件的话（例如父控件是个按钮），请把 TextView 的 **textIsSelectable** 属性设置为 false
 
+- 一个令我疑惑的事情是，设置 View 的 visibility 为 INVISIBLE 的时候，View 的 Alpha 会变为 1f? 我在做 Alpha 动画的时候出现了在 alpha 变为 0，设置 View 为 INVISIBLE 时闪烁的情况。把动画顺序改为先设置 View 为 INVISIBLE 再对 View 的 alpha 值进行递减就成功避免了闪缩。
+
 #### 现场还原
 
 - 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
