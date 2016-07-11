@@ -273,7 +273,29 @@ pip3 instlal pycrypto
 ```sh
 wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 wget http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
-// tar -xvf 解压
-// http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line
+＃ tar -xvf 解压
+＃ http://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line
 ./android update sdk -u -a -t 1,2,5,28
+```
+
+- 安装 Docker
+```sh
+# 使用 Daocloud 的脚本安装 Docker
+curl -sSL https://get.daocloud.io/docker | sh
+sudo chkconfig docker on
+docker version
+
+# 开启 Docker Service
+sudo systemctl start docker
+systemctl status docker
+
+＃ 安装主机监控程序（非必要），后面的 key 自己补全
+curl -sSL https://get.daocloud.io/daomonit/install.sh | sh -s 1a2291...
+
+# 把 Image 拉下来，并启动
+dao pull daocloud.io/nekocode/docker-android:1.0
+sudo docker images
+sudo docker run -it daocloud.io/nekocode/docker-android:1.0
+which android
+exit
 ```
