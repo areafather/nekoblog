@@ -78,6 +78,11 @@ vim /usr/local/etc/proxychains.conf
 
 # Test
 proxychains4 curl google.com
+# 注意如果是在 OSX 10.11 或以上版本的话，因为 SIP 的原因，很多系统程式无法使用 proxychains4 进行代理
+# https://github.com/rofl0r/proxychains-ng/issues/78
+# 可以使用 brew 安装并使用 local 版本
+# brew install curl
+# brew link --force curl
 ```
 
 
