@@ -105,6 +105,8 @@ public void onPageScrolled(int position, float positionOffset,
 
 - 一个令我疑惑的事情是，设置 View 的 visibility 为 INVISIBLE 的时候，View 的 Alpha 会变为 1f? 我在做 Alpha 动画的时候出现了在 alpha 变为 0，设置 View 为 INVISIBLE 时闪烁的情况。把动画顺序改为先设置 View 为 INVISIBLE 再对 View 的 alpha 值进行递减就成功避免了闪缩。
 
+- **对于在列表中每个 ItemView 中都有大量 SpannableString 需要显示的情况，最好直接把 SpannableString 当成数据储存，而不是在需要显示的时候再从 String 构造为 SpannableString。**
+
 #### 现场还原
 
 - 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
@@ -159,6 +161,7 @@ public static void main(String args[])
 
 - 推荐用于处理二进制数据：https://github.com/square/okio
 - 单例模式探索：http://www.tekbroaden.com/singleton-java.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
+- 使用 `String.charAt()` 遍历字符比起 `String.toCharArray()` 更为高效
 
 ```java
 public enum Singleton {
