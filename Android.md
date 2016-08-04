@@ -176,6 +176,18 @@ public enum Singleton {
 }
 ```
 
+- [父类的构造函数一定会执行，且要早于子类的实例变量初始化。](https://www.zhihu.com/question/49182651)类似这样：
+```java
+class a extends b {
+    int a = 0;
+    void a() {
+        super();
+    }
+}
+```
+
+`super();` 是隐藏的代码，它比 `a = 0;` 还要更早执行。
+
 
 ## Kotlin
 
