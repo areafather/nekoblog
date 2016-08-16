@@ -188,6 +188,20 @@ class a extends b {
 
 `super();` 是隐藏的代码，它比 `a = 0;` 还要更早执行。
 
+- [线程安全的自增主键实现](http://blog.csdn.net/kongqz/article/details/8948847)，例子：
+```java
+private static class ItemInfo {
+    private static AtomicInteger ID_COUNTER = new AtomicInteger(0);
+
+    public int typeId;
+
+    public ItemInfo() {
+        this.typeId = ID_COUNTER.getAndIncrement();
+    }
+}
+```
+
+
 
 ## Kotlin
 
