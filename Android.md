@@ -107,6 +107,8 @@ public void onPageScrolled(int position, float positionOffset,
 
 - **对于在列表中每个 ItemView 中都有大量 SpannableString 需要显示的情况，最好直接把 SpannableString 当成数据储存，而不是在需要显示的时候再从 String 构造为 SpannableString。**
 
+- 可以使用 Support 库中 [`DiffUtil`](https://developer.android.com/reference/android/support/v7/util/DiffUtil.html) 来计算 Collection 的变动，并分发给 Adapter。
+
 #### 现场还原
 
 - 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
