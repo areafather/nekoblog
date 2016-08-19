@@ -109,6 +109,25 @@ public void onPageScrolled(int position, float positionOffset,
 
 - 可以使用 Support 库中 [`DiffUtil`](https://developer.android.com/reference/android/support/v7/util/DiffUtil.html) 来计算 Collection 的变动，并分发给 Adapter。
 
+- 想要不使用继承在某个 View 上进行 Draw 操作的话，一个可选的方法是注入该 View 的 backgroudDrawable 或 foregroundDrawable。(理解一个概念：`Drawable` 并不是绘制结果，它是一系列的绘制过程)
+```
+Drawable originalBackground = view.getBackground();
+
+Drawable layers[];
+if (originalBackground == null) {
+    layers = new Drawable[] {injectedDrawable};
+} else {
+    layers = new Drawable[] {originalBackground, injectedDrawable};
+}
+LayerDrawable newBackground = new LayerDrawable(layers);
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+    view.setBackground(newBackground);
+} else {
+    view.setBackgroundDrawable(newBackground);
+}
+```
+
 #### 现场还原
 
 - 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
