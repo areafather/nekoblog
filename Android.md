@@ -147,7 +147,9 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 **[ViewGroup](http://blog.csdn.net/guolin_blog/article/details/12921889)**
 
+
 ## Java
+
 
 - [Grails：约定优于配置](http://www.infoq.com/cn/articles/case-study-grails-partii/)   
 举个简单的例子。在 Django 1.3 之后引入了「Class-based view」，有「ListView」和「DetailView」。Django 的「ListView.as_view(model=Publisher,)」不需要指定去 render 哪个template，而是自动去使用了「/path/to/project/books/templates/books/publisher_list.html」这个模板。这即是 **convention over configuration** 的一个典型示范。优先使用默认的约定，而不是非要明确的指定要 render 的 template。
@@ -222,6 +224,34 @@ private static class ItemInfo {
 }
 ```
 
+- [Thread 的中断机制](http://www.cnblogs.com/onlywujun/p/3565082.html)。中断一个线程只是为了引起该线程的注意，被中断线程可以决定如何应对中断。一个比较恰当的线程循环模板：
+```java
+public void run() {
+    System.out.println("Thread running...");
+    while (!Thread.currentThread().isInterrupted()) {
+        try {
+            /*
+             * 如果线程阻塞，将不会去检查中断信号量stop变量，所 以thread.interrupt()
+             * 会使阻塞线程从阻塞的地方抛出异常，让阻塞线程从阻塞状态逃离出来，并
+             * 进行异常块进行 相应的处理
+             */
+            Thread.sleep(1000);// 线程阻塞，如果线程收到中断操作信号将抛出异常
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted...");
+            /*
+             * 如果线程在调用 Object.wait()方法，或者该类的 join() 、sleep()方法
+             * 过程中受阻，则其中断状态将被清除
+             */
+            System.out.println(this.isInterrupted());// false
+
+            //中不中断由自己决定，如果需要真真中断线程，则需要重新设置中断位，如果
+            //不需要，则不用调用
+            Thread.currentThread().interrupt();
+        }
+    }
+    System.out.println("Thread exiting under request...");
+}
+```
 
 
 ## Kotlin
