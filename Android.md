@@ -253,6 +253,13 @@ public void run() {
 }
 ```
 
+- 函数中需要用到范型类型参数的，尽量使用前置声明：
+```java
+private static <ItemToCreate extends Item> ItemToCreate newItem(Class<ItemToCreate> itemClass) { }
+```
+
+- 某个类被定义为 `final` 后，其成员方法无需再定义为 `final`。
+
 
 ## Kotlin
 
