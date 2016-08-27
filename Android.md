@@ -147,6 +147,10 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 **[ViewGroup](http://blog.csdn.net/guolin_blog/article/details/12921889)**
 
+#### 其它
+
+- 使用 Robolectric 等测试框架测试使用 https 协议的 API 时，可能需要为你本机的 JRE 导入你服务器的安全证书。具体可参考这个 [SO 回答](http://stackoverflow.com/a/32074827)。
+
 
 ## Java
 
