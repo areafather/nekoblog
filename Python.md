@@ -180,7 +180,7 @@ int2('1000000')
 
 ## Other
 - 字体文件子集化
-```py
+```sh
 pip install Fonttools
 pyftsubset wawa.otf --text="汉字" --output-file=wawa-sub.otf
 pyftsubset wawa.otf --text-file=剧本.txt --output-file=wawa-sub.otf
