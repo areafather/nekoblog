@@ -10,3 +10,11 @@ brew install dnvm
 
 - [移植 `Intellij` 的快捷键给 `VSCode`](https://github.com/k--kato/vscode-intellij-idea-keybindings)
 
+- [Exclude .meta files in folder view](http://stackoverflow.com/questions/30140112/how-do-i-hide-certain-files-from-the-sidebar-in-visual-studio-code)
+```json
+{
+     "files.exclude": {
+         "**/*.meta": true
+     }
+}
+```
