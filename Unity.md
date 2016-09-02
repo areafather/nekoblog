@@ -19,6 +19,12 @@ brew install dnvm
 }
 ```
 
+- Unity Editor 的 Android、iOS Support 安装失败的话，可以尝试使用 `brew cask` 进行安装：
+```sh
+brew cask install unity-android-support-for-editor
+brew cask install unity-ios-support-for-editor
+```
+
 #### C# Script 注意事项
 - 类名必须与文件名完全相同，这一点和传统的 C# 保持一致。
 - 所有新建的 C# 脚本必须全部继承自 `MonoBehaviour`。
