@@ -19,10 +19,10 @@ brew install dnvm
 }
 ```
 
-- Unity Editor 的 Android、iOS Support 安装失败的话，可以尝试使用 `brew cask` 进行安装：
+- Unity Editor 的 Android、iOS Support 安装失败的话，可以尝试手动使用 install 命令进行安装：
 ```sh
-brew cask install unity-android-support-for-editor
-brew cask install unity-ios-support-for-editor
+sudo installer -pkg UnitySetup-Android-Support-for-Editor-5.4.0f3.pkg -target /
+sudo installer -pkg UnitySetup-iOS-Support-for-Editor-5.4.0f3.pkg -target /
 ```
 
 #### C# Script 注意事项
