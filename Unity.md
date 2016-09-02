@@ -28,3 +28,4 @@ brew install dnvm
 
 #### Other
 - Camera Size 值对应屏幕**'高度'**的一半：http://blog.csdn.net/n5/article/details/50083205
+- 按住 `option` 键可以快速拖动当前画布
