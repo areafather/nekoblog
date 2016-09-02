@@ -171,6 +171,19 @@ int2('1000000')
 - 类的静态变量里面，使用 `类名.` 访问的是单例的类静态变量，使用 `self.` 访问的是类实例化时深度复制（**值传递**）的变量
 
 - **Python yield 使用浅析**：https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/
+```py
+def fab(max): 
+    n, a, b = 0, 0, 1 
+    while n < max: 
+        # 当 fab(5) 执行到该句时将 返回/return 一个迭代值（当前 b 的值）并在该句中断等待下次迭代，当执行下次迭代时会从该句重新开始执行
+        yield b 
+        a, b = b, a + b 
+        n = n + 1
+
+for n in fab(5):
+    print n 
+```
+
 - **circular-dependency-between-python-classes**：http://stackoverflow.com/questions/23026530/circular-dependency-between-python-classes
 
 
