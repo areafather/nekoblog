@@ -19,10 +19,12 @@ brew install dnvm
 }
 ```
 
-### C# Script 注意事项
+#### C# Script 注意事项
 - 类名必须与文件名完全相同，这一点和传统的 C# 保持一致。
 - 所有新建的 C# 脚本必须全部继承自 `MonoBehaviour`。
 - 协同程序一定是 `Ienumerator` 的返回类型,并且 `yield` 用 `yield return` 替代。
 - 避免使用面向对象编程语言里面惯用的构造函数，初始化放在 `Awake()` 或 `Start ()` 函数中。
-- 不支持空间命名，但官方说它们很有可能会在以后的版本中支持这一功能。
 - C# 定义的私有的和受保护的变量或对象不会作为接口出现在 Inspector 面板中，那怕你将它放置到该脚本的开始处。
+
+#### Other
+- Camera Size 值对应屏幕**'高度'**的一半：http://blog.csdn.net/n5/article/details/50083205
