@@ -15,8 +15,8 @@
 * **后端工程开发**
   熟练掌握 Python 以及相关后端技术栈知识。关注 Tornado，MongoDB，Redis, Docker 等各种新技术，有过高并发服务端的开发经验，有一定的服务器运维能力。
 
-* **游戏引擎开发**
-  有一年多的游戏引擎开发经验，曾独立开发 2D 游戏引擎。掌握较为完善的图形开发知识，对 DirectX，Shader 有较深刻的了解，持续关注 Processing，WebGL，D3.js，Three.js 等图形／可视化技术。 
+* **游戏开发**
+  有一年多的游戏开发经验，熟练 Unity 开发，曾独立开发 2D 游戏引擎。对计算机图形学有较深刻的了解，持续关注 Unity，Processing，Shader，D3.js，Three.js 等图形／可视化技术。 
 
 ---
 
@@ -25,13 +25,13 @@
 1. Kotlin
 1. Java
 1. Python
+1. C#
 1. C++
-1. Android Development
 1. Tornado
 1. MongoDB
 1. MySQL
 1. Redis
-1. Web Services / REST
+1. Unity
 1. Docker
 1. Git
 
