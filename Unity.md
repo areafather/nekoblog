@@ -32,10 +32,12 @@ sudo installer -pkg UnitySetup-iOS-Support-for-Editor-5.4.0f3.pkg -target /
 - 避免使用面向对象编程语言里面惯用的构造函数，初始化放在 `Awake()` 或 `Start ()` 函数中。
 - C# 定义的私有的和受保护的变量或对象不会作为接口出现在 Inspector 面板中，那怕你将它放置到该脚本的开始处。
 
-#### UGUI
+#### 2D/UI/Editor
 - Camera Size 值对应屏幕**'高度'**的一半：http://blog.csdn.net/n5/article/details/50083205
 
 - 按住 `option` 键可以快速拖动当前画布
+
+- 决定Unity渲染关系的层级顺序是 `sorting order < sorting layer < Camera `
 
 - **[UGUI 系列文章](http://k79k06k02k.com/blog/%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E7%9B%AE%E9%8C%84)**
 
