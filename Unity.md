@@ -41,7 +41,7 @@ sudo installer -pkg UnitySetup-iOS-Support-for-Editor-5.4.0f3.pkg -target /
 
 - [炉石代码研究](http://zhihu.com/question/36928590/answer/69843137)
 
-#### Other
+## Other
 - Camera Size 值对应屏幕**'高度'**的一半：http://blog.csdn.net/n5/article/details/50083205
 
 - 按住 `option` 键可以快速拖动当前画布
