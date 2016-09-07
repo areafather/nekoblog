@@ -36,6 +36,8 @@ sudo installer -pkg UnitySetup-iOS-Support-for-Editor-5.4.0f3.pkg -target /
 
 - C# 定义的私有的和受保护的变量或对象不会作为接口出现在 Inspector 面板中，那怕你将它放置到该脚本的开始处。
 
+- [为你的 Component 在 Inspector 中添加事件监控选项。](http://answers.unity3d.com/questions/892053/button-onclick-inspector-how-do-i-do-this.html)
+
 #### 架构相关
 - [Unity框架搭建](http://liangxiegame.com/tag/unity_framework/)
 
