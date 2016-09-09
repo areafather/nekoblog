@@ -1,5 +1,5 @@
 # 杨凡（Mark Yueng）
-## Android Engineer | Backend Engineer
+## Android Engineer | Backend Engineer | Gaming Engineer
 
 > [Download PDF](resume.pdf)
 > [nekocode.cn@gmail.com](nekocode.cn@gmail.com)
@@ -16,7 +16,7 @@
   熟练掌握 Python 以及相关后端技术栈知识。关注 Tornado，MongoDB，Redis, Docker 等各种新技术，有过高并发服务端的开发经验，有一定的服务器运维能力。
 
 * **游戏开发**
-  有一年多的游戏开发经验，熟练 Unity 开发，曾独立开发 2D 游戏引擎。对计算机图形学有较深刻的了解，持续关注 Unity，Processing，Shader，D3.js，Three.js 等图形／可视化技术。 
+  有一年多的游戏开发经验，熟练 Unity 开发，曾独立开发 2D 游戏引擎。对计算机图形学有较深了解，持续关注 Unity，Processing，Shader 等 游戏／图形／可视化 技术。 
 
 ---
 
@@ -39,7 +39,7 @@
 
 ### Experience
 
-**广东数库互联网金融信息服务有限公司** : *Android 开发主管*    __2015 - Current__
+**广东数库互联网金融信息服务有限公司** : *Android 开发主管*    __2015 - 2016__
  担任 Android 开发组主管，同时客串后端工程，负责公司多个产品的架构设计与开发。
 
 **广州市龙驹网络有限公司** : *Andriod 开发工程师*    __2014 - 2014__
