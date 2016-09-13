@@ -40,6 +40,8 @@ sudo installer -pkg UnitySetup-iOS-Support-for-Editor-5.4.0f3.pkg -target /
 
 - [转换 Rect Transform 到屏幕坐标](http://answers.unity3d.com/questions/826851/how-to-get-screen-position-of-a-recttransform-when.html)
 
+- 可以使用 [Transform.SetAsLastSibling()] 等方法来改变 UI 组件在 Canvas 中的 Hierarchy。
+
 #### 架构相关
 - [Unity框架搭建](http://liangxiegame.com/tag/unity_framework/)
 
