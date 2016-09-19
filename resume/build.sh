@@ -1,3 +1,4 @@
 #!/bin/sh
-md2resume --pdf resume.md
+make
+rm resume.html
 mv resume.pdf ../hugo_blog/static/resume.pdf
