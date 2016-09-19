@@ -6,7 +6,7 @@
 
 ## Self-Introduction
 
-- 目前在 Github 国内 **[Kotlin 排行榜](http://githuber.cn/search?location=&company=&language=Kotlin&keywords=&github_age=)** 中维持第一名，国内 Kotlin 语言布道者。
+- 国内 Kotlin 语言布道者，目前在 Github 国内 **[Kotlin 排行榜](http://githuber.cn/search?location=&company=&language=Kotlin&keywords=&github_age=)** 中维持排名第一。
 
 - 长期维护知乎专栏 **[『Android 还可以这样开发』](https://zhuanlan.zhihu.com/kotandroid)** 以及个人博客 **[nekocode.cn](http://nekocode.cn/)**。
 
