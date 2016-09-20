@@ -12,7 +12,7 @@
 
 - 偶尔在 Leetcode 上刷算法题：**[Nekocode's Profile](https://leetcode.com/nekocode/)**。
 
-- 有较强的设计美感，喜欢研究图形技术。自备 MacBook 无需配电脑。
+- 有较强的设计美感，喜欢图形技术、工程逆向。自备 MacBook 无需配电脑。
 
 
 ## Expertise
@@ -28,7 +28,7 @@
   熟练掌握 Python 以及相关后端技术栈知识。关注 Tornado、MongoDB、Redis、Docker 等各种新技术，有过高并发服务端的开发经验，有一定的服务器运维能力。
 
 - **游戏开发**
-  有一年多的游戏开发经验，熟练 Unity 开发，曾独立开发 **[2D 游戏引擎](https://github.com/nekocode/FScript0.2)**。对计算机图形学有较深了解，持续关注 Unity、Processing、Shader 等 游戏／图形／可视化 技术。
+  有一年多游戏开发经验，熟练 Unity 开发，曾独立设计 **[2D 游戏引擎](https://github.com/nekocode/FScript0.2)**。对计算机图形学有较深了解，持续关注 Unity、Processing、Shader 等 游戏／图形／可视化 技术。
 
 **其余技术栈**: Git、ReactiveX、Tornado、MongoDB、MySQL、Redis、Docker
 
@@ -40,7 +40,7 @@
 **Android 开发主管** 客串后端工程, 公司技术合伙人
 
 - **[数库金服](http://www.skotc.cn/) Android 客户端**
-  负责整个团队 **[Work Flow](https://zhuanlan.zhihu.com/p/21320023)** 的搭建、**[开发规范](https://github.com/nekocode/nekoblog/blob/master/AndroidDevGuideline.md)** 的制定，以及整个应用代码的架构。App 使用 Git 进行协同开发，采用 MVP 设计模式并使用了 Kotlin、ReactiveX、Retrofit 等技术栈。
+  负责整个团队 **[Work Flow](https://zhuanlan.zhihu.com/p/21320023)** 的搭建、**[开发规范](https://github.com/nekocode/nekoblog/blob/master/AndroidDevGuideline.md)** 的制定，以及整个应用代码的架构。App 使用 Git 进行协同开发，采用 MVP 模式设计并使用了 Kotlin、ReactiveX、Retrofit 等技术栈。
 
 - **[陪你看电影](http://weiying.info/) Android 客户端**
   负责项目架构的搭建，负责 IM、Map、Push、SMS 等多个模块的技术选型（融云、高德、Mqtt、Mob）。
