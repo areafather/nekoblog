@@ -1,9 +1,9 @@
 ## <a name="toc"></a>Index
 
-- [Android](#Android)
-- [Java](#Java)
-- [Kotlin](#Kotlin)
-- [Other](#Other)
+- [Android](#android)
+- [Java](#java)
+- [Kotlin](#kotlin)
+- [Other](#others)
 
 ## Android
 
