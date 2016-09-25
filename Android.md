@@ -3,31 +3,9 @@
 - [Android](#android)
 - [Java](#java)
 - [Kotlin](#kotlin)
-- [Articles/Others](#)
+- [Articles/Others](#articlesothers)
 
 ## Android
-
-- [Android Gradle Tasks](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks)
-- [Gradle 指引中文篇](https://avatarqing.gitbooks.io/gradlepluginuserguidechineseverision/content/introduction/README.html)
-- [Fragment 的一些讲解](http://blog.csdn.net/lmj623565791/article/details/42628537)
-- http://blog.mohitkanwal.com/blog/2015/03/07/styling-material-toolbar-in-android/
-- android 3.0 版本后 `AsyncTask` 改为默认串行执行：http://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/
-- android 注意内存泄露问题：http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/
-- [AndroidDevTools](http://www.androiddevtools.cn/)
-- [ReactNative](http://blog.csdn.net/zhe13/article/details/48439967?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
-- [RxJava 操作符动态图解](http://rxmarbles.com/#debounceWithSelector) 
-- Activity 生命周期相关：
- - [Activity生命周期详解一](http://stormzhang.com/android/2014/09/14/activity-lifecycle1)
- - [Activity生命周期详解二](http://stormzhang.com/android/2014/09/17/android-lifecycle2/)
- - [onSaveInstanceState & onRestoreInstanceState](http://stormzhang.com/android/2014/09/22/onsaveinstancestate-and-onrestoreinstancestate/)
- - [Android Activity/Fragment Lifecycle](http://stormzhang.com/android/2014/08/08/activity-fragment-lifecycle/)
-- [Android Studio 的一些使用技巧](http://qiita.com/takahirom/items/a211b1fcc4304c487c4b#_reference-b274ebea0a18ddb1e0dc)
- - shift + shift：全局搜索
- - command + p：查看参数类型
- - ctrl + alt + h：查看变量或函数的调用链
-- [创建一个 RecyclerView LayoutManager](https://github.com/hehonghui/android-tech-frontier/blob/master/issue-9/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Part-1.md)
-- [与 so 有关的一个常年大坑](https://zhuanlan.zhihu.com/p/21359984)
-- [Android Dex分包之旅](http://yydcdut.com/2016/03/20/split-dex/)
 
 - `Spannable.SPAN_EXCLUSIVE_EXCLUSIVE` 表示的是 **在该 Span 前后新输入的字符** 不会继承该 Span。
 - 可以创建自定义的 Span 来在文本中储存一些数据，例如：
@@ -338,17 +316,34 @@ public var heightScale: Float = 0.8f
 
 
 ## Articles/Others
+- [Android Gradle Tasks](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks)
+- [Gradle 指引中文篇](https://avatarqing.gitbooks.io/gradlepluginuserguidechineseverision/content/introduction/README.html)
+- [Fragment 的一些讲解](http://blog.csdn.net/lmj623565791/article/details/42628537)
+- android 3.0 版本后 `AsyncTask` 改为默认串行执行：http://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/
+- android 注意内存泄露问题：http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/
+- [AndroidDevTools](http://www.androiddevtools.cn/)
+- [RxJava 操作符动态图解](http://rxmarbles.com/#debounceWithSelector) 
+- Activity 生命周期相关：
+ - [Activity生命周期详解一](http://stormzhang.com/android/2014/09/14/activity-lifecycle1)
+ - [Activity生命周期详解二](http://stormzhang.com/android/2014/09/17/android-lifecycle2/)
+ - [onSaveInstanceState & onRestoreInstanceState](http://stormzhang.com/android/2014/09/22/onsaveinstancestate-and-onrestoreinstancestate/)
+ - [Android Activity/Fragment Lifecycle](http://stormzhang.com/android/2014/08/08/activity-fragment-lifecycle/)
+- [Android Studio 的一些使用技巧](http://qiita.com/takahirom/items/a211b1fcc4304c487c4b#_reference-b274ebea0a18ddb1e0dc)
+- [创建一个 RecyclerView LayoutManager](https://github.com/hehonghui/android-tech-frontier/blob/master/issue-9/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Part-1.md)
+- [与 so 有关的一个常年大坑](https://zhuanlan.zhihu.com/p/21359984)
+- [Android Dex分包之旅](http://yydcdut.com/2016/03/20/split-dex/)
 - [IoC 的通俗解释](http://www.jianshu.com/p/3968ffabdf9d)
 - [ButterKnife VS AndroidAnnotations](http://stackoverflow.com/questions/24351817/dagger-and-butter-knife-vs-android-annotations)
 - [APT:Compile-Time Annotation Processing with Java](http://www.javalobby.org/java/forums/t17876.html)：在 compile-time 处理 Annotation
+
+#### Reactive Java
+- [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
+ - 能不用 `Observable.create()`（只调用一次）的话尽量不用，可以考虑使用 `Observable.fromCallable()` 或者 `Observable.deffer()` 内置操作符（每次调用） 。（http://www.jianshu.com/p/c83996149f5b）
+ - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
+ - 在任何时候（创建或者流传递途中）都应该记得进行 `isUnsubscribed()` 判断。
+ - `Observable<Boolean>` 用来传递运行结果不是一种好的设计，应该使用 `Completable` 来代替，出错的话应该抛出错误。
 - RxJava 中的 `.repeatWhen()` 和 `.retryWhen()` 应用
  - [对 RxJava 中 .repeatWhen() 和 .retryWhen() 操作符的思考](http://www.qingpingshan.com/rjbc/java/49285.html)
  - [缓存 Token，失效时使用 Retry 进行再授权](https://github.com/rengwuxian/RxJavaSamples/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Frengwuxian%2Frxjavasamples%2Fmodule%2Ftoken_advanced_5%2FTokenAdvancedFragment.java)
-
-#### [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
-- 能不用 `Observable.create()`（只调用一次）的话尽量不用，可以考虑使用 `Observable.fromCallable()` 或者 `Observable.deffer()` 内置操作符（每次调用） 。（http://www.jianshu.com/p/c83996149f5b）
-- 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
-- 在任何时候（创建或者流传递途中）都应该记得进行 `isUnsubscribed()` 判断。
-- `Observable<Boolean>` 用来传递运行结果不是一种好的设计，应该使用 `Completable` 来代替，出错的话应该抛出错误。
 
 [⬆︎返回目录](#toc)
