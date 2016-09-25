@@ -3,7 +3,7 @@
 - [Android](#android)
 - [Java](#java)
 - [Kotlin](#kotlin)
-- [Other](#others)
+- [Articles/Others](#)
 
 ## Android
 
@@ -337,7 +337,7 @@ public var heightScale: Float = 0.8f
 [⬆︎返回目录](#toc)
 
 
-## Others
+## Articles/Others
 - [IoC 的通俗解释](http://www.jianshu.com/p/3968ffabdf9d)
 - [ButterKnife VS AndroidAnnotations](http://stackoverflow.com/questions/24351817/dagger-and-butter-knife-vs-android-annotations)
 - [APT:Compile-Time Annotation Processing with Java](http://www.javalobby.org/java/forums/t17876.html)：在 compile-time 处理 Annotation
@@ -350,3 +350,5 @@ public var heightScale: Float = 0.8f
 - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
 - 在任何时候（创建或者流传递途中）都应该记得进行 `isUnsubscribed()` 判断。
 - `Observable<Boolean>` 用来传递运行结果不是一种好的设计，应该使用 `Completable` 来代替，出错的话应该抛出错误。
+
+[⬆︎返回目录](#toc)
