@@ -1,3 +1,10 @@
+## <a name="toc"></a>Index
+
+- [Android](#Android)
+- [Java](#Java)
+- [Kotlin](#Kotlin)
+- [Other](#Other)
+
 ## Android
 
 - [Android Gradle Tasks](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks)
@@ -151,9 +158,10 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 - 使用 Robolectric 等测试框架测试使用 https 协议的 API 时，可能需要为你本机的 JRE 导入你服务器的安全证书。具体可参考这个 [SO 回答](http://stackoverflow.com/a/32074827)。
 
+[⬆︎返回目录](#toc)
+
 
 ## Java
-
 
 - [Grails：约定优于配置](http://www.infoq.com/cn/articles/case-study-grails-partii/)   
 举个简单的例子。在 Django 1.3 之后引入了「Class-based view」，有「ListView」和「DetailView」。Django 的「ListView.as_view(model=Publisher,)」不需要指定去 render 哪个template，而是自动去使用了「/path/to/project/books/templates/books/publisher_list.html」这个模板。这即是 **convention over configuration** 的一个典型示范。优先使用默认的约定，而不是非要明确的指定要 render 的 template。
@@ -264,9 +272,10 @@ private static <ItemToCreate extends Item> ItemToCreate newItem(Class<ItemToCrea
 
 - 某个类被定义为 `final` 后，其成员方法无需再定义为 `final`。
 
+[⬆︎返回目录](#toc)
+
 
 ## Kotlin
-
 
 ### 入门
 - [Kotlin 在线编译器](http://try.kotlinlang.org/#/Examples)
@@ -324,6 +333,8 @@ public var heightScale: Float = 0.8f
 - Data Class 的 copy() 只对基础类型 or Data Class 进行深复制，Collection／非基础类型（List, Map...）是浅复制，需要自己处理
 
 - 慎用 Lazy 代理／慎用 `kotterknife`，在 Fragment Detach 导致 View 被销毁时（Fragment 实例并未被回收），当 Fragment 重新 Attach 时不会重新执行 FindView。
+
+[⬆︎返回目录](#toc)
 
 
 ## Others
