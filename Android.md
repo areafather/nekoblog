@@ -7,7 +7,48 @@
 
 ## Android
 
+- ApplicationContext 与 ActivityContext 的区别在于：**ApplicationContext 没有 theme 信息、且不能用于 layout inflate。**  
+在不需要用到 ActivityContext 特性的地方（例如 Util、AsyncTask 类），应当使用 `Context.getApplicationContext()` 来将传入的 Context 转换为 ApplicationContext，以避免发生内存泄漏。
+
+- Activity 的生命周期：`onCreate() -> onStart()[可见] -> onResume()[获得焦点、可编辑] -> onPause()[失去焦点、不可编辑] -> onStop()[不可见] -> onDestroy()`
+ - 只有在 **当前页面按下锁屏** 或者 **打开一个透明的 Activity** 时才会只调用 `onPause()`。打开一个 Dialog 并不会调用当前 Activity 的 `onPause()`。  
+```
+[打开页面]
+onCreate()  -> onStart()  ->  onResume()
+
+[当前页面按下 BACK 键]
+onPause()　->　onStop()　->　onDestroy()
+
+[当前页面按下 HOME 键]
+Home 键退出：onPause()　->　onStop()
+Home 键回来：onRestart() ->  onStart()　->　onResume()
+
+[当前休眠(锁屏)/恢复]
+休眠：onPause()
+恢复：onResume()
+
+[旋转屏幕]
+普通情况：onPause()  ->  onStop()  ->  onDestory()  ->  onCreate()  -> onStart()  ->  onResume()
+设置了 android:configChanges="orientation|keyboardHidden"：不触发生命周期方法
+
+[来电]
+来电，显示来电界面：onPause()  ->  onStop()
+关闭电话界面，重新回到当前 Activity：onRestart() ->  onStart()　->　onResume()
+
+[打开其他 Activity]
+进入下一个 Activity：onPause()  ->  onStop()
+从其他 Activity 返回至当前 Acitivity：onRestart() ->  onStart()　->　onResume()
+```
+
+- `ViewStub` 用于 **延迟解析布局**（通过 `ViewStub.inflate()` 或者 `ViewStub.setVisibility()` 控制解析时机）。`Merge` 用于 **减少布局层次**（不创建根容器直接 include 进某布局中）。[详情](http://droidyue.com/blog/2016/09/11/using-viewstub-in-android-to-improve-layout-performance/)
+ - `ViewStub` 不能 include 进 `Merge` 布局。
+ - `ViewStub` 内部保存了要 inflate 的 `View` 的弱引用，当执行 inflate 后，会在视图层级中将自身替换为要 inflate 的 `View`，然后释放自身。
+ - `Merge` 只能作为根布局使用。
+ - 当手动 inflate `Merge` 布局时，必须指定一个父 `ViewGroup`，并且必须设定 `attachToRoot` 为 `true`。
+
+
 - `Spannable.SPAN_EXCLUSIVE_EXCLUSIVE` 表示的是 **在该 Span 前后新输入的字符** 不会继承该 Span。
+
 - 可以创建自定义的 Span 来在文本中储存一些数据，例如：
 
 ```java
@@ -113,7 +154,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 }
 ```
 
-#### 现场还原
+### 现场还原
 
 - 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
 
@@ -121,7 +162,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 - 如果在 Fragment 中使用了 `setRetainInstance(true)`，则 Fragment 的实例会被保留下来，不重新创建，这意味着实例内的所有属性也会被保存下来（不会被重置），但是依然会重新触发 Fragment 的生命周期事件。所以通常这种状况仅适用于进行持续性后台任务的 Fragment（例如没有视图的单纯进行下载操作的 Fragment），在屏幕旋转后也不会打断正在进行的任务。要注意的是，这种情况下如果有视图的话，视图会被重新创建。
 
-#### 视图事件传递
+### 视图事件传递
 
 **[事件分发](http://blog.csdn.net/guolin_blog/article/details/9097463)：**
 - 首先你需要知道一点，只要你触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法。
@@ -132,7 +173,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 **[ViewGroup](http://blog.csdn.net/guolin_blog/article/details/12921889)**
 
-#### 其它
+### 其它
 
 - 使用 Robolectric 等测试框架测试使用 https 协议的 API 时，可能需要为你本机的 JRE 导入你服务器的安全证书。具体可参考这个 [SO 回答](http://stackoverflow.com/a/32074827)。
 
@@ -152,7 +193,6 @@ nullable 和 notnullable、var 和 val 等。语法上限制比口头约定更�
 - Java 线程锁：http://blog.csdn.net/ghsau/article/details/7461369/
 - [Java 内部类会隐式持有外部类实例的引用](http://droidyue.com/blog/2014/10/02/the-private-modifier-in-java/)
 
-####泛型
 - Java 实现泛型的方法是 **类型擦除**。使用这种实现最主要的原因是为了向前兼容，这种实现方式有很多缺陷。与 C# 中的泛型相比，Java 的泛型可以算是 **"伪泛型"** 了。在 C# 中，不论是在程序源码中、在编译后的中间语言，还是在运行期泛型都是真实存在的。**Java则不同，Java的泛型只在源代码存在** ，只供编辑器检查使用，编译后的字节码文件已擦除了泛型类型，同时在必要的地方插入了强制转型的代码。   
 
 ```java
@@ -319,24 +359,24 @@ public var heightScale: Float = 0.8f
 - [Android Gradle Tasks](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks)
 - [Gradle 指引中文篇](https://avatarqing.gitbooks.io/gradlepluginuserguidechineseverision/content/introduction/README.html)
 - [Fragment 的一些讲解](http://blog.csdn.net/lmj623565791/article/details/42628537)
-- android 3.0 版本后 `AsyncTask` 改为默认串行执行：http://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/
-- android 注意内存泄露问题：http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/
+- [Android 3.0 版本后 `AsyncTask` 改为默认串行执行](http://droidyue.com/blog/2014/11/08/bad-smell-of-asynctask-in-android/)
+- [避免 Android 中 Context 引起的内存泄露](http://droidyue.com/blog/2015/04/12/avoid-memory-leaks-on-context-in-android/)
 - [AndroidDevTools](http://www.androiddevtools.cn/)
 - [RxJava 操作符动态图解](http://rxmarbles.com/#debounceWithSelector) 
 - Activity 生命周期相关：
- - [Activity生命周期详解一](http://stormzhang.com/android/2014/09/14/activity-lifecycle1)
- - [Activity生命周期详解二](http://stormzhang.com/android/2014/09/17/android-lifecycle2/)
+ - [Activity 生命周期详解一](http://stormzhang.com/android/2014/09/14/activity-lifecycle1)
+ - [Activity 生命周期详解二](http://stormzhang.com/android/2014/09/17/android-lifecycle2/)
  - [onSaveInstanceState & onRestoreInstanceState](http://stormzhang.com/android/2014/09/22/onsaveinstancestate-and-onrestoreinstancestate/)
  - [Android Activity/Fragment Lifecycle](http://stormzhang.com/android/2014/08/08/activity-fragment-lifecycle/)
 - [Android Studio 的一些使用技巧](http://qiita.com/takahirom/items/a211b1fcc4304c487c4b#_reference-b274ebea0a18ddb1e0dc)
 - [创建一个 RecyclerView LayoutManager](https://github.com/hehonghui/android-tech-frontier/blob/master/issue-9/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Part-1.md)
 - [与 so 有关的一个常年大坑](https://zhuanlan.zhihu.com/p/21359984)
-- [Android Dex分包之旅](http://yydcdut.com/2016/03/20/split-dex/)
+- [Android Dex 分包之旅](http://yydcdut.com/2016/03/20/split-dex/)
 - [IoC 的通俗解释](http://www.jianshu.com/p/3968ffabdf9d)
 - [ButterKnife VS AndroidAnnotations](http://stackoverflow.com/questions/24351817/dagger-and-butter-knife-vs-android-annotations)
 - [APT:Compile-Time Annotation Processing with Java](http://www.javalobby.org/java/forums/t17876.html)：在 compile-time 处理 Annotation
 
-#### Reactive Java
+### Reactive Java
 - [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
  - 能不用 `Observable.create()`（只调用一次）的话尽量不用，可以考虑使用 `Observable.fromCallable()` 或者 `Observable.deffer()` 内置操作符（每次调用） 。（http://www.jianshu.com/p/c83996149f5b）
  - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
