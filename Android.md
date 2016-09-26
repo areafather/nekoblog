@@ -7,11 +7,15 @@
 
 ## Android
 
-- ApplicationContext 与 ActivityContext 的区别在于：**ApplicationContext 没有 theme 信息、且不能用于 layout inflate。**  
+### Context
+ApplicationContext 与 ActivityContext 的区别在于：**ApplicationContext 没有 theme 信息、且不能用于 layout inflate。**
+
 在不需要用到 ActivityContext 特性的地方（例如 Util、AsyncTask 类），应当使用 `Context.getApplicationContext()` 来将传入的 Context 转换为 ApplicationContext，以避免发生内存泄漏。
 
-- Activity 的生命周期：`onCreate() -> onStart()[可见] -> onResume()[获得焦点、可编辑] -> onPause()[失去焦点、不可编辑] -> onStop()[不可见] -> onDestroy()`
- - 只有在 **当前页面按下锁屏** 或者 **打开一个透明的 Activity** 时才会只调用 `onPause()`。打开一个 Dialog 并不会调用当前 Activity 的 `onPause()`。  
+### Activity
+Activity 的生命周期：`onCreate()` -> `onStart()`[可见] -> `onResume()`[获得焦点、可编辑] -> `onPause()`[失去焦点、不可编辑] -> `onStop()`[不可见] -> `onDestroy()`
+
+只有在 *当前页面按下锁屏* 或者 *打开一个透明的 Activity* 时才会只调用 `onPause()`。打开一个 Dialog 并不会调用当前 Activity 的 `onPause()`。  
 ```
 [打开页面]
 onCreate()  -> onStart()  ->  onResume()
@@ -40,11 +44,28 @@ Home 键回来：onRestart() ->  onStart()　->　onResume()
 从其他 Activity 返回至当前 Acitivity：onRestart() ->  onStart()　->　onResume()
 ```
 
-- `ViewStub` 用于 **延迟解析布局**（通过 `ViewStub.inflate()` 或者 `ViewStub.setVisibility()` 控制解析时机）。`Merge` 用于 **减少布局层次**（不创建根容器直接 include 进某布局中）。[详情](http://droidyue.com/blog/2016/09/11/using-viewstub-in-android-to-improve-layout-performance/)
- - `ViewStub` 不能 include 进 `Merge` 布局。
- - `ViewStub` 内部保存了要 inflate 的 `View` 的弱引用，当执行 inflate 后，会在视图层级中将自身替换为要 inflate 的 `View`，然后释放自身。
- - `Merge` 只能作为根布局使用。
- - 当手动 inflate `Merge` 布局时，必须指定一个父 `ViewGroup`，并且必须设定 `attachToRoot` 为 `true`。
+**Activity 的 launchMode 包括：** [详情](http://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/)
+
+- **standard：** 默认值。调用 startActivity() 时，不管 Activity 是否已存在都将新建实例并放到栈顶。
+- **singleTop：** 栈顶复用模式。如果 Activity 已经在栈顶则只调用 `onNewIntent()` 方法传递新的 Intent，若不在栈顶的话则也会新建实例，和 standard 模式表现一致。适合搜索、外部网页浏览等场景页面（已在栈顶则不新开页面，否则新开页面）。
+- **singleTask：** 栈内复用模式。栈内如果已有该 Activity 的话，则清除其上的所有其它 Activity（clearTop），将该 Activity 变为栈顶，并只调用 `onNewIntent()` 方法。若栈内不存在的话，则新建实例。（注意栈内只能存在一个实例）
+- **singleInstance：**
+
+Android 5.0 之前跨应用启动 Activity 的话不会新建一个 Task(/Activity 回退栈) 来放启动的 Activity，而是把它放到当前 Task（发送 Intent 方）的栈顶。5.0 之后会 **新建一个 Task 来放新启动的 Activity**（不管是否已有旧的 Task）。
+
+要注意 Task 是一个存在于 Framework 层的概念，它并非 Application 或者 Process。**Task 是执行特定作业时与用户交互的一系列 Activity**，详情请看官方描述 **[Task and Back Stack](https://developer.android.com/guide/components/tasks-and-back-stack.html)**。
+
+而 **singleTask** 模式下的 Activity 表现会更复杂一些。跨应用启动，如果已有旧的 Task 的话是不会新建 Task 的，而是依据 singleTask 的模式在已有 Task 内新建 Activity 或 clearTop。（记住 singleTask 这词，“只存在单个 Task”，除非为 Activity 定义了 taskAffinity 属性）
+
+
+
+- AsyncTask 默认串行，最多同时执行五个任务，剩余的任务需要等待。需要进行大量异步任务的话不应该使用 AsyncTask。
+
+- ViewStub 用于 **延迟解析布局**（通过 `ViewStub.inflate()` 或者 `ViewStub.setVisibility()` 控制解析时机）。Merge 用于 **减少布局层次**（不创建根容器直接 include 进某布局中）。[详情](http://droidyue.com/blog/2016/09/11/using-viewstub-in-android-to-improve-layout-performance/)
+ - ViewStub 不能 include 进 Merge 布局。
+ - ViewStub 内部保存了要 inflate 的 View 的弱引用，当执行 inflate 后，会在视图层级中将自身替换为要 inflate 的 View，然后释放自身。
+ - Merge 只能作为根布局使用。
+ - 当手动 inflate Merge 布局时，必须指定一个父 ViewGroup，并且必须设定 attachToRoot 为 true。
 
 
 - `Spannable.SPAN_EXCLUSIVE_EXCLUSIVE` 表示的是 **在该 Span 前后新输入的字符** 不会继承该 Span。
