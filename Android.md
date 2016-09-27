@@ -7,12 +7,16 @@
 
 ## Android
 
+
 ### Context
+
 ApplicationContext 与 ActivityContext 的区别在于：**ApplicationContext 没有 theme 信息、且不能用于 layout inflate。**
 
 在不需要用到 ActivityContext 特性的地方（例如 Util、AsyncTask 类），应当使用 `Context.getApplicationContext()` 来将传入的 Context 转换为 ApplicationContext，以避免发生内存泄漏。
 
+
 ### Activity
+
 Activity 的生命周期：`onCreate()` -> `onStart()`[可见] -> `onResume()`[获得焦点、可编辑] -> `onPause()`[失去焦点、不可编辑] -> `onStop()`[不可见] -> `onDestroy()`
 
 只有在 *当前页面按下锁屏* 或者 *打开一个透明的 Activity* 时才会只调用 `onPause()`。打开一个 Dialog 并不会调用当前 Activity 的 `onPause()`。  
@@ -33,7 +37,7 @@ Home 键回来：onRestart() ->  onStart()　->　onResume()
 
 [旋转屏幕]
 普通情况：onPause()  ->  onStop()  ->  onDestory()  ->  onCreate()  -> onStart()  ->  onResume()
-设置了 android:configChanges="orientation|keyboardHidden"：不触发生命周期方法
+设置了 android:configChanges="orientation|keyboardHidden"：只触发 onConfigurationChanged()
 
 [来电]
 来电，显示来电界面：onPause()  ->  onStop()
@@ -44,22 +48,55 @@ Home 键回来：onRestart() ->  onStart()　->　onResume()
 从其他 Activity 返回至当前 Acitivity：onRestart() ->  onStart()　->　onResume()
 ```
 
-**Activity 的 launchMode 包括：** [详情](http://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/)
 
+### 保存状态
+
+除非用户主动将 Activity 推出栈（按下回退键），否者 Activity 都会在被被系统回收前执行状态保存。
+
+Activity 的优先级：前台 Activity > 可见但非前台 Activity > 后台 Activity。当 Activity 为 paused/stopped 时就意味着可能被系统回收。在非前台 Task 中的 Activity 更容易被回收。
+
+要使自定义 View 能够自动保存恢复视图状态，需要在 View 初始化时调用 `setSaveEnabled(true)`，并覆写 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 方法。此外要注意的是，只有当 View 具有 Id 时系统才会保存和恢复该 View 的状态。
+
+Fragment 在发生屏幕旋转等状况后，系统会持久化它的一些视图以及数据状态。旋转后 `FragmentManager` 会反系列化旋转前持久化的信息，新建实例，并在新实例的 `onCreate()` 中返回之前储存的各种 State（`Fragment.onSaveInstanceState()` 中保存的）。而 View State 会自动传递到各个 View 的 `View.onRestoreInstanceState()` 函数中。
+
+如果在 Fragment 中使用了 `setRetainInstance(true)`，则 Fragment 的实例会被保留下来，不重新创建，这意味着实例内的所有属性也会被保存下来（不会被重置），但是依然会重新触发 Fragment 的生命周期事件。所以通常这种状况仅适用于进行持续性后台任务的 Fragment（例如没有视图的单纯进行下载操作的 Fragment），在屏幕旋转后也不会打断正在进行的任务。要注意的是，这种情况下如果有视图的话，视图会被重新创建。
+
+
+
+### Task and Back Stack
+
+**[Google 官方文档介绍](https://developer.android.com/guide/components/tasks-and-back-stack.html)**。Task 是一个存在于 Framework 层的概念，要理解它是 **是执行特定作业时与用户交互的一系列 Activity**。它和 Application 或者 Process 不是同一样东西。Back Stack 只能进行 Push 或 Pop 操作，不能直接改变栈内元素的顺序。
+
+查看任务栈情况可以执行命令 `adb shell dumpsys activity`。
+
+**Activity 的 launchMode 包括：** [详情](http://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/)
 - **standard：** 默认值。调用 startActivity() 时，不管 Activity 是否已存在都将新建实例并放到栈顶。
 - **singleTop：** 栈顶复用模式。如果 Activity 已经在栈顶则只调用 `onNewIntent()` 方法传递新的 Intent，若不在栈顶的话则也会新建实例，和 standard 模式表现一致。适合搜索、外部网页浏览等场景页面（已在栈顶则不新开页面，否则新开页面）。
-- **singleTask：** 栈内复用模式。栈内如果已有该 Activity 的话，则清除其上的所有其它 Activity（clearTop），将该 Activity 变为栈顶，并只调用 `onNewIntent()` 方法。若栈内不存在的话，则新建实例。（注意栈内只能存在一个实例）
-- **singleInstance：**
+- **singleTask：** 栈内复用模式。栈内如果已有该 Activity 的话，则清除在它上面的所有其它 Activity（clearTop），将它变为栈顶，并只调用 `onNewIntent()` 方法。若栈内不存在的话，则新建实例。（注意栈内只能存在一个实例）
+- **singleInstance：** 单实例模式。Activity 只能位于一个任务的栈内，且该 Task 始终只有该一个 Activity。
 
 Android 5.0 之前跨应用启动 Activity 的话不会新建一个 Task(/Activity 回退栈) 来放启动的 Activity，而是把它放到当前 Task（发送 Intent 方）的栈顶。5.0 之后会 **新建一个 Task 来放新启动的 Activity**（不管是否已有旧的 Task）。
 
-要注意 Task 是一个存在于 Framework 层的概念，它并非 Application 或者 Process。**Task 是执行特定作业时与用户交互的一系列 Activity**，详情请看官方描述 **[Task and Back Stack](https://developer.android.com/guide/components/tasks-and-back-stack.html)**。
+而 singleTask 模式会更复杂一些。跨应用启动 singleTask 模式的 Activity，会依据 singleTask 的模式在旧的 Task 内新建 Activity 或将已有 Activity 置顶（clearTop）。已有 Task 的情况下它是不会新建 Task 的，除非 Activity 定义了 taskAffinity 属性。
+- 默认情况下，一个应用中的所有 Activity 具有相同的 taskAffinity，即应用程序的包名。
+- taskAffinity 为空字符串的情况下，标明这个 Activity 不属于任何 Task。
+- taskAffinity 的优先级大于 `FLAG_ACTIVITY_NEW_TASK` 标记，优先将 Activity 压入到 taskAffinity 对应的 Task，其次才是打开一个新的 Task。
 
-而 **singleTask** 模式下的 Activity 表现会更复杂一些。跨应用启动，如果已有旧的 Task 的话是不会新建 Task 的，而是依据 singleTask 的模式在已有 Task 内新建 Activity 或 clearTop。（记住 singleTask 这词，“只存在单个 Task”，除非为 Activity 定义了 taskAffinity 属性）
+*要注意，启动一个其它应用 singleTask 模式的 Activity，可能会销毁（clearTop）目标应用已有 Task 上的 Activity。*
+
+**singleTask 和 singleInstance 的 Activity 在系统中只能存在单个实例。**
+
+设置启动模式既可以使用 xml 属性 `android:launchMode`，也可以使用代码 `intent.addFlags()`。**区别在于限定条件不同，前者无法直接为 Activity 设置 FLAG_ACTIVITY_CLEAR_TOP 标识，而后者无法为 Activity 指定 singleInstance 模式。**
+
+Activity 的标记位有 `FLAG_ACTIVITY_NEW_TASK`、`FLAG_ACTIVITY_SINGLE_TOP`、`FLAG_ACTIVITY_CLEAR_TOP` 等等。
+`FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS`：具有这个标记的 Activity 不会出现在最近启动的 Activity 列表中，当某些情况下我们不希望用户通过历史列表回到我们的 Activity 的时候这个标记比较有用，它等同于属性设置 `android:excludeFromRecents="true"`。
+
+从非 Activity 类型的 Context（例如 ApplicationContext、Service 等）中以 standard 模式启动新的 Activity 是不行的，因为这类 context 并没有任务栈，所以需要为待启动 Activity 指定 `FLAG_ACTIVITY_NEW_TASK` 标志位。
+
+[Notification 中使用 TaskStackBuilder 来为实现 Activity 回退到 ParentActivity 而非 Home 页。](http://blog.csdn.net/alone_slfly/article/details/41744323)
 
 
-
-- AsyncTask 默认串行，最多同时执行五个任务，剩余的任务需要等待。需要进行大量异步任务的话不应该使用 AsyncTask。
+### Note
 
 - ViewStub 用于 **延迟解析布局**（通过 `ViewStub.inflate()` 或者 `ViewStub.setVisibility()` 控制解析时机）。Merge 用于 **减少布局层次**（不创建根容器直接 include 进某布局中）。[详情](http://droidyue.com/blog/2016/09/11/using-viewstub-in-android-to-improve-layout-performance/)
  - ViewStub 不能 include 进 Merge 布局。
@@ -174,14 +211,6 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
     view.setBackgroundDrawable(newBackground);
 }
 ```
-
-### 现场还原
-
-- 自定义 View 时，使用 `onSaveInstanceState()` 和 `onRestoreInstanceState()` 处理视图状态的储存和恢复，以应付屏幕旋转等状况后视图的现场还原
-
-- Fragment 在发生屏幕旋转等状况后，系统会持久化它的一些视图以及数据状态。旋转后 `FragmentManager` 会反系列化旋转前持久化的信息，新建实例，并在新实例的 `onCreate()` 中返回之前储存的各种 State（`Fragment.onSaveInstanceState()` 中插入的）。而 View State 会自动传递到各个 View 的 `View.onRestoreInstanceState()` 函数中。
-
-- 如果在 Fragment 中使用了 `setRetainInstance(true)`，则 Fragment 的实例会被保留下来，不重新创建，这意味着实例内的所有属性也会被保存下来（不会被重置），但是依然会重新触发 Fragment 的生命周期事件。所以通常这种状况仅适用于进行持续性后台任务的 Fragment（例如没有视图的单纯进行下载操作的 Fragment），在屏幕旋转后也不会打断正在进行的任务。要注意的是，这种情况下如果有视图的话，视图会被重新创建。
 
 ### 视图事件传递
 
