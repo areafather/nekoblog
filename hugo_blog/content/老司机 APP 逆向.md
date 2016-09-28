@@ -134,6 +134,3 @@ if __name__ == '__main__':
 ## 结果
 
 **Success!**
-
-![](/sextube_decompile.jpg)
-
