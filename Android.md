@@ -61,6 +61,8 @@ Fragment 在发生屏幕旋转等状况后，系统会持久化它的一些视�
 
 如果在 Fragment 中使用了 `setRetainInstance(true)`，则 Fragment 的实例会被保留下来，不重新创建，这意味着实例内的所有属性也会被保存下来（不会被重置），但是依然会重新触发 Fragment 的生命周期事件。所以通常这种状况仅适用于进行持续性后台任务的 Fragment（例如没有视图的单纯进行下载操作的 Fragment），在屏幕旋转后也不会打断正在进行的任务。要注意的是，这种情况下如果有视图的话，视图会被重新创建。
 
+要注意的是无法对 NestedFragment 使用 `setRetainInstance(true)`，会报错。对 NestedFragment 的 `findFragmentByTag()` **必需在 ParentFragment 的 `onViewCreated()`（视图创建后）中进行，否则将返回空。** [Check about this.](https://www.google.com/?gws_rd=ssl#safe=off&q=getChildFragmentManager()+findFragmentByTag)
+
 
 
 ### Task and Back Stack
@@ -182,8 +184,6 @@ public void onPageScrolled(int position, float positionOffset,
 }
 // ...
 ```
-
-- 对 NestedFragment 的 `findFragmentByTag()` **必需在 ParentFragment 的 `onViewCreated()`（视图创建后）中进行，否则将返回空。** [Check about this.](https://www.google.com/?gws_rd=ssl#safe=off&q=getChildFragmentManager()+findFragmentByTag)
 
 - 使用 selectable（可长按复制） 的 TextView 时需要注意，它有一定几率会消耗触摸事件，如果父控件需要响应相关事件的话（例如父控件是个按钮），请把 TextView 的 **textIsSelectable** 属性设置为 false
 
