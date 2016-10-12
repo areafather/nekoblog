@@ -63,7 +63,7 @@ Fragment 在发生屏幕旋转等状况后，系统会持久化它的一些视�
 
 要注意的是无法对 NestedFragment 使用 `setRetainInstance(true)`，会报错。对 NestedFragment 的 `findFragmentByTag()` **必需在 ParentFragment 的 `onViewCreated()`（视图创建后）中进行，否则将返回空。** [Check about this.](https://www.google.com/?gws_rd=ssl#safe=off&q=getChildFragmentManager()+findFragmentByTag)
 
-
+设置了 `setRetainInstance(true)` 后，当 Activity 重建时 Fragment 会跳过 `onCreate()` 和 `onDestory()` ：http://stackoverflow.com/questions/12640316/further-understanding-setretaininstancetrue
 
 ### Task and Back Stack
 
