@@ -214,6 +214,12 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 ### 视图事件传递
 
+用户点击屏幕后发生的事：
+1. 用户在屏幕上点击某个位置
+2. 系统向 UiThread 的 Looper 中的消息队列添加点击事件消息
+3. 事件消息在 Looper 中被取出，调用 `Activity.dispatchTouchEvent()` 将事件分发下去给子视图
+4. 一直将事件分发到点击位置的按钮
+
 **[事件分发](http://blog.csdn.net/guolin_blog/article/details/9097463)：**
 - 首先你需要知道一点，只要你触摸到了任何一个控件，就一定会调用该控件的dispatchTouchEvent方法。
 - dispatchTouchEvent()`（来自父控件调用）` -> onTouchEvent() -> onClick()
