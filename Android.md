@@ -19,7 +19,7 @@ ApplicationContext 与 ActivityContext 的区别在于：**ApplicationContext �
 
 Activity 的生命周期：`onCreate()` -> `onStart()`[可见] -> `onResume()`[获得焦点、可编辑] -> `onPause()`[失去焦点、不可编辑] -> `onStop()`[不可见] -> `onDestroy()`
 
-只有在 *当前页面按下锁屏* 或者 *打开一个透明的 Activity* 时才会只调用 `onPause()`。打开一个 Dialog 并不会调用当前 Activity 的 `onPause()`。  
+只有在 *打开一个透明的 Activity* 时才会只调用 `onPause()`，因为后面的 Activity 仍然处于可见状态。打开一个 Dialog 并不会调用当前 Activity 的 `onPause()`。  
 ```
 [打开页面]
 onCreate()  -> onStart()  ->  onResume()
@@ -32,8 +32,8 @@ Home 键退出：onPause()　->　onStop()
 Home 键回来：onRestart() ->  onStart()　->　onResume()
 
 [当前休眠(锁屏)/恢复]
-休眠：onPause()
-恢复：onResume()
+休眠：onPause() -> onStop()
+恢复：onRestart() -> onStart() -> onResume()
 
 [旋转屏幕]
 普通情况：onPause()  ->  onStop()  ->  onDestory()  ->  onCreate()  -> onStart()  ->  onResume()
