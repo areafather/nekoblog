@@ -298,9 +298,22 @@ systemctl status docker
 curl -sSL https://get.daocloud.io/daomonit/install.sh | sh -s 1a2291...
 
 # 把 Image 拉下来，并启动
-dao pull daocloud.io/nekocode/docker-android:1.0
+dao pull daocloud.io/nekocode/docker-android:1.5
 sudo docker images
-sudo docker run -it daocloud.io/nekocode/docker-android:1.0
+sudo docker run -it daocloud.io/nekocode/docker-android:1.5
 which android
 exit
+```
+
+- 安装并运行 nexus3、jenkins 镜像
+```sh
+docker pull sonatype/nexus3
+docker run -d -p 8081:8081 --name nexus3 sonatype/nexus3
+# 默认账户密码是 admin、admin123
+
+docker pull jenkins
+docker run -d -p 8080:8080 jenkins
+# 查看容器的 console output、获取初始密码串
+docker ps
+docker logs <container-id>
 ```
