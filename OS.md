@@ -317,3 +317,22 @@ docker run -d -p 8080:8080 jenkins
 docker ps
 docker logs <container-id>
 ```
+
+- 在 jenkins 容器内运行 docker
+```sh
+# http://stackoverflow.com/questions/34717035/how-to-run-docker-inside-jenkins-which-is-running-as-container
+# http://container-solutions.com/running-docker-in-jenkins-in-docker
+
+docker run -d \
+    -u root \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $(which docker):/usr/bin/docker:ro \
+    -v /usr/lib64/libsystemd-journal.so.0:/usr/lib/x86_64-linux-gnu/libsystemd-journal.so.0 \
+    -v /usr/lib64/libsystemd-id128.so.0:/usr/lib/x86_64-linux-gnu/libsystemd-id128.so.0 \
+    -v /usr/lib64/libdevmapper.so.1.02:/usr/lib/x86_64-linux-gnu/libdevmapper.so.1.02 \
+    -v /usr/lib64/libgcrypt.so.11:/usr/lib/x86_64-linux-gnu/libgcrypt.so.11 \
+    -v /usr/lib64/libdw.so.1:/usr/lib/x86_64-linux-gnu/libdw.so.1 \
+    -p 8080:8080 \
+    --name jenkins \
+    jenkins
+```
