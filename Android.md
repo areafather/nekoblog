@@ -194,7 +194,7 @@ public void onPageScrolled(int position, float positionOffset,
 - 可以使用 Support 库中 [`DiffUtil`](https://developer.android.com/reference/android/support/v7/util/DiffUtil.html) 来计算 Collection 的变动，并分发给 Adapter。
 
 - 想要不使用继承在某个 View 上进行 Draw 操作的话，一个可选的方法是注入该 View 的 backgroudDrawable 或 foregroundDrawable。(理解一个概念：`Drawable` 并不是绘制结果，它是一系列的绘制过程)
-```
+```java
 Drawable originalBackground = view.getBackground();
 
 Drawable layers[];
@@ -211,6 +211,9 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
     view.setBackgroundDrawable(newBackground);
 }
 ```
+
+- [改变作为 xml drawable 的 rounded rectangle 的背景色的话](http://stackoverflow.com/questions/18391830/how-to-programmatically-round-corners-and-set-random-background-colors)
+
 
 ### 视图事件传递
 
