@@ -336,3 +336,9 @@ docker run -d \
     --name jenkins \
     jenkins
 ```
+
+- docker 时区问题
+```sh
+# https://github.com/jenkinsci/docker/issues/45
+docker run -v /etc/timezone:/etc/timezone -v /etc/localtime:/etc/localtime
+```
