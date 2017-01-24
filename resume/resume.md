@@ -6,9 +6,9 @@
 
 ## Self-Introduction
 
-- 热爱学习，动手能力强，能保持对技术的好奇心。
+- 初中开始学编程，热爱研究新技术。
 
-- 国内 Kotlin 语言布道者，目前在 Github **[国内 Kotlin 排行榜](http://githuber.cn/search?location=&company=&language=Kotlin&keywords=&github_age=)** 中暂时排名第一。
+- 国内 Kotlin 语言布道者，目前在 Github **[国内 Kotlin 排行榜](http://githuber.cn/search?location=&company=&language=Kotlin&keywords=&github_age=)** 中暂列第一。
 
 - 长期维护知乎专栏 **[『Android 还可以这样开发』](https://zhuanlan.zhihu.com/kotandroid)** 以及个人博客 **[nekocode.cn](http://nekocode.cn/)**。
 
@@ -43,7 +43,7 @@
 
 ## Work Experience
 
-### *2016.10 ~ 至今* : 快乐迭代（北京）网络科技有限公司
+### *2016.10 ~ 2017.01* : 快乐迭代（北京）网络科技有限公司
 
 **Android Tech Lead**
 
@@ -51,7 +51,7 @@
 | :----- | :------------------------------------------------------------------------------------ |
 | **[滑滑](http://sj.qq.com/myapp/detail.htm?apkName=com.happyiterating.huahua)** | 负责对整个产品使用 Kotlin 语言进行重构，在 Android Team 上普及 ReactiveX 和单元测试。并使用 Docker 为公司搭建 Maven 代理服务以及持续集成服务，维护了 **[docker-android](https://github.com/nekocode/docker-android)** 以及自动打包等 Docker Image。 |
 
-### *2015.1 ~ 2016.9* : 广东数库互联网金融信息服务有限公司
+### *2015.01 ~ 2016.09* : 广东数库互联网金融信息服务有限公司
 
 **Android 开发主管** 客串后端⼯程
 
@@ -69,9 +69,10 @@
 
 | Project | Description |
 | :----- | :------------------------------------------------------------------------------------ |
-| **[Kotgo](https://github.com/nekocode/kotgo)** | 使用 Kotlin 编写的 Android App 开发框架，采用 MVP 模式进行严格代码组织。已经在数个公司、个人产品上进行应用。 |
+| **[Kotgo](https://github.com/nekocode/kotgo)** | 使用 Kotlin 编写的 Android App 开发框架。已经在数个公司、个人产品上进行应用。 |
 | **[CameraFilter](https://github.com/nekocode/CameraFilter)** | 实时滤镜应用，将 ShaderToy 上公开的 Shader 代码从 WebGL 移植到 OpenGL ES 上。 |
 | **[Murmur](https://github.com/nekocode/murmur)** | 一个带白噪声效果的豆瓣电台第三方客户端。 |
-| **[Badge](https://github.com/nekocode/Badge)** | 一系列 Badge Drawable。支持转换成 SpannableString，方便拼接到 TextView 中。 |
+| **[Badge](https://github.com/nekocode/Badge)** | 一系列 Badge Drawable，支持转换成 SpannableString，方便拼接到 TextView 中。 |
+| **[rxlifecycle](https://github.com/nekocode/rxlifecycle)** | RxLifecycle 的非侵入式版本。 |
 | **[doubanfm-py](https://github.com/nekocode/doubanfm-py)** | 跑在 Terminal 上带 UI 的第三方豆瓣 FM 红心频道播放器。 |
 | **[zhihuSayHi](https://github.com/nekocode/zhihuSayHi)** | 知乎自动回复脚本，目前已在阿里云服务器上稳定跑了 7 个多月。 |
