@@ -18,6 +18,8 @@ ln -s $PWD/enjarify.sh /usr/local/bin/enjarify
 
 
 ### Note
+- [How to run Visual Studio Code from Zsh on Mac OSX](http://kevgriffin.com/how-to-run-visual-studio-code-from-zsh-on-mac-osx/)
+
 - 让 Finder 标题栏显示目录路径：
 ```
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES 
