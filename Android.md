@@ -431,7 +431,7 @@ public var heightScale: Float = 0.8f
 - [ButterKnife VS AndroidAnnotations](http://stackoverflow.com/questions/24351817/dagger-and-butter-knife-vs-android-annotations)
 - [APT:Compile-Time Annotation Processing with Java](http://www.javalobby.org/java/forums/t17876.html)：在 compile-time 处理 Annotation
 
-### Reactive Java
+### ReactiveX
 - [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
  - 注意 `Observable.create()` 创建的 Hot Observable 与用 `Observable.fromCallable()` 或者 `Observable.deffer()` 创建的 Cold Observable 的区别。
  - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
