@@ -433,9 +433,9 @@ public var heightScale: Float = 0.8f
 
 ### Reactive Java
 - [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
- - 能不用 `Observable.create()`（只调用一次）的话尽量不用，可以考虑使用 `Observable.fromCallable()` 或者 `Observable.deffer()` 内置操作符（每次调用） 。（http://www.jianshu.com/p/c83996149f5b）
+ - 注意 `Observable.create()` 创建的 Hot Observable 与用 `Observable.fromCallable()` 或者 `Observable.deffer()` 创建的 Cold Observable 的区别。
  - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
- - 在任何时候（创建或者流传递途中）都应该记得进行 `isUnsubscribed()` 判断。
+ - 在任何时候（创建或者流传递途中）都应该记得进行 `isUnsubscribed()` 判断该次订阅是否已经取消。
  - `Observable<Boolean>` 用来传递运行结果不是一种好的设计，应该使用 `Completable` 来代替，出错的话应该抛出错误。
 - RxJava 中的 `.repeatWhen()` 和 `.retryWhen()` 应用
  - [对 RxJava 中 .repeatWhen() 和 .retryWhen() 操作符的思考](http://www.qingpingshan.com/rjbc/java/49285.html)
