@@ -440,5 +440,6 @@ public var heightScale: Float = 0.8f
 - RxJava 中的 `.repeatWhen()` 和 `.retryWhen()` 应用
  - [对 RxJava 中 .repeatWhen() 和 .retryWhen() 操作符的思考](http://www.qingpingshan.com/rjbc/java/49285.html)
  - [缓存 Token，失效时使用 Retry 进行再授权](https://github.com/rengwuxian/RxJavaSamples/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Frengwuxian%2Frxjavasamples%2Fmodule%2Ftoken_advanced_5%2FTokenAdvancedFragment.java)
+- Rx 整个链式调用中只能有一个 `subscribeOn()`（就算有多个也只有第一个会生效），但是能有多个 `observeOn()`。`subscribeOn()` 只对最顶部的 Observable 生效（在链式调用中间创建的 Observable 的调度受 `observeOn()` 而不是 `subscribeOn()` 影响）。`observeOn()` 对在其以下的代码生效。
 
 [⬆︎返回目录](#toc)
