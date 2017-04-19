@@ -442,5 +442,6 @@ public var heightScale: Float = 0.8f
  - [缓存 Token，失效时使用 Retry 进行再授权](https://github.com/rengwuxian/RxJavaSamples/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Frengwuxian%2Frxjavasamples%2Fmodule%2Ftoken_advanced_5%2FTokenAdvancedFragment.java)
 - Rx 整个链式调用中只能有一个 `subscribeOn()`（就算有多个也只有第一个会生效），但是能有多个 `observeOn()`。`subscribeOn()` 只对最顶部的 Observable 生效（在链式调用中间创建的 Observable 的调度受 `observeOn()` 而不是 `subscribeOn()` 影响）。`observeOn()` 对在其以下的代码生效。
 - 注意像 flatMap 等切换 ObservableSrouce 的操作会影响到旧的 Scheduler 配置，可能需要你在 flatMap 后重新设置 Scheduler。
+- Dispose 后不应该执行 Observer 的任何回调，因为 Dispose 后异步任务应当被中止。
 
 [⬆︎返回目录](#toc)
