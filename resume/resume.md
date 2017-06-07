@@ -8,7 +8,7 @@
 
 - 初中开始学编程，喜欢 Geek 的事物，极度代码洁癖。
 
-- 国内 Kotlin 语言早期布道者，曾长期在 Github **[国内 Kotlin 排行榜](http://githuber.cn/search?location=&company=&language=Kotlin&keywords=&github_age=)** 中排名首位。
+- 国内 Kotlin 语言早期布道者，曾在 **[Github 国内 Kotlin 排行榜](http://githuber.cn/search?location=&company=&language=Kotlin&keywords=&github_age=)** 中长期位居榜首。
 
 - 不定期维护知乎专栏 **[『Android 还可以这样开发』](https://zhuanlan.zhihu.com/kotandroid)** 以及个人博客 **[nekocode.cn](http://nekocode.cn/)**。
 
