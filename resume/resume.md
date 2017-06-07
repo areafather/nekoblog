@@ -30,7 +30,7 @@
 **开发技能**:
 
 - **Android 工程开发**
-  熟练使用 Kotlin、Java。有较强的开发和架构能力，有过多款社交／工具类产品的开发经验，能很好地完成各种复杂的开发需求。开发过目前使用者上万的 **[IDE Plugin](https://plugins.jetbrains.com/plugin/8086-parcelable-code-generator-for-kotlin-)** ，善于利用脚本和工具快速提高开发效率。
+  熟练使用 Kotlin、Java。有较强的开发和架构能力，有过多款社交／工具类产品的开发经验，能很好地完成各种复杂的开发需求。开发过下载量上万的 **[IDE Plugin](https://plugins.jetbrains.com/plugin/8086-parcelable-code-generator-for-kotlin-)** ，善于利用脚本和工具快速提高开发效率。
 
 - **后端工程开发**
   熟练掌握 Python 以及相关后端技术栈知识。关注 Tornado、MongoDB、Redis 等各种新技术，有一定的服务器运维能力。

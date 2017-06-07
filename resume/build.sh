@@ -1,4 +1,5 @@
 #!/bin/sh
 make
-rm resume.html
-mv resume.pdf ../hugo_blog/static/resume.pdf
+mv resume.html ../hugo_blog/static/
+cp resume.css ../hugo_blog/static/
+cp logo-github.svg ../hugo_blog/static/
