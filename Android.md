@@ -214,6 +214,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 - [改变作为 xml drawable 的 rounded rectangle 的背景色的话](http://stackoverflow.com/questions/18391830/how-to-programmatically-round-corners-and-set-random-background-colors)
 
+- `Space` 和 `Layout Margin` 的选择在于，如果 View 的 Margin 是非恒定的情况下应该选择 `Space`，`Layout Margin` 应当是 View 的恒定属性。
+
 
 ### 视图事件传递
 
