@@ -435,15 +435,15 @@ public var heightScale: Float = 0.8f
 
 ### ReactiveX
 - [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
- - 注意 `Observable.create()` 创建的 Hot Observable 与用 `Observable.fromCallable()` 或者 `Observable.deffer()` 创建的 Cold Observable 的区别。
+ - 所有 Observable 的创建操作符得到的 Observable 都是 Cold Observable。想要得到 Hot Observable 需要通过 `publish()` 函数将 Observable 转化为 ConnectableObservable，然后再调用 `connect()` 函数就可以在没有还没有 Observer 的情况下执行异步任务了。
+ - [`Observable.deffer()` 的用处。](http://www.jianshu.com/p/c83996149f5b)
  - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
- - 在任何时候（创建或者流传递途中）都应该记得进行 `isUnsubscribed()` 判断该次订阅是否已经取消。
+ - 在任何时候（创建或者流传递途中）都应该记得进行 `isDisposed()` 判断该 Observable 是否已被终止。
  - `Observable<Boolean>` 用来传递运行结果不是一种好的设计，应该使用 `Completable` 来代替，出错的话应该抛出错误。
 - RxJava 中的 `.repeatWhen()` 和 `.retryWhen()` 应用
  - [对 RxJava 中 .repeatWhen() 和 .retryWhen() 操作符的思考](http://www.qingpingshan.com/rjbc/java/49285.html)
  - [缓存 Token，失效时使用 Retry 进行再授权](https://github.com/rengwuxian/RxJavaSamples/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Frengwuxian%2Frxjavasamples%2Fmodule%2Ftoken_advanced_5%2FTokenAdvancedFragment.java)
-- Rx 整个链式调用中只能有一个 `subscribeOn()`（就算有多个也只有第一个会生效），但是能有多个 `observeOn()`。`subscribeOn()` 只对最顶部的 Observable 生效（在链式调用中间创建的 Observable 的调度受 `observeOn()` 而不是 `subscribeOn()` 影响）。`observeOn()` 对在其以下的代码生效。
-- 注意像 flatMap 等切换 ObservableSrouce 的操作会影响到旧的 Scheduler 配置，可能需要你在 flatMap 后重新设置 Scheduler。
+- 一个 ObservableSource 中只有第一个 `subscribeOn()` 会生效，但是在流中间切换的 ObservableSource 的调度需要额外再 `subscribeOn()`。
 - Dispose 后不应该执行 Observer 的任何回调，因为 Dispose 后异步任务应当被中止。实际上 onNext() 和 onComplete() 内部已经做了 isDisposed() 的判断，所以即使调用也没问题。但是绝不能在 Dispose 后还调 onError() ，因为 Dispose 后异步任务产生的 Error 本应该传到 Observer 中处理，但是因为已经 Dispose 了，内部没法往下传错误，所以会直接将错误抛出而不处理。
 
 [⬆︎返回目录](#toc)
