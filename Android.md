@@ -437,7 +437,7 @@ public var heightScale: Float = 0.8f
 - [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
  - 所有 Observable 的创建操作符得到的 Observable 都是 Cold Observable。想要得到 Hot Observable 需要通过 `publish()` 函数将 Observable 转化为 ConnectableObservable，然后再调用 `connect()` 函数就可以在没有还没有 Observer 的情况下执行异步任务了。
  - [`Observable.deffer()` 的用处。](http://www.jianshu.com/p/c83996149f5b)
- - 只返回一个结果的话使用 `Single`，不返回结果的话使用 `Completable`。
+ - 只返回一个结果的话可以使用 `Single`，结果只用于标志是否完成的话可以使用 `Completable`。
  - 在任何时候（创建或者流传递途中）都应该记得进行 `isDisposed()` 判断该 Observable 是否已被终止。
  - `Observable<Boolean>` 用来传递运行结果不是一种好的设计，应该使用 `Completable` 来代替，出错的话应该抛出错误。
 - RxJava 中的 `.repeatWhen()` 和 `.retryWhen()` 应用
@@ -447,5 +447,23 @@ public var heightScale: Float = 0.8f
 - Dispose 后不应该执行 Observer 的任何回调，因为 Dispose 后异步任务应当被中止。实际上 onNext() 和 onComplete() 内部已经做了 isDisposed() 的判断，所以即使调用也没问题。但是绝不能在 Dispose 后还调 onError() ，因为 Dispose 后异步任务产生的 Error 本应该传到 Observer 中处理，但是因为已经 Dispose 了，内部没法往下传错误，所以会直接将错误抛出而不处理。
 - 如果 Observable 所在的任务在被调度到某个子线程上，在对 Observable 进行 Dispose 之后，Rx 会自动 Interrupt 该子线程。
 - **takeUtil 等操作符是通过 Dispose 上游的 Observable 来实现的。**
+- 在使用 create 等操作符创建 Observable 的时候，最好在一些关键点上加上 `isDisposed()` 来判断是否需要继续往下执行。
+```java
+Observable<String> ob = Observable.create(emitter -> {
+    try {
+        String text = doReadFile(0);
+        emitter.onNext(text);
+
+        if (emitter.isDisposed()) return;
+        text = doReadFile(1);
+        emitter.onNext(text);
+
+    } catch (Exception e) {
+        if (!emitter.isDisposed()) {
+            emitter.onError(e);
+        }
+    }
+});
+```
 
 [⬆︎返回目录](#toc)
