@@ -439,12 +439,20 @@ public var heightScale: Float = 0.8f
  - [`Observable.deffer()` 的用处。](http://www.jianshu.com/p/c83996149f5b)
  - 只返回一个结果的话可以使用 `Single`，结果只用于标志是否完成的话可以使用 `Completable`。
  - 在任何时候（创建或者流传递途中）都应该记得进行 `isDisposed()` 判断该 Observable 是否已被终止。
- - `Observable<Boolean>` 用来传递运行结果不是一种好的设计，应该使用 `Completable` 来代替，出错的话应该抛出错误。
 - RxJava 中的 `.repeatWhen()` 和 `.retryWhen()` 应用
  - [对 RxJava 中 .repeatWhen() 和 .retryWhen() 操作符的思考](http://www.qingpingshan.com/rjbc/java/49285.html)
  - [缓存 Token，失效时使用 Retry 进行再授权](https://github.com/rengwuxian/RxJavaSamples/blob/master/app%2Fsrc%2Fmain%2Fjava%2Fcom%2Frengwuxian%2Frxjavasamples%2Fmodule%2Ftoken_advanced_5%2FTokenAdvancedFragment.java)
 - 一个 ObservableSource 中只有第一个 `subscribeOn()` 会生效，但是在流中间切换的 ObservableSource 的调度需要额外再 `subscribeOn()`。
-- Dispose 后不应该执行 Observer 的任何回调，因为 Dispose 后异步任务应当被中止。实际上 onNext() 和 onComplete() 内部已经做了 isDisposed() 的判断，所以即使调用也没问题。但是绝不能在 Dispose 后还调 onError() ，因为 Dispose 后异步任务产生的 Error 本应该传到 Observer 中处理，但是因为已经 Dispose 了，内部没法往下传错误，所以会直接将错误抛出而不处理。
+- 使用 create() 创建的 Observable 在被 dispose() 之后禁止调用 emitter 的 onNext()、onComplete()、onError() 函数。实际上 onNext() 和 onComplete() 内部已经做了 isDisposed() 的判断，如果被已被 dispose() 的话会拦截调用不通知下游，所以即使调用也没问题。但是绝不能在 dispose() 后还调用 emitter 的 onError() ，因为 dispose() 后异步任务产生的 Error 没法传到 Observer 中处理。所以 Rx 就直接将错误抛出了。
+```java
+Observable.create(e -> {
+    if (!e.isDisposed()) {
+        e.onError(new RuntimeException());
+    }
+});
+```
+如果需要在 Observable 被 dispose() 之后还能和下游建立联系的话，可以使用 unsafeCreate()。使用 unsafeCreate() 创建的 Observable 在被 dispose() 之后依然可以调用 emitter 的 onNext()、onComplete()、onError() 函数，且能通知到下游。
+
 - 如果 Observable 所在的任务在被调度到某个子线程上，在对 Observable 进行 Dispose 之后，Rx 会自动 Interrupt 该子线程。
 - **takeUtil 等操作符是通过 Dispose 上游的 Observable 来实现的。**
 - 在使用 create 等操作符创建 Observable 的时候，最好在一些关键点上加上 `isDisposed()` 来判断是否需要继续往下执行。
