@@ -435,7 +435,7 @@ public var heightScale: Float = 0.8f
 
 ### ReactiveX
 - [Reddit 上关于 Rx 的一些建议](https://www.reddit.com/r/androiddev/comments/4kqzot/starting_a_new_rx_library_remember_to_respect_the/)
- - 所有 Observable 的创建操作符得到的 Observable 都是 Cold Observable。想要得到 Hot Observable 需要通过 `publish()` 函数将 Observable 转化为 ConnectableObservable，然后再调用 `connect()` 函数就可以在没有还没有 Observer 的情况下执行异步任务了。
+ - 所有 Observable 的创建类操作符得到的 Observable 都是 Cold Observable。想要得到 Hot Observable 需要通过 `publish()` 函数将 Observable 转化为 ConnectableObservable，然后再调用 `connect()` 函数就可以在没有观察者的情况下执行异步任务（／发射数据）了。
  - [`Observable.deffer()` 的用处。](http://www.jianshu.com/p/c83996149f5b)
  - 只返回一个结果的话可以使用 `Single`，结果只用于标志是否完成的话可以使用 `Completable`。
  - 在任何时候（创建或者流传递途中）都应该记得进行 `isDisposed()` 判断该 Observable 是否已被终止。
