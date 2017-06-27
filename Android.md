@@ -446,5 +446,6 @@ public var heightScale: Float = 0.8f
 - 一个 ObservableSource 中只有第一个 `subscribeOn()` 会生效，但是在流中间切换的 ObservableSource 的调度需要额外再 `subscribeOn()`。
 - Dispose 后不应该执行 Observer 的任何回调，因为 Dispose 后异步任务应当被中止。实际上 onNext() 和 onComplete() 内部已经做了 isDisposed() 的判断，所以即使调用也没问题。但是绝不能在 Dispose 后还调 onError() ，因为 Dispose 后异步任务产生的 Error 本应该传到 Observer 中处理，但是因为已经 Dispose 了，内部没法往下传错误，所以会直接将错误抛出而不处理。
 - 如果 Observable 所在的任务在被调度到某个子线程上，在对 Observable 进行 Dispose 之后，Rx 会自动 Interrupt 该子线程。
+- **takeUtil 等操作符是通过 Dispose 上游的 Observable 来实现的。**
 
 [⬆︎返回目录](#toc)
