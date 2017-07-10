@@ -216,6 +216,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 - `Space` 和 `Layout Margin` 的选择在于，如果 View 的 Margin 是非恒定的情况下应该选择 `Space`，`Layout Margin` 应当是 View 的恒定属性。
 
+- 可以给 `Merge` 标签添加 `tools:parentTag="LinearLayout" tools:orientation="vertical"` 此类的属性，以更好地预览布局。
+
 
 ### 视图事件传递
 
