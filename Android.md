@@ -218,6 +218,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 - 可以给 `Merge` 标签添加 `tools:parentTag="LinearLayout" tools:orientation="vertical"` 此类的属性，以更好地预览布局。
 
+- setTargetFragment/putFragment 和 getTargetFragment/getFragment 必须是针对同一个 FragmentManager。因为 [Fragment 不一定有 tag，所以 FragmentManager 内部是用 index 来保存指定 Fragment 的](https://stackoverflow.com/questions/25482742/android-after-orrientation-change-target-fragment-changes-in-dialog-fragment)。
+
 
 ### 视图事件传递
 
