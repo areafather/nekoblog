@@ -220,6 +220,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 
 - setTargetFragment/putFragment 和 getTargetFragment/getFragment 必须是针对同一个 FragmentManager。因为 [Fragment 不一定有 tag，所以 FragmentManager 内部是用 index 来保存指定 Fragment 的](https://stackoverflow.com/questions/25482742/android-after-orrientation-change-target-fragment-changes-in-dialog-fragment)。
 
+- 组件间传递 Parcelable 是传递 Copy，但是 Fragment（组件内） 在传递 Parcelable 的时候是直接传递引用！当需要序列化时（例如被回收）才会序列化对应的引用。
+
 
 ### 视图事件传递
 
