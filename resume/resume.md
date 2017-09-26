@@ -6,7 +6,7 @@
 
 ## Self-Introduction
 
-- 初中开始学编程，喜欢 Geek 的事物，极度代码洁癖。
+- 初中开始接触编程，喜欢 Geek 的事物，极度代码洁癖。
 
 - 国内 Kotlin 语言早期布道者，曾在 **[Github 国内 Kotlin 排行榜](http://githuber.cn/search?location=&company=&language=Kotlin&keywords=&github_age=)** 中长期位居榜首。
 
@@ -30,7 +30,7 @@
 **开发技能**:
 
 - **Android 工程开发**
-  熟练使用 Kotlin、Java。有较强的开发和架构能力，有过多款社交／工具类产品的开发经验，能很好地完成各种复杂的开发需求。开发过下载量上万的 **[IDE Plugin](https://plugins.jetbrains.com/plugin/8086-parcelable-code-generator-for-kotlin-)** ，善于利用脚本和工具快速提高开发效率。
+  熟练使用 Kotlin、Java。有较强的开发和架构能力，有过多款社交／工具类产品的开发经验，能很好地完成各种复杂的开发需求。开发过下载量数万的 **[IDE Plugin](https://plugins.jetbrains.com/plugin/8086-parcelable-code-generator-for-kotlin-)** ，善于利用脚本和工具快速提高团队开发效率。
 
 - **后端工程开发**
   熟练掌握 Python 以及相关后端技术栈知识。关注 Tornado、MongoDB、Redis 等各种新技术，有一定的服务器运维能力。
@@ -47,7 +47,7 @@
 
 | Project | Description |
 | :----- | :------------------------------------------------------------------------------------ |
-| **[知乎](https://www.zhihu.com/app/)** | 负责知识市场相关模块。在组内普及 Koltin 以及 ReactiveX 的应用。 |
+| **[知乎](https://www.zhihu.com/app/)** | 负责知识市场相关模块。在组内普及 Koltin 以及 ReactiveX 的应用。曾参与举办 **[「知乎 x RxJava Meetup」](https://github.com/zhihu/zhihu-rxjava-meetup)** ，并担任主讲人。 |
 
 
 ### *2016.10 ~ 2017.01* : 快乐迭代（北京）网络科技有限公司
@@ -64,6 +64,5 @@
 
 | Project | Description |
 | :----- | :------------------------------------------------------------------------------------ |
-| **[数库金服](http://www.skotc.cn/)** | 负责整个团队 **[Work Flow](https://zhuanlan.zhihu.com/p/21320023)** 的搭建、**[开发规范](https://github.com/nekocode/nekoblog/blob/master/AndroidDevGuideline.md)** 的制定，以及整个应用代码的架构。App 使用了 Kotlin、ReactiveX 等技术栈。 |
-| **[陪你看电影](http://weiying.info/)** | 负责项目架构的搭建，负责 IM、Push 等多个模块的技术选型。 |
+| **数库金服** | 负责项目架构，以及制定整个团队的 **[Work Flow](https://zhuanlan.zhihu.com/p/21320023)** 和 **[开发规范](https://github.com/nekocode/nekoblog/blob/master/AndroidDevGuideline.md)**。 |
 | **后端工程(Python)** | 独立负责 **[校校社交应用后端](http://nekocode.cn/doc/)**、**[公众号投票平台](https://github.com/nekocode/weixin_vote)**、**[H5 测试游戏平台](https://github.com/nekocode/wcmovie_test)** 等后端项目。并参与公司大多数后端项目 API 接口的设计。 |
